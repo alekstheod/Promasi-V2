@@ -104,7 +104,9 @@ public class ChooseGameClientState implements IClientListener {
     @Override
     public void onReceive(ProMaSiClient client, String recData) {
         try {
-            Object object = new XMLDecoder(new ByteArrayInputStream(recData.getBytes())).readObject();
+        	XMLDecoder decoder = new XMLDecoder(new ByteArrayInputStream(recData.getBytes()));
+            Object object = decoder.readObject();
+            decoder.close();
             if (object instanceof JoinGameRequest) {
                 try {
                     _logger.info("Received message :'" + JoinGameRequest.class.toString() + "'");

@@ -71,7 +71,9 @@ public class LoginClientState implements IClientListener {
 	@Override
 	public void onReceive(ProMaSiClient client, String recData) {
 		try{
-			Object object=new XMLDecoder(new ByteArrayInputStream(recData.getBytes())).readObject();
+			XMLDecoder  decoder = new XMLDecoder(new ByteArrayInputStream(recData.getBytes()));
+			Object object=decoder.readObject();
+			decoder.close();
 			if(object instanceof LoginRequest){
 				_logger.info("Received message :'" + LoginRequest.class.toString() + "'");
 				LoginRequest request=(LoginRequest)object;

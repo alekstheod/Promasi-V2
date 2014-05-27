@@ -102,7 +102,9 @@ public class WaitingPlayersClientState implements IServerGameListener, IClientLi
 	@Override
 	public void onReceive(ProMaSiClient client, String recData) {
 		try{
-			Object object=new XMLDecoder(new ByteArrayInputStream(recData.getBytes())).readObject();
+			XMLDecoder decoder = new XMLDecoder(new ByteArrayInputStream(recData.getBytes()));
+			Object object= decoder.readObject();
+			decoder.close();
 			if(object instanceof StartGameRequest){
 				if(!_server.startGame(_clientId, _gameId)){
 					client.sendMessage(new InternalErrorResponse());
