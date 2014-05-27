@@ -75,9 +75,14 @@ public class Application {
 		File companyFile=new File(filePath);
 		FileInputStream fileInputStream=new FileInputStream(companyFile);
 		XMLDecoder xmlDecoder=new XMLDecoder(fileInputStream);
-		Object object=xmlDecoder.readObject();
-		if(object instanceof ServerSettings){
-			return (ServerSettings)object;
+		
+		try{
+			Object object=xmlDecoder.readObject();
+			if(object instanceof ServerSettings){
+				return (ServerSettings)object;
+			}
+		}finally{
+			xmlDecoder.close();
 		}
 		
 		throw new FileNotFoundException("Company file not found");
