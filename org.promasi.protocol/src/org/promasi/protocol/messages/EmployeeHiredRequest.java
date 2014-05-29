@@ -108,9 +108,4 @@ public class EmployeeHiredRequest extends Message {
     public EmployeeModel getEmployee() {
         return _employee;
     }
-
-    @Override
-    public void process(IMessageProcessor processor) {
-        processor.process(this);
-    }
 }

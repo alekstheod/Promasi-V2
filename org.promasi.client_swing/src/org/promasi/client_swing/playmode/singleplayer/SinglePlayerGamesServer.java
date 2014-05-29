@@ -113,11 +113,6 @@ public class SinglePlayerGamesServer extends AGamesServer {
     }
 
     @Override
-    public boolean createGame(IGame game) {
-        return false;
-    }
-
-    @Override
     public boolean isNewGameAllowed() {
        return false;
     }

@@ -8,6 +8,7 @@ import org.promasi.game.company.IDepartmentListener;
 import org.promasi.game.company.IMarketPlaceListener;
 import org.promasi.game.company.MarketPlace;
 import org.promasi.game.model.generated.EmployeeTaskModel;
+import org.promasi.game.model.generated.GameModelModel;
 import org.promasi.game.singleplayer.IClientGameListener;
 
 /**
@@ -147,6 +148,12 @@ public interface IGame
 	 */
 	public boolean stopGame();
 	
+        /**
+         * @brief will return a current state of the game.
+         * @return 
+         */
+        public GameModelModel getMemento();
+        
 	/**
 	 * Will change the step execution period.
 	 * @param newSpeed A new period in milliseconds.

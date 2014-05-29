@@ -68,9 +68,4 @@ public class LoginResponse extends Message {
     public void setUserName(String _userName) {
         this._userName = _userName;
     }
-
-    @Override
-    public void process(IMessageProcessor processor) {
-        processor.process(this);
-    }
 }

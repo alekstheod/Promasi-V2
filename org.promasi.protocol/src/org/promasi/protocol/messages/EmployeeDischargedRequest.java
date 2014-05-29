@@ -108,9 +108,4 @@ public class EmployeeDischargedRequest extends Message {
     public String getDateTime() {
         return _dateTime;
     }
-
-    @Override
-    public void process(IMessageProcessor processor) {
-        processor.process(this);
-    }
 }

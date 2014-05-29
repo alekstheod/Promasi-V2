@@ -65,9 +65,4 @@ public class AssignEmployeeTasksRequest extends Message
 	public List<EmployeeTaskModel> getTasks() {
 		return _tasks;
 	}
-
-    @Override
-    public void process(IMessageProcessor processor) {
-       processor.process(this);
-    }
 }

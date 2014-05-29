@@ -91,3 +91,233 @@
 2014-05-29 15:41:01,211 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
 2014-05-29 15:41:01,212 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
 2014-05-29 15:41:01,261 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 15:56:26,791 main INFO  org.promasi.server.Application - Application started
+2014-05-29 15:56:26,807 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-05-29 15:56:35,626 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 15:56:35,627 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 15:56:35,646 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 15:57:47,152 main INFO  org.promasi.server.Application - Application started
+2014-05-29 15:57:47,168 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-05-29 15:57:57,569 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 15:57:57,569 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 15:57:57,593 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 15:57:57,593 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-05-29 15:58:04,682 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-05-29 15:58:23,917 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-05-29 15:58:30,001 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client disconnected
+2014-05-29 15:58:30,001 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connection error
+2014-05-29 15:58:41,873 main INFO  org.promasi.server.Application - Application started
+2014-05-29 15:58:41,889 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-05-29 15:59:23,094 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 15:59:23,095 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 16:00:21,489 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 16:00:21,490 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-05-29 16:00:21,497 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-05-29 16:00:21,559 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-05-29 16:00:43,007 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client disconnected
+2014-05-29 16:00:43,007 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connection error
+2014-05-29 16:06:41,133 main INFO  org.promasi.server.Application - Application started
+2014-05-29 16:06:41,149 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-05-29 16:06:48,399 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 16:06:48,399 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 16:06:48,435 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 16:06:48,435 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-05-29 16:06:48,439 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-05-29 16:06:48,479 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-05-29 16:08:20,905 main INFO  org.promasi.server.Application - Application started
+2014-05-29 16:08:20,920 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-05-29 16:08:36,092 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 16:08:36,092 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 16:08:41,579 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 16:08:41,580 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-05-29 16:08:41,583 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-05-29 16:08:41,631 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-05-29 16:09:07,908 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client disconnected
+2014-05-29 16:09:07,908 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connection error
+2014-05-29 16:09:13,367 main INFO  org.promasi.server.Application - Application started
+2014-05-29 16:09:13,383 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-05-29 16:09:27,564 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 16:09:27,565 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 16:09:27,594 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 16:09:27,594 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-05-29 16:09:27,597 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-05-29 16:09:27,631 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-05-29 16:10:06,337 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client disconnected
+2014-05-29 16:10:06,337 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connection error
+2014-05-29 16:10:11,165 main INFO  org.promasi.server.Application - Application started
+2014-05-29 16:10:11,180 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-05-29 16:10:24,491 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 16:10:24,491 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 16:10:24,557 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 16:10:24,558 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-05-29 16:10:24,561 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-05-29 16:10:24,601 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-05-29 16:10:58,162 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client disconnected
+2014-05-29 16:10:58,162 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connection error
+2014-05-29 16:11:59,311 main INFO  org.promasi.server.Application - Application started
+2014-05-29 16:11:59,327 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-05-29 16:12:14,044 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 16:12:14,044 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 16:12:14,086 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 16:12:14,086 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-05-29 16:12:14,090 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-05-29 16:12:14,129 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-05-29 16:12:32,309 main INFO  org.promasi.server.Application - Application started
+2014-05-29 16:12:32,324 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-05-29 16:12:55,563 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 16:12:55,563 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 16:12:55,597 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 16:12:55,597 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-05-29 16:12:55,600 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-05-29 16:12:55,643 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-05-29 16:13:36,649 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client disconnected
+2014-05-29 16:13:36,649 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connection error
+2014-05-29 16:21:20,290 main INFO  org.promasi.server.Application - Application started
+2014-05-29 16:21:20,305 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-05-29 16:21:34,158 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 16:21:34,158 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 16:21:34,191 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 16:21:34,191 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-05-29 16:21:34,195 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-05-29 16:21:34,233 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-05-29 16:21:50,458 main INFO  org.promasi.server.Application - Application started
+2014-05-29 16:21:50,474 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-05-29 16:22:15,475 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 16:22:15,475 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 16:22:15,503 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 16:22:15,503 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-05-29 16:22:15,506 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-05-29 16:22:15,542 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-05-29 16:23:42,203 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client disconnected
+2014-05-29 16:23:42,203 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connection error
+2014-05-29 16:29:20,787 main INFO  org.promasi.server.Application - Application started
+2014-05-29 16:29:20,802 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-05-29 16:29:28,805 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 16:29:28,806 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 16:29:28,842 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 16:29:28,842 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-05-29 16:29:28,845 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-05-29 16:29:28,882 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-05-29 16:30:12,017 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client disconnected
+2014-05-29 16:30:12,017 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connection error
+2014-05-29 16:30:47,050 main INFO  org.promasi.server.Application - Application started
+2014-05-29 16:30:47,065 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-05-29 16:30:54,168 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 16:30:54,168 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 16:31:03,435 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connectino error
+2014-05-29 16:31:10,076 main INFO  org.promasi.server.Application - Application started
+2014-05-29 16:31:10,091 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-05-29 16:31:25,566 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 16:31:25,566 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 16:31:44,229 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connectino error
+2014-05-29 16:31:57,312 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 16:31:57,312 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 16:32:13,277 Thread-3 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connectino error
+2014-05-29 16:32:25,536 main INFO  org.promasi.server.Application - Application started
+2014-05-29 16:32:25,552 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-05-29 16:32:37,815 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 16:32:37,815 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 16:34:02,299 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connectino error
+2014-05-29 16:34:30,498 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 16:34:30,498 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 16:34:35,356 Thread-3 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connectino error
+2014-05-29 16:35:14,202 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 16:35:14,203 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 16:35:42,284 Thread-4 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connectino error
+2014-05-29 16:36:05,908 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 16:36:05,908 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 16:36:05,985 Thread-5 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 16:36:05,985 Thread-5 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-05-29 16:36:05,988 Thread-5 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-05-29 16:36:06,024 Thread-5 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-05-29 16:36:17,714 Thread-5 INFO  org.promasi.server.ProMaSiServer - Client disconnected
+2014-05-29 16:36:17,715 Thread-5 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connection error
+2014-05-29 16:37:16,108 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 16:37:16,108 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 16:37:16,187 Thread-6 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 16:37:16,187 Thread-6 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-05-29 16:37:16,187 Thread-6 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-05-29 16:37:16,196 Thread-6 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-05-29 16:37:48,230 Thread-6 INFO  org.promasi.server.ProMaSiServer - Client disconnected
+2014-05-29 16:37:48,230 Thread-6 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connection error
+2014-05-29 16:45:00,279 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 16:45:00,280 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 16:45:00,315 Thread-7 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 16:45:00,315 Thread-7 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-05-29 16:45:00,315 Thread-7 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-05-29 16:45:00,322 Thread-7 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-05-29 16:45:00,938 Thread-7 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.UpdateAvailableGameListRequest'
+2014-05-29 16:45:07,379 Thread-7 INFO  org.promasi.server.ProMaSiServer - Client disconnected
+2014-05-29 16:45:07,379 Thread-7 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connection error
+2014-05-29 17:00:44,232 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 17:00:44,233 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 17:00:44,272 Thread-8 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 17:00:44,272 Thread-8 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-05-29 17:00:44,272 Thread-8 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-05-29 17:00:44,281 Thread-8 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-05-29 17:00:44,910 Thread-8 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.UpdateAvailableGameListRequest'
+2014-05-29 17:01:00,127 Thread-8 INFO  org.promasi.server.ProMaSiServer - Client disconnected
+2014-05-29 17:01:00,127 Thread-8 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connection error
+2014-05-29 18:15:35,054 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 18:15:35,054 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 18:15:35,105 Thread-9 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 18:15:35,105 Thread-9 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-05-29 18:15:35,105 Thread-9 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-05-29 18:15:35,111 Thread-9 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-05-29 18:15:35,756 Thread-9 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.UpdateAvailableGameListRequest'
+2014-05-29 18:15:50,795 Thread-9 INFO  org.promasi.server.ProMaSiServer - Client disconnected
+2014-05-29 18:15:50,796 Thread-9 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connection error
+2014-05-29 18:17:00,244 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 18:17:00,244 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 18:17:00,294 Thread-10 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 18:17:00,294 Thread-10 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-05-29 18:17:00,294 Thread-10 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-05-29 18:17:00,300 Thread-10 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-05-29 18:17:00,915 Thread-10 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.UpdateAvailableGameListRequest'
+2014-05-29 18:17:09,488 Thread-10 INFO  org.promasi.server.ProMaSiServer - Client disconnected
+2014-05-29 18:17:09,488 Thread-10 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connection error
+2014-05-29 18:17:41,014 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 18:17:41,014 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 18:17:41,064 Thread-11 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 18:17:41,064 Thread-11 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-05-29 18:17:41,064 Thread-11 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-05-29 18:17:41,073 Thread-11 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-05-29 18:17:41,702 Thread-11 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.UpdateAvailableGameListRequest'
+2014-05-29 18:17:51,403 Thread-11 INFO  org.promasi.server.ProMaSiServer - Client disconnected
+2014-05-29 18:17:51,403 Thread-11 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connection error
+2014-05-29 18:18:31,767 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 18:18:31,767 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 18:18:31,823 Thread-12 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 18:18:31,823 Thread-12 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-05-29 18:18:31,823 Thread-12 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-05-29 18:18:31,832 Thread-12 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-05-29 18:18:32,452 Thread-12 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.UpdateAvailableGameListRequest'
+2014-05-29 18:18:38,098 Thread-12 INFO  org.promasi.server.ProMaSiServer - Client disconnected
+2014-05-29 18:18:38,098 Thread-12 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connection error
+2014-05-29 18:18:57,863 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 18:18:57,864 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 18:18:57,903 Thread-13 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 18:18:57,903 Thread-13 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-05-29 18:18:57,903 Thread-13 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-05-29 18:18:57,908 Thread-13 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-05-29 18:18:58,587 Thread-13 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.UpdateAvailableGameListRequest'
+2014-05-29 18:19:24,455 Thread-13 INFO  org.promasi.server.ProMaSiServer - Client disconnected
+2014-05-29 18:19:24,455 Thread-13 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connection error
+2014-05-29 18:19:57,568 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 18:19:57,569 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 18:19:57,621 Thread-14 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 18:19:57,621 Thread-14 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-05-29 18:19:57,621 Thread-14 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-05-29 18:19:57,626 Thread-14 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-05-29 18:19:58,272 Thread-14 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.UpdateAvailableGameListRequest'
+2014-05-29 18:21:07,109 Thread-14 INFO  org.promasi.server.ProMaSiServer - Client disconnected
+2014-05-29 18:21:07,109 Thread-14 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connection error
+2014-05-29 18:24:15,297 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-05-29 18:24:15,297 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-05-29 18:24:15,343 Thread-15 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-05-29 18:24:15,344 Thread-15 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-05-29 18:24:15,344 Thread-15 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-05-29 18:24:15,351 Thread-15 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-05-29 18:24:15,978 Thread-15 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.UpdateAvailableGameListRequest'
+2014-05-29 18:24:22,210 Thread-15 INFO  org.promasi.server.ProMaSiServer - Client disconnected
+2014-05-29 18:24:22,210 Thread-15 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Client connection error

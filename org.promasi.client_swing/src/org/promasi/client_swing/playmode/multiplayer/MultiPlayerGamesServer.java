@@ -6,12 +6,14 @@
 package org.promasi.client_swing.playmode.multiplayer;
 
 import java.util.List;
+import org.promasi.desktop_swing.IMainFrame;
 import org.promasi.game.AGamesServer;
+import org.promasi.game.GameException;
 import org.promasi.game.IGame;
 import org.promasi.network.tcp.NetworkException;
 import org.promasi.protocol.client.ProMaSiClient;
-import org.promasi.protocol.messages.IMessageProcessor;
-import org.promasi.protocol.messages.LoginFailedResponse;
+import org.promasi.protocol.messages.CreateGameRequest;
+import org.promasi.protocol.messages.CreateGameResponse;
 import org.promasi.protocol.messages.LoginRequest;
 import org.promasi.protocol.messages.LoginResponse;
 import org.promasi.protocol.messages.Message;
@@ -23,25 +25,22 @@ import org.promasi.utilities.logger.LoggerFactory;
  *
  * @author alekstheod
  */
-public class MultiPlayerGamesServer extends AGamesServer implements IMessageProcessor{
+public class MultiPlayerGamesServer extends AGamesServer {
 
     private final ProMaSiClient _client;
 
     private final String _playerId;
-    
+
     private static final ILogger _logger = LoggerFactory.getInstance(MultiPlayerGamesServer.class);
-    
-    private boolean _isConnectionError;
 
     public MultiPlayerGamesServer(String playerId, ProMaSiClient client) throws NetworkException {
         _client = client;
-        Message response = _client.sendRecv(new LoginRequest(playerId, ""));
-        _isConnectionError = false;
-        response.process(this);
-        if(_isConnectionError){
+        Message message = _client.sendRecv(new LoginRequest(playerId, ""));
+        if (!(message instanceof LoginResponse)) {
+            _logger.error("Login failed please check your user name and try again");
             throw new NetworkException("Login failed");
         }
-        
+
         _playerId = playerId;
     }
 
@@ -52,12 +51,9 @@ public class MultiPlayerGamesServer extends AGamesServer implements IMessageProc
 
     @Override
     public boolean joinGame(IGame game) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        boolean result = false;
 
-    @Override
-    public boolean createGame(IGame game) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return result;
     }
 
     @Override
@@ -75,20 +71,14 @@ public class MultiPlayerGamesServer extends AGamesServer implements IMessageProc
         return true;
     }
 
-    private void processMessage(Message m){
-        _logger.error("Invalid message received");
-        _isConnectionError = true;
+    public IGame toMultiPlayerGame(IGame game) throws GameException {
+        return new MultiPlayerGame(game.getMemento(), _client);
     }
-    
-    private void processMessage(LoginResponse m){
-    }
-    
-    private void processMessage(LoginFailedResponse m){
-        _isConnectionError = true;
-    }
-    
-    @Override
-    public <T extends Message> void process(T t) {
-        processMessage(t);
+
+    public void createGame(IGame game, IMainFrame frame) {
+        Message msg = _client.sendRecv(new CreateGameRequest(game.getName(), game.getMemento()));
+        if (msg instanceof CreateGameResponse) {
+            
+        }
     }
 }

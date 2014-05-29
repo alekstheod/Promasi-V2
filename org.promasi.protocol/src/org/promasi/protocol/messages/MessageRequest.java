@@ -60,9 +60,4 @@ public class MessageRequest extends Message {
     public String getMessage() {
         return _message;
     }
-
-    @Override
-    public void process(IMessageProcessor processor) {
-        processor.process(this);
-    }
 }

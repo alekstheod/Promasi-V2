@@ -6,11 +6,19 @@
 package org.promasi.client_swing.playmode.multiplayer;
 
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.promasi.client_swing.playmode.singleplayer.SinglePlayerGamesServer;
+import org.promasi.desktop_swing.IMainFrame;
 import org.promasi.game.AGamesServer;
+import org.promasi.game.GameException;
 import org.promasi.game.IGame;
 import org.promasi.game.IGamesServerListener;
+import org.promasi.protocol.messages.CreateGameRequest;
+import org.promasi.protocol.messages.CreateGameResponse;
+import org.promasi.protocol.messages.Message;
 import org.promasi.utilities.file.RootDirectory;
 
 /**
@@ -19,12 +27,14 @@ import org.promasi.utilities.file.RootDirectory;
  */
 public class NewGameGamesServer extends AGamesServer {
 
-    private final AGamesServer _onlineServer;
+    private final MultiPlayerGamesServer _onlineServer;
     private final AGamesServer _offlineServer;
+    private final IMainFrame _mainFrame;
 
-    NewGameGamesServer(AGamesServer server) throws IOException {
+    public NewGameGamesServer(AGamesServer server, IMainFrame frame) throws IOException {
+        _mainFrame = frame;
         _offlineServer = new SinglePlayerGamesServer(RootDirectory.getInstance().getRootDirectory() + "SinglePlayer");
-        _onlineServer = server;
+        _onlineServer = (MultiPlayerGamesServer) server;
         _onlineServer.clearListeners();
         _offlineServer.addListener(new IGamesServerListener() {
             @Override
@@ -37,7 +47,7 @@ public class NewGameGamesServer extends AGamesServer {
                 NewGameGamesServer.this.onJoinGame(game);
             }
         });
-        
+
         _onlineServer.addListener(new IGamesServerListener() {
             @Override
             public void updateGamesList(List<IGame> games) {
@@ -58,16 +68,35 @@ public class NewGameGamesServer extends AGamesServer {
 
     @Override
     public boolean joinGame(IGame game) {
-        return _onlineServer.createGame(game);
-    }
+        boolean result = false;
+        
 
-    @Override
-    public boolean createGame(IGame game) {
-        return _onlineServer.createGame(game);
+        return result;
     }
 
     @Override
     public boolean isNewGameAllowed() {
-       return true;
+        return false;
+    }
+
+    @Override
+    public void updateGamesList(List<IGame> games) {
+        List<IGame> multiPlayerGames = new LinkedList<>();
+        for (IGame game : games) {
+            try {
+                multiPlayerGames.add(_onlineServer.toMultiPlayerGame(game));
+            } catch (GameException ex) {
+                Logger.getLogger(NewGameGamesServer.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        for (IGamesServerListener listener : getListeners()) {
+            listener.updateGamesList(multiPlayerGames);
+        }
+    }
+
+    @Override
+    public void onJoinGame(IGame game) {
+
     }
 }

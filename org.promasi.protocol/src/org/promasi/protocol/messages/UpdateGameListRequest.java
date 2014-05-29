@@ -43,9 +43,4 @@ public class UpdateGameListRequest extends Message {
     public void setAvailableGames(Map<String, String> availableGames) {
         _availableGames = availableGames;
     }
-
-    @Override
-    public void process(IMessageProcessor processor) {
-        processor.process(this);
-    }
 }

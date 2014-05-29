@@ -29,14 +29,6 @@ public abstract class AGamesServer extends Observer<IGamesServerListener> {
     public abstract boolean joinGame(IGame game);
 
     /**
-     * Will create a new game on the current server.
-     * @param game Instance of {@link IGame} interface implementation which
-     * represent the game.
-     * @return true if succeed, false otherwise.
-     */
-    public abstract boolean createGame(IGame game);
-    
-    /**
      * @brief request if a new game creation is allowed.
      * @return true if server allows to create a new game, false otherwise.
      */

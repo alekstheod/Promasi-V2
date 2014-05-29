@@ -135,9 +135,4 @@ public class GameFinishedRequest extends Message {
     public Map<String, GameModelModel> getOtherPlayersModels() {
         return _otherPlayersModels;
     }
-
-    @Override
-    public void process(IMessageProcessor processor) {
-        processor.process(this);
-    }
 }

@@ -84,9 +84,4 @@ public class JoinGameResponse extends Message {
     public String getGameDescription() {
         return _gameDescription;
     }
-
-    @Override
-    public void process(IMessageProcessor processor) {
-        processor.process(this);
-    }
 }

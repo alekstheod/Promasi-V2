@@ -86,9 +86,4 @@ public class OnExecuteStepRequest extends Message {
     public CompanyModel getCompany() {
         return _company;
     }
-
-    @Override
-    public void process(IMessageProcessor processor) {
-        processor.process(this);
-    }
 }

@@ -41,9 +41,4 @@ public class HireEmployeeRequest extends Message {
     public String getEmployeeId() {
         return _employeeId;
     }
-
-    @Override
-    public void process(IMessageProcessor processor) {
-        processor.process(this);
-    }
 }

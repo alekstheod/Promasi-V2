@@ -43,9 +43,4 @@ public class ProjectFinishedRequest extends Message {
     public ProjectModel getProject() {
         return _project;
     }
-
-    @Override
-    public void process(IMessageProcessor processor) {
-        processor.process(this);
-    }
 }

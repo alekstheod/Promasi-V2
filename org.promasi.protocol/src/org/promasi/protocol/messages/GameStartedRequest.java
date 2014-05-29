@@ -68,9 +68,4 @@ public class GameStartedRequest extends Message {
     public void setDateTime(String dateTime) {
         _dateTime = dateTime;
     }
-
-    @Override
-    public void process(IMessageProcessor processor) {
-        processor.process(this);
-    }
 }

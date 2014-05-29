@@ -12,6 +12,8 @@ import java.net.*;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.promasi.utilities.generic.Holder;
 import org.promasi.utilities.design.Observer;
 
@@ -240,16 +242,19 @@ public class TcpClient extends Observer<ITcpClientListener> {
     public String sendRecv(String message) {
         final Holder<String> result = new Holder<>("");
         final List<ITcpClientListener> listeners = getListeners();
+        final Holder<Boolean> responseReceived = new Holder<>(false);
+        
         try {
             _lockObject.lock();
             if (message != null) {
                 clearListeners();
                 addListener(new ITcpClientListener() {
-
                     @Override
                     public void onReceive(String line) {
+                        clearListeners();
                         result.setValue(line);
                         TcpClient.this.addListeners(listeners);
+                        responseReceived.setValue(true);
                     }
 
                     @Override
@@ -258,25 +263,35 @@ public class TcpClient extends Observer<ITcpClientListener> {
 
                     @Override
                     public void onDisconnect() {
+                        clearListeners();
                         TcpClient.this.addListeners(listeners);
                         TcpClient.this.disconnected();
-                        
+                        responseReceived.setValue(true);
                     }
 
                     @Override
                     public void onConnectionError() {
+                        clearListeners();
                         TcpClient.this.addListeners(listeners);
                         TcpClient.this.connectionError();
+                        responseReceived.setValue(true);
                     }
                 });
 
+                _lockObject.unlock();
                 _socketStreamWriter.write(message, 0, message.length());
                 _socketStreamWriter.flush();
             }
         } catch (IOException e) {
             //TODO log
         } finally {
-            _lockObject.unlock();
+            while( !responseReceived.getValue() ){
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(TcpClient.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
 
         return result.getValue();

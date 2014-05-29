@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.io.IOException;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -23,6 +24,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 import org.jdesktop.swingx.JXPanel;
+import org.promasi.client_swing.playmode.multiplayer.NewGameGamesServer;
 import org.promasi.desktop_swing.IMainFrame;
 import org.promasi.game.AGamesServer;
 import org.promasi.game.IGame;
@@ -96,7 +98,6 @@ public class GamesJPanel extends JXPanel implements IGamesServerListener {
      */
     public GamesJPanel(IMainFrame mainFrame, AGamesServer gamesServer, String username) throws GuiException {
         super();
-
         if (mainFrame == null) {
             throw new GuiException("Wrong argument mainFrame == null ");
         }
@@ -149,29 +150,21 @@ public class GamesJPanel extends JXPanel implements IGamesServerListener {
             }
 
             @Override
-            public void mouseDragged(MouseEvent arg0) {
-                // TODO Auto-generated method stub
-
-            }
+            public void mouseDragged(MouseEvent arg0) {}
         });
 
         _gamesList.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseReleased(MouseEvent arg0) {}
 
             @Override
-            public void mouseReleased(MouseEvent arg0) {
-            }
+            public void mousePressed(MouseEvent arg0) {}
 
             @Override
-            public void mousePressed(MouseEvent arg0) {
-            }
+            public void mouseExited(MouseEvent arg0) {}
 
             @Override
-            public void mouseExited(MouseEvent arg0) {
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent arg0) {
-            }
+            public void mouseEntered(MouseEvent arg0) {}
 
             @Override
             public void mouseClicked(MouseEvent arg0) {
@@ -205,6 +198,14 @@ public class GamesJPanel extends JXPanel implements IGamesServerListener {
             newGameButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
+                    AGamesServer newServer;
+                    try {
+                        newServer = new NewGameGamesServer(_gamesServer, _mainFrame);
+                        GamesJPanel nextPanel = new GamesJPanel(_mainFrame, newServer, _username);
+                        _mainFrame.changePanel(nextPanel);
+                    } catch (GuiException | IOException ex) {
+                        _logger.error(ex.toString());
+                    }
                     
                 }
             });
@@ -216,7 +217,7 @@ public class GamesJPanel extends JXPanel implements IGamesServerListener {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                _gamesList.setListData(new Vector<>(games));
+                _gamesList.setListData(new Vector<IGame>(games));
             }
         });
     }

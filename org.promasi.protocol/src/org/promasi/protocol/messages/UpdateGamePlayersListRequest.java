@@ -45,9 +45,4 @@ public class UpdateGamePlayersListRequest extends Message {
     public void setPlayers(List<String> players) {
         _players = players;
     }
-
-    @Override
-    public void process(IMessageProcessor processor) {
-        processor.process(this);
-    }
 }

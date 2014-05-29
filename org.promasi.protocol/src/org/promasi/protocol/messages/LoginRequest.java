@@ -59,9 +59,4 @@ public class LoginRequest extends Message {
     public String getPassword() {
         return _password;
     }
-
-    @Override
-    public void process(IMessageProcessor processor) {
-        processor.process(this);
-    }
 }
