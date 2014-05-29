@@ -3,44 +3,49 @@ package org.promasi.protocol.messages;
 import java.util.Map;
 
 /**
- * 
+ *
  * @author m1cRo
  *
  */
-public class UpdateGameListRequest extends Message 
-{
-	/**
-	 * 
-	 */
-	private Map<String, String> _availableGames;
+public class UpdateGameListRequest extends Message {
 
-	/**
-	 * 
-	 */
-	public UpdateGameListRequest(){
-	}
-	
-	/**
-	 * 
-	 * @param availableGames
-	 */
-	public UpdateGameListRequest(Map<String, String> availableGames){
-		_availableGames=availableGames;
-	}
-	
-	/**
-	 * 
-	 * @return
-	 */
-	public Map<String, String> getAvailableGames() {
-		return _availableGames;
-	}
+    /**
+     *
+     */
+    private Map<String, String> _availableGames;
 
-	/**
-	 * 
-	 * @param availableGames
-	 */
-	public void setAvailableGames(Map<String, String> availableGames) {
-		_availableGames = availableGames;
-	}
+    /**
+     *
+     */
+    public UpdateGameListRequest() {
+    }
+
+    /**
+     *
+     * @param availableGames
+     */
+    public UpdateGameListRequest(Map<String, String> availableGames) {
+        _availableGames = availableGames;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public Map<String, String> getAvailableGames() {
+        return _availableGames;
+    }
+
+    /**
+     *
+     * @param availableGames
+     */
+    public void setAvailableGames(Map<String, String> availableGames) {
+        _availableGames = availableGames;
+    }
+
+    @Override
+    public void process(IMessageProcessor processor) {
+        processor.process(this);
+    }
 }

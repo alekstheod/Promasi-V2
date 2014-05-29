@@ -1,38 +1,43 @@
 package org.promasi.protocol.messages;
 
-public class JoinGameRequest extends Message 
-{
-	/**
-	 * 
-	 */
-	private String _gameId;
+public class JoinGameRequest extends Message {
 
-	/**
-	 * 
-	 */
-	public JoinGameRequest(){
-		
-	}
-	
-	/**
-	 * 
-	 * @param gameId
-	 */
-	public JoinGameRequest(String gameId){
-		_gameId=gameId;
-	}
-	
-	/**
-	 * @param gameId the gameId to set
-	 */
-	public void setGameId(String gameId) {
-		_gameId = gameId;
-	}
+    /**
+     *
+     */
+    private String _gameId;
 
-	/**
-	 * @return the gameId
-	 */
-	public String getGameId() {
-		return _gameId;
-	}
+    /**
+     *
+     */
+    public JoinGameRequest() {
+
+    }
+
+    /**
+     *
+     * @param gameId
+     */
+    public JoinGameRequest(String gameId) {
+        _gameId = gameId;
+    }
+
+    /**
+     * @param gameId the gameId to set
+     */
+    public void setGameId(String gameId) {
+        _gameId = gameId;
+    }
+
+    /**
+     * @return the gameId
+     */
+    public String getGameId() {
+        return _gameId;
+    }
+
+    @Override
+    public void process(IMessageProcessor processor) {
+        processor.process(this);
+    }
 }

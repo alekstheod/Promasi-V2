@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.promasi.protocol.messages;
 
@@ -9,4 +9,8 @@ package org.promasi.protocol.messages;
  */
 public class GameCanceledResponse extends Message {
 
+    @Override
+    public void process(IMessageProcessor processor) {
+        processor.process(this);
+    }
 }

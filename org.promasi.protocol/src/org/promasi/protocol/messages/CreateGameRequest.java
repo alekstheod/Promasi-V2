@@ -66,4 +66,9 @@ public class CreateGameRequest extends Message {
         return _gameId;
     }
 
+    @Override
+    public void process(IMessageProcessor processor) {
+        processor.process(this);
+    }
+
 }

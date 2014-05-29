@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.promasi.protocol.messages;
 
@@ -11,100 +11,106 @@ import org.promasi.game.model.generated.MarketPlaceModel;
  * @author m1cRo
  *
  */
-public class EmployeeDischargedRequest extends Message
-{
-	/**
-	 * 
-	 */
-	private CompanyModel _company;
-	
-	/**
-	 * 
-	 */
-	private MarketPlaceModel _marketPlace;
+public class EmployeeDischargedRequest extends Message {
 
-	/**
-	 * 
-	 */
-	private EmployeeModel _employee;
-	
-	/**
-	 * 
-	 */
-	private String _dateTime;
+    /**
+     *
+     */
+    private CompanyModel _company;
 
-	/**
-	 * 
-	 */
-	public EmployeeDischargedRequest(){}
-	
-	/**
-	 * 
-	 * @param marketPlace
-	 * @param company
-	 * @param employee
-	 * @param dateTime
-	 */
-	public EmployeeDischargedRequest( MarketPlaceModel marketPlace, CompanyModel company, EmployeeModel employee, String dateTime){
-		_company=company;
-		_marketPlace=marketPlace;
-		_dateTime=dateTime;
-		_employee=employee;
-	}
-	
-	/**
-	 * @param company the company to set
-	 */
-	public void setCompany(CompanyModel company) {
-		_company = company;
-	}
+    /**
+     *
+     */
+    private MarketPlaceModel _marketPlace;
 
-	/**
-	 * @return the company
-	 */
-	public CompanyModel getCompany() {
-		return _company;
-	}
+    /**
+     *
+     */
+    private EmployeeModel _employee;
 
-	/**
-	 * @param marketPlace the marketPlace to set
-	 */
-	public void setMarketPlace(MarketPlaceModel marketPlace) {
-		_marketPlace = marketPlace;
-	}
+    /**
+     *
+     */
+    private String _dateTime;
 
-	/**
-	 * @return the marketPlace
-	 */
-	public MarketPlaceModel getMarketPlace() {
-		return _marketPlace;
-	}
+    /**
+     *
+     */
+    public EmployeeDischargedRequest() {
+    }
 
-	/**
-	 * @param employee the employee to set
-	 */
-	public void setEmployee(EmployeeModel employee) {
-		_employee = employee;
-	}
+    /**
+     *
+     * @param marketPlace
+     * @param company
+     * @param employee
+     * @param dateTime
+     */
+    public EmployeeDischargedRequest(MarketPlaceModel marketPlace, CompanyModel company, EmployeeModel employee, String dateTime) {
+        _company = company;
+        _marketPlace = marketPlace;
+        _dateTime = dateTime;
+        _employee = employee;
+    }
 
-	/**
-	 * @return the employee
-	 */
-	public EmployeeModel getEmployee() {
-		return _employee;
-	}
+    /**
+     * @param company the company to set
+     */
+    public void setCompany(CompanyModel company) {
+        _company = company;
+    }
 
-	/**
-	 * @param dateTime the dateTime to set
-	 */
-	public void setDateTime(String dateTime) {
-		_dateTime = dateTime;
-	}
+    /**
+     * @return the company
+     */
+    public CompanyModel getCompany() {
+        return _company;
+    }
 
-	/**
-	 * @return the dateTime
-	 */
-	public String getDateTime() {
-		return _dateTime;
-	}
+    /**
+     * @param marketPlace the marketPlace to set
+     */
+    public void setMarketPlace(MarketPlaceModel marketPlace) {
+        _marketPlace = marketPlace;
+    }
+
+    /**
+     * @return the marketPlace
+     */
+    public MarketPlaceModel getMarketPlace() {
+        return _marketPlace;
+    }
+
+    /**
+     * @param employee the employee to set
+     */
+    public void setEmployee(EmployeeModel employee) {
+        _employee = employee;
+    }
+
+    /**
+     * @return the employee
+     */
+    public EmployeeModel getEmployee() {
+        return _employee;
+    }
+
+    /**
+     * @param dateTime the dateTime to set
+     */
+    public void setDateTime(String dateTime) {
+        _dateTime = dateTime;
+    }
+
+    /**
+     * @return the dateTime
+     */
+    public String getDateTime() {
+        return _dateTime;
+    }
+
+    @Override
+    public void process(IMessageProcessor processor) {
+        processor.process(this);
+    }
 }

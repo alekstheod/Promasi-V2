@@ -90,7 +90,7 @@ public class SinglePlayerGamesServer extends AGamesServer {
 
                 updateGamesList(games);
             } catch (IOException e) {
-                e.printStackTrace();
+                _logger.error(e.toString());
             }
 
         } finally {
@@ -113,7 +113,12 @@ public class SinglePlayerGamesServer extends AGamesServer {
     }
 
     @Override
-    public boolean createGame(String gameId, IGame game) {
+    public boolean createGame(IGame game) {
         return false;
+    }
+
+    @Override
+    public boolean isNewGameAllowed() {
+       return false;
     }
 }

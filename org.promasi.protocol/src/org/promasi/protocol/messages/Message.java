@@ -9,6 +9,6 @@ import org.promasi.utilities.serialization.SerializableObject;
  * @author alekstheod
  *
  */
-public class Message extends SerializableObject {
-
+public abstract class Message extends SerializableObject {
+    public abstract void process(IMessageProcessor processor);
 }

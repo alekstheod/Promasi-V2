@@ -22,11 +22,4 @@ public interface IPlayMode {
 	 * @param mainFrame instance of the main frame.
 	 */
 	public void gotoNextPanel( IMainFrame mainFrame );
-	
-	/**
-	 * String which represents the uri of the playmode's resources.
-	 * @return URI which represent the resources
-	 * folder where the needed files are available.
-	 */
-	public String getUri();
 }

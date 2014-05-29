@@ -1,23 +1,20 @@
 package org.promasi.server.clientstate;
 
-import java.beans.XMLDecoder;
-import java.io.ByteArrayInputStream;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-
 import org.joda.time.DateTime;
-import org.promasi.game.model.generated.GameModelModel;
 import org.promasi.game.model.generated.CompanyModel;
 import org.promasi.game.model.generated.EmployeeModel;
 import org.promasi.game.model.generated.EmployeeTaskModel;
+import org.promasi.game.model.generated.GameModelModel;
 import org.promasi.game.model.generated.MarketPlaceModel;
+import org.promasi.game.model.generated.ProjectModel;
 import org.promasi.game.multiplayer.IMultiPlayerGame;
 import org.promasi.game.multiplayer.IServerGameListener;
 import org.promasi.game.multiplayer.MultiPlayerGame;
-import org.promasi.game.model.generated.ProjectModel;
 import org.promasi.network.tcp.NetworkException;
-import org.promasi.protocol.client.IClientListener;
+import org.promasi.protocol.client.IPromasiClientListener;
 import org.promasi.protocol.client.ProMaSiClient;
 import org.promasi.protocol.messages.AssignEmployeeTasksRequest;
 import org.promasi.protocol.messages.DischargeEmployeeRequest;
@@ -29,6 +26,7 @@ import org.promasi.protocol.messages.HireEmployeeRequest;
 import org.promasi.protocol.messages.InternalErrorResponse;
 import org.promasi.protocol.messages.LeaveGameRequest;
 import org.promasi.protocol.messages.LeaveGameResponse;
+import org.promasi.protocol.messages.Message;
 import org.promasi.protocol.messages.OnExecuteStepRequest;
 import org.promasi.protocol.messages.OnTickRequest;
 import org.promasi.protocol.messages.ProjectAssignedRequest;
@@ -43,7 +41,7 @@ import org.promasi.utilities.logger.LoggerFactory;
  * @author m1cRo Represent the playing game user state. In this state user is a
  * player of the running ProMaSi game.
  */
-public class PlayingGameClientState implements IServerGameListener, IClientListener {
+public class PlayingGameClientState implements IServerGameListener, IPromasiClientListener {
 
     /**
      * Instance of {@link MultiPlayerGame} which represent the running game.
@@ -114,15 +112,12 @@ public class PlayingGameClientState implements IServerGameListener, IClientListe
     }
 
     @Override
-    public void onReceive(ProMaSiClient client, String recData) {
+    public void onReceive(ProMaSiClient client, Message object) {
         try {
-        	XMLDecoder decoder = new XMLDecoder(new ByteArrayInputStream(recData.getBytes()));
-            Object object = decoder.readObject();
-            decoder.close();
             if (object instanceof HireEmployeeRequest) {
                 HireEmployeeRequest request = (HireEmployeeRequest) object;
                 if (request.getEmployeeId() == null) {
-                    client.sendMessage(new WrongProtocolResponse());
+                    client.send(new WrongProtocolResponse());
                     client.disconnect();
                 }
 
@@ -130,7 +125,7 @@ public class PlayingGameClientState implements IServerGameListener, IClientListe
             } else if (object instanceof DischargeEmployeeRequest) {
                 DischargeEmployeeRequest request = (DischargeEmployeeRequest) object;
                 if (request.getEmployeeId() == null) {
-                    client.sendMessage(new WrongProtocolResponse());
+                    client.send(new WrongProtocolResponse());
                     client.disconnect();
                 }
 
@@ -139,7 +134,7 @@ public class PlayingGameClientState implements IServerGameListener, IClientListe
             } else if (object instanceof AssignEmployeeTasksRequest) {
                 AssignEmployeeTasksRequest request = (AssignEmployeeTasksRequest) object;
                 if (request.getEmployeeId() == null || request.getTasks() == null) {
-                    client.sendMessage(new WrongProtocolResponse());
+                    client.send(new WrongProtocolResponse());
                     client.disconnect();
                 }
 
@@ -148,13 +143,13 @@ public class PlayingGameClientState implements IServerGameListener, IClientListe
                 _game.removeListener(this);
                 _client.removeListener(this);
                 _client.addListener(new ChooseGameClientState(_server, _client, _clientId));
-                client.sendMessage(new LeaveGameResponse());
+                client.send(new LeaveGameResponse());
             } else {
-                client.sendMessage(new WrongProtocolResponse());
+                client.send(new WrongProtocolResponse());
                 client.disconnect();
             }
         } catch (NetworkException e) {
-            client.sendMessage(new InternalErrorResponse());
+            client.send(new InternalErrorResponse());
             client.disconnect();
         }
     }
@@ -162,7 +157,7 @@ public class PlayingGameClientState implements IServerGameListener, IClientListe
     @Override
     public void onTick(String clientId, IMultiPlayerGame game, DateTime dateTime) {
         if (clientId.equals(_clientId)) {
-            _client.sendMessage(new OnTickRequest(dateTime.toString()));
+            _client.send(new OnTickRequest(dateTime.toString()));
         }
     }
 
@@ -198,28 +193,28 @@ public class PlayingGameClientState implements IServerGameListener, IClientListe
     @Override
     public void projectAssigned(String playerId, IMultiPlayerGame game, CompanyModel company, ProjectModel project, DateTime dateTime) {
         if (playerId.equals(_clientId)) {
-            _client.sendMessage(new ProjectAssignedRequest(company, project, dateTime.toString()));
+            _client.send(new ProjectAssignedRequest(company, project, dateTime.toString()));
         }
     }
 
     @Override
     public void projectFinished(String playerId, IMultiPlayerGame game, CompanyModel company, ProjectModel project, DateTime dateTime) {
         if (playerId.equals(_clientId)) {
-            _client.sendMessage(new ProjectFinishedRequest(project));
+            _client.send(new ProjectFinishedRequest(project));
         }
     }
 
     @Override
     public void employeeHired(String playerId, IMultiPlayerGame game, MarketPlaceModel marketPlace, CompanyModel company, EmployeeModel employee, DateTime dateTime) {
         if (playerId.equals(_clientId)) {
-            _client.sendMessage(new EmployeeHiredRequest(marketPlace, company, employee, dateTime.toString()));
+            _client.send(new EmployeeHiredRequest(marketPlace, company, employee, dateTime.toString()));
         }
     }
 
     @Override
     public void employeeDischarged(String playerId, IMultiPlayerGame game, MarketPlaceModel marketPlace, CompanyModel company, EmployeeModel employee, DateTime dateTime) {
         if (playerId.equals(_clientId)) {
-            _client.sendMessage(new EmployeeDischargedRequest(marketPlace, company, employee, dateTime.toString()));
+            _client.send(new EmployeeDischargedRequest(marketPlace, company, employee, dateTime.toString()));
         }
     }
 
@@ -244,7 +239,7 @@ public class PlayingGameClientState implements IServerGameListener, IClientListe
     @Override
     public void onExecuteWorkingStep(String playerId, IMultiPlayerGame game, CompanyModel company, ProjectModel assignedProject, DateTime dateTime) {
         if (playerId.equals(_clientId)) {
-            _client.sendMessage(new OnExecuteStepRequest(assignedProject, company, dateTime.toString()));
+            _client.send(new OnExecuteStepRequest(assignedProject, company, dateTime.toString()));
         }
     }
 
@@ -256,7 +251,7 @@ public class PlayingGameClientState implements IServerGameListener, IClientListe
             Map<String, GameModelModel> models = new TreeMap<>(gameModels);
             models.remove(_clientId);
             GameFinishedRequest request = new GameFinishedRequest(_clientId, gameModel, models);
-            _client.sendMessage(request);
+            _client.send(request);
         }
     }
 }

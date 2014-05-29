@@ -99,7 +99,7 @@ public class GameFinishedRequest extends Message {
                     if (project != null) {
                         ProjectModel.ProjectTasks tasks = project.getProjectTasks();
                         if (tasks != null) {
-                            for (ProjectModel.ProjectTasks.Entry entry : tasks.getEntry() ) {
+                            for (ProjectModel.ProjectTasks.Entry entry : tasks.getEntry()) {
                                 if (entry.getValue() != null) {
                                     ProjectTaskModel task = entry.getValue();
                                     task.setSimulationModel(null);
@@ -134,5 +134,10 @@ public class GameFinishedRequest extends Message {
      */
     public Map<String, GameModelModel> getOtherPlayersModels() {
         return _otherPlayersModels;
+    }
+
+    @Override
+    public void process(IMessageProcessor processor) {
+        processor.process(this);
     }
 }

@@ -1,62 +1,67 @@
 package org.promasi.protocol.messages;
 
 /**
- * 
+ *
  * @author m1cRo
  *
  */
-public class LoginRequest extends Message
-{
-	/**
-	 * 
-	 */
-	private String _clientId;
-	
-	/**
-	 * 
-	 */
-	private String _password;
+public class LoginRequest extends Message {
 
-	/**
-	 * 
-	 */
-	public LoginRequest(){	
-	}
-	
-	/**
-	 * 
-	 * @param clientId
-	 */
-	public LoginRequest(String clientId, String password){
-		_clientId=clientId;
-		_password=password;
-	}
-	
-	/**
-	 * @param clientId the clientId to set
-	 */
-	public void setClientId(String clientId) {
-		_clientId = clientId;
-	}
+    /**
+     *
+     */
+    private String _clientId;
 
-	/**
-	 * @return the clientId
-	 */
-	public String getClientId() {
-		return _clientId;
-	}
+    /**
+     *
+     */
+    private String _password;
 
-	/**
-	 * @param password the password to set
-	 */
-	public void setPassword(String password) {
-		_password = password;
-	}
+    /**
+     *
+     */
+    public LoginRequest() {
+    }
 
-	/**
-	 * @return the password
-	 */
-	public String getPassword() {
-		return _password;
-	}
+    /**
+     *
+     * @param clientId
+     */
+    public LoginRequest(String clientId, String password) {
+        _clientId = clientId;
+        _password = password;
+    }
+
+    /**
+     * @param clientId the clientId to set
+     */
+    public void setClientId(String clientId) {
+        _clientId = clientId;
+    }
+
+    /**
+     * @return the clientId
+     */
+    public String getClientId() {
+        return _clientId;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        _password = password;
+    }
+
+    /**
+     * @return the password
+     */
+    public String getPassword() {
+        return _password;
+    }
+
+    @Override
+    public void process(IMessageProcessor processor) {
+        processor.process(this);
+    }
 }

@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.promasi.protocol.messages;
 
@@ -9,63 +9,68 @@ import org.promasi.game.model.generated.GameModelModel;
  * @author m1cRo
  *
  */
-public class GameStartedRequest extends Message 
-{
-	/**
-	 * 
-	 */
-	GameModelModel _gameModel;
+public class GameStartedRequest extends Message {
 
-	/**
-	 * 
-	 */
-	String _dateTime;
-	
-	/**
-	 * 
-	 */
-	public GameStartedRequest(){}
-	
-	/**
-	 * 
-	 * @param gameModel
-	 * @param dateTime
-	 */
-	public GameStartedRequest(GameModelModel gameModel, String dateTime){
-		_gameModel=gameModel;
-		_dateTime=dateTime;
-	}
-	
-	/**
-	 * 
-	 * @return
-	 */
-	public GameModelModel getGameModel() {
-		return _gameModel;
-	}
+    /**
+     *
+     */
+    GameModelModel _gameModel;
 
-	/**
-	 * 
-	 * @param gameModel
-	 */
-	public void setGameModel(GameModelModel gameModel) {
-		_gameModel = gameModel;
-	}
+    /**
+     *
+     */
+    String _dateTime;
 
-	/**
-	 * 
-	 * @return
-	 */
-	public String getDateTime() {
-		return _dateTime;
-	}
+    /**
+     *
+     */
+    public GameStartedRequest() {
+    }
 
-	/**
-	 * 
-	 * @param dateTime
-	 */
-	public void setDateTime(String dateTime) {
-		_dateTime = dateTime;
-	}
+    /**
+     *
+     * @param gameModel
+     * @param dateTime
+     */
+    public GameStartedRequest(GameModelModel gameModel, String dateTime) {
+        _gameModel = gameModel;
+        _dateTime = dateTime;
+    }
 
+    /**
+     *
+     * @return
+     */
+    public GameModelModel getGameModel() {
+        return _gameModel;
+    }
+
+    /**
+     *
+     * @param gameModel
+     */
+    public void setGameModel(GameModelModel gameModel) {
+        _gameModel = gameModel;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getDateTime() {
+        return _dateTime;
+    }
+
+    /**
+     *
+     * @param dateTime
+     */
+    public void setDateTime(String dateTime) {
+        _dateTime = dateTime;
+    }
+
+    @Override
+    public void process(IMessageProcessor processor) {
+        processor.process(this);
+    }
 }

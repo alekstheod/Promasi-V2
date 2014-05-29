@@ -3,11 +3,11 @@
  */
 package org.promasi.server.clientstate;
 
-import java.beans.XMLDecoder;
-import java.io.ByteArrayInputStream;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import org.promasi.game.GameFactory;
+import org.promasi.game.IGameFactory;
 import org.promasi.game.model.generated.CompanyModel;
 import org.promasi.game.model.generated.GameModelModel;
 import org.promasi.game.model.generated.MarketPlaceModel;
@@ -15,7 +15,7 @@ import org.promasi.game.model.generated.ProjectModel;
 import org.promasi.game.multiplayer.MultiPlayerGame;
 import org.promasi.game.project.Project;
 import org.promasi.network.tcp.NetworkException;
-import org.promasi.protocol.client.IClientListener;
+import org.promasi.protocol.client.IPromasiClientListener;
 import org.promasi.protocol.client.ProMaSiClient;
 import org.promasi.protocol.messages.CreateGameRequest;
 import org.promasi.protocol.messages.CreateGameResponse;
@@ -23,11 +23,10 @@ import org.promasi.protocol.messages.InternalErrorResponse;
 import org.promasi.protocol.messages.JoinGameFailedResponse;
 import org.promasi.protocol.messages.JoinGameRequest;
 import org.promasi.protocol.messages.JoinGameResponse;
+import org.promasi.protocol.messages.Message;
 import org.promasi.protocol.messages.UpdateAvailableGameListRequest;
 import org.promasi.protocol.messages.UpdateGameListRequest;
 import org.promasi.protocol.messages.WrongProtocolResponse;
-import org.promasi.game.IGameFactory;
-import org.promasi.game.GameFactory;
 import org.promasi.server.ProMaSiServer;
 import org.promasi.utilities.logger.ILogger;
 import org.promasi.utilities.logger.LoggerFactory;
@@ -36,7 +35,7 @@ import org.promasi.utilities.logger.LoggerFactory;
  * @author m1cRo Represent the client state in which a user will chose the game
  * from the list of available games exposed by the server.
  */
-public class ChooseGameClientState implements IClientListener {
+public class ChooseGameClientState implements IPromasiClientListener {
 
     /**
      * Instance of {@link = ProMaSiServer} needed to handle the users commands.
@@ -102,11 +101,8 @@ public class ChooseGameClientState implements IClientListener {
      * request client will be disconnected.
      */
     @Override
-    public void onReceive(ProMaSiClient client, String recData) {
+    public void onReceive(ProMaSiClient client, Message object) {
         try {
-        	XMLDecoder decoder = new XMLDecoder(new ByteArrayInputStream(recData.getBytes()));
-            Object object = decoder.readObject();
-            decoder.close();
             if (object instanceof JoinGameRequest) {
                 try {
                     _logger.info("Received message :'" + JoinGameRequest.class.toString() + "'");
@@ -117,9 +113,9 @@ public class ChooseGameClientState implements IClientListener {
                     JoinGameResponse response = new JoinGameResponse(game.getGameName(), game.getGameDescription(), game.getGamePlayers());
                     client.removeListener(this);
                     client.addListener(new WaitingGameClientState(_clientId, _server, client, request.getGameId(), game));
-                    client.sendMessage(response);
+                    client.send(response);
                 } catch (IllegalArgumentException e) {
-                    client.sendMessage(new JoinGameFailedResponse());
+                    client.send(new JoinGameFailedResponse());
                 }
 
             } else if (object instanceof CreateGameRequest) {
@@ -128,7 +124,7 @@ public class ChooseGameClientState implements IClientListener {
                 GameModelModel gameModel = request.getGameModel();
                 if (gameModel == null) {
                     _logger.warn("Invalid message detected gameModel == null, client will be disconnected");
-                    client.sendMessage(new WrongProtocolResponse());
+                    client.send(new WrongProtocolResponse());
                     client.disconnect();
                     return;
                 }
@@ -136,21 +132,21 @@ public class ChooseGameClientState implements IClientListener {
                 MarketPlaceModel marketPlace = gameModel.getMarketPlaceModel();
                 if (marketPlace == null) {
                     _logger.warn("Invalid message detected marketPlace == null, client will be disconnected");
-                    client.sendMessage(new WrongProtocolResponse());
+                    client.send(new WrongProtocolResponse());
                     client.disconnect();
                 }
 
                 CompanyModel company = gameModel.getCompanyModel();
                 if (company == null) {
                     _logger.warn("Invalid message detected company == null, client will be disconnected");
-                    client.sendMessage(new WrongProtocolResponse());
+                    client.send(new WrongProtocolResponse());
                     client.disconnect();
                 }
 
                 List<ProjectModel> sProjects = gameModel.getProjectModel();
                 if (sProjects == null) {
                     _logger.warn("Invalid message detected projects == null, client will be disconnected");
-                    client.sendMessage(new WrongProtocolResponse());
+                    client.send(new WrongProtocolResponse());
                     client.disconnect();
                 }
 
@@ -166,7 +162,7 @@ public class ChooseGameClientState implements IClientListener {
 
                 if (_server.createGame(request.getGameId(), game)) {
                     CreateGameResponse response = new CreateGameResponse(request.getGameId(), gameModel.getGameDescription(), game.getGamePlayers());
-                    client.sendMessage(response);
+                    client.send(response);
                     client.removeListener(this);
                     client.addListener(new WaitingPlayersClientState(_clientId, request.getGameId(), client, game, _server));
                 } else {
@@ -175,15 +171,15 @@ public class ChooseGameClientState implements IClientListener {
             } else if (object instanceof UpdateAvailableGameListRequest) {
                 _logger.info("Received message :'" + UpdateAvailableGameListRequest.class.toString() + "'");
                 UpdateGameListRequest request = new UpdateGameListRequest(_server.getAvailableGames());
-                client.sendMessage(request);
+                client.send(request);
             } else {
                 _logger.warn("Received an invalid message type '" + object.toString() + "'");
-                client.sendMessage(new WrongProtocolResponse());
+                client.send(new WrongProtocolResponse());
                 client.disconnect();
             }
         } catch (Exception e) {
             _logger.warn("Internal error client will be disconnected");
-            client.sendMessage(new InternalErrorResponse());
+            client.send(new InternalErrorResponse());
             client.disconnect();
         }
     }

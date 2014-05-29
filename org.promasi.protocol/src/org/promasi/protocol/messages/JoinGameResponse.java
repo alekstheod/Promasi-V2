@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.promasi.protocol.messages;
 
@@ -9,79 +9,84 @@ import java.util.List;
  * @author m1cRo
  *
  */
-public class JoinGameResponse extends Message 
-{
-	/**
-	 * 
-	 */
-	private String _gameName;
+public class JoinGameResponse extends Message {
 
-	/**
-	 * 
-	 */
-	private String _gameDescription;
-	
-	/**
-	 * 
-	 */
-	private List<String> _players;
-	
-	/**
-	 * 
-	 */
-	public JoinGameResponse(){
-		
-	}
-	
-	/**
-	 * 
-	 * @param gameName
-	 */
-    public JoinGameResponse(String gameName, String gameDescription, List<String> players){
-    	_gameName=gameName;
-    	setGameDescription(gameDescription);
-    	setPlayers(players);
+    /**
+     *
+     */
+    private String _gameName;
+
+    /**
+     *
+     */
+    private String _gameDescription;
+
+    /**
+     *
+     */
+    private List<String> _players;
+
+    /**
+     *
+     */
+    public JoinGameResponse() {
+
     }
-	
-	/**
-	 * @param gameName the gameName to set
-	 */
-	public void setGameName(String gameName) {
-		_gameName = gameName;
-	}
 
-	/**
-	 * @return the gameName
-	 */
-	public String getGameName() {
-		return _gameName;
-	}
+    /**
+     *
+     * @param gameName
+     */
+    public JoinGameResponse(String gameName, String gameDescription, List<String> players) {
+        _gameName = gameName;
+        setGameDescription(gameDescription);
+        setPlayers(players);
+    }
 
-	/**
-	 * @param players the players to set
-	 */
-	public void setPlayers(List<String> players) {
-		_players = players;
-	}
+    /**
+     * @param gameName the gameName to set
+     */
+    public void setGameName(String gameName) {
+        _gameName = gameName;
+    }
 
-	/**
-	 * @return the players
-	 */
-	public List<String> getPlayers() {
-		return _players;
-	}
+    /**
+     * @return the gameName
+     */
+    public String getGameName() {
+        return _gameName;
+    }
 
-	/**
-	 * @param gameDescription the gameDescription to set
-	 */
-	public void setGameDescription(String gameDescription) {
-		_gameDescription = gameDescription;
-	}
+    /**
+     * @param players the players to set
+     */
+    public void setPlayers(List<String> players) {
+        _players = players;
+    }
 
-	/**
-	 * @return the gameDescription
-	 */
-	public String getGameDescription() {
-		return _gameDescription;
-	}
+    /**
+     * @return the players
+     */
+    public List<String> getPlayers() {
+        return _players;
+    }
+
+    /**
+     * @param gameDescription the gameDescription to set
+     */
+    public void setGameDescription(String gameDescription) {
+        _gameDescription = gameDescription;
+    }
+
+    /**
+     * @return the gameDescription
+     */
+    public String getGameDescription() {
+        return _gameDescription;
+    }
+
+    @Override
+    public void process(IMessageProcessor processor) {
+        processor.process(this);
+    }
 }

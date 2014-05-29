@@ -8,5 +8,8 @@ package org.promasi.protocol.messages;
  *
  */
 public class JoinGameFailedResponse extends Message {
-
+    @Override
+    public void process(IMessageProcessor processor) {
+       processor.process(this);
+    }
 }

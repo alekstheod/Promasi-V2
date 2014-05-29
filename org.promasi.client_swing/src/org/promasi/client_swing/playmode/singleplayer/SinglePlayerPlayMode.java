@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.promasi.client_swing.playmode.singleplayer;
 
@@ -23,90 +23,86 @@ import org.promasi.utils_swing.components.jlist.IMenuEntry;
  */
 public class SinglePlayerPlayMode implements IPlayMode, IMenuEntry {
 
-	/**
-	 * 
-	 */
-	public static final String CONST_PLAYMODE_NAME = "Single Player";
-	
-	/**
-	 * 
-	 */
-	public static final String CONST_SINGLEPLAYER_PLAYMODE_FOLDER_NAME = "SinglePlayer";
-	
-	/**
-	 * 
-	 */
-	public static final String CONST_SINGLEPLAYER_USERNAME = "Player";
-	
-	/**
-	 * 
-	 */
-	public static final String CONST_MENUIMAGE = "user.png";
-	
-	/**
-	 * 
-	 */
-	public static final ILogger _logger = LoggerFactory.getInstance(SinglePlayerPlayMode.class);
-	
-	/**
-	 * 
-	 */
-	private Icon _menuIcon;
-	
-	/**
-	 * 
-	 */
-	public static final String CONST_PLAYMODE_DESCRIPTION =	"The purpose of this play mode is to gather the highest score.<br>"
-															+ "You will play through various levels. On each level you will have to complete a project.<br>";
-	
-	
-	public SinglePlayerPlayMode(){
-		try {
-			_menuIcon = new ImageIcon(RootDirectory.getInstance().getImagesDirectory() + CONST_MENUIMAGE);
-		} catch (IOException e) {
-			//TODO log
-		}
-	}
-	
-	@Override
-	public String toString(){
-		return CONST_PLAYMODE_NAME;
-	}
-	
-	@Override
-	public String getDescription() {
-		return CONST_PLAYMODE_DESCRIPTION;
-	}
+    /**
+     *
+     */
+    public static final String CONST_PLAYMODE_NAME = "Single Player";
 
-	@Override
-	public void gotoNextPanel( IMainFrame mainFrame ) {
+    /**
+     *
+     */
+    public static final String CONST_SINGLEPLAYER_PLAYMODE_FOLDER_NAME = "SinglePlayer";
+
+    /**
+     *
+     */
+    public static final String CONST_SINGLEPLAYER_USERNAME = "Player";
+
+    /**
+     *
+     */
+    public static final String CONST_MENUIMAGE = "user.png";
+
+    /**
+     *
+     */
+    public static final ILogger _logger = LoggerFactory.getInstance(SinglePlayerPlayMode.class);
+
+    /**
+     *
+     */
+    private Icon _menuIcon;
+
+    /**
+     *
+     */
+    public static final String CONST_PLAYMODE_DESCRIPTION = "The purpose of this play mode is to gather the highest score.<br>"
+            + "You will play through various levels. On each level you will have to complete a project.<br>";
+
+    public SinglePlayerPlayMode() {
+        try {
+            _menuIcon = new ImageIcon(RootDirectory.getInstance().getImagesDirectory() + CONST_MENUIMAGE);
+        } catch (IOException e) {
+            _logger.error(e.getMessage());
+        }
+    }
+
+    @Override
+    public String toString() {
+        return CONST_PLAYMODE_NAME;
+    }
+
+    @Override
+    public String getDescription() {
+        return CONST_PLAYMODE_DESCRIPTION;
+    }
+
+    @Override
+    public void gotoNextPanel(IMainFrame mainFrame) {
         GamesJPanel newPanel;
-		try {
-			SinglePlayerGamesServer server = new SinglePlayerGamesServer( getUri() );
-			newPanel = new GamesJPanel(mainFrame, server, CONST_SINGLEPLAYER_USERNAME );
-			mainFrame.changePanel(newPanel);
-		} catch (GuiException e) {
-			_logger.error(e.toString());
-		} catch (IOException e) {
-			_logger.error(e.toString());
-		}
-	}
+        try {
+            SinglePlayerGamesServer server = new SinglePlayerGamesServer(getUri());
+            newPanel = new GamesJPanel(mainFrame, server, CONST_SINGLEPLAYER_USERNAME);
+            mainFrame.changePanel(newPanel);
+        } catch (GuiException | IOException e) {
+            _logger.error(e.getMessage());
+        }
+    }
 
-	@Override
-	public String getUri() {
-		String result = "";
-		try{
-			result = RootDirectory.getInstance().getRootDirectory() + CONST_SINGLEPLAYER_PLAYMODE_FOLDER_NAME;
-		}catch( Exception e){
-			//TODO log.
-		}
-		
-		return result; 
-	}
+    private String getUri() {
+        String result = "";
+        try {
+            result = RootDirectory.getInstance().getRootDirectory() + CONST_SINGLEPLAYER_PLAYMODE_FOLDER_NAME;
+        } catch (IOException e) {
+            _logger.error(e.getMessage());
+        }
 
-	@Override
-	public Icon getIcon() {
-		return _menuIcon;
-	}
+        return result;
+    }
+
+    @Override
+    public Icon getIcon() {
+        return _menuIcon;
+    }
 
 }

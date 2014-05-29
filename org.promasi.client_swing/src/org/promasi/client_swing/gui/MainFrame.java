@@ -28,7 +28,7 @@ public class MainFrame extends JFrame implements IMainFrame {
 	/**
 	 * The status pannel of the ProMaSi application.
 	 */
-	private JPanel _statusPanel;
+	private final JPanel _statusPanel;
 
 	/**
 	 * Panel shown on the main window.
