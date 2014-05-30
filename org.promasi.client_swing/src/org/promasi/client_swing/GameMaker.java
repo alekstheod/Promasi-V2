@@ -5,15 +5,18 @@ package org.promasi.client_swing;
  */
 
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Map;
 import java.util.TreeMap;
 
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
 import org.joda.time.LocalTime;
+import org.promasi.game.GameException;
 import org.promasi.game.company.Company;
 import org.promasi.game.company.Employee;
 import org.promasi.game.company.MarketPlace;
@@ -25,12 +28,14 @@ import org.promasi.game.project.Project;
 import org.promasi.game.project.ProjectTask;
 import org.promasi.game.project.SdSystemBasedSimulator;
 import org.promasi.sdsystem.SdSystem;
+import org.promasi.sdsystem.SdSystemException;
 import org.promasi.sdsystem.sdobject.FlowSdObject;
 import org.promasi.sdsystem.sdobject.ISdObject;
 import org.promasi.sdsystem.sdobject.InputSdObject;
 import org.promasi.sdsystem.sdobject.OutputSdObject;
 import org.promasi.sdsystem.sdobject.StockSdObject;
 import org.promasi.utilities.equation.CalculatedEquation;
+import org.promasi.utilities.equation.CalculationExeption;
 import org.promasi.utilities.file.RootDirectory;
 
 /**
@@ -1041,8 +1046,7 @@ public class GameMaker {
 					+ "<br>" + "<B>Good Luck.</B>");
 			out.close();
 
-		} catch (Exception e1) {
-			e1.printStackTrace();
+		} catch (IOException | JAXBException | GameException | SdSystemException | CalculationExeption e1) {
 		}
 	}
 }

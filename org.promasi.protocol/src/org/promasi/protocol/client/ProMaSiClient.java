@@ -5,10 +5,18 @@ package org.promasi.protocol.client;
 
 import java.beans.XMLDecoder;
 import java.io.ByteArrayInputStream;
+import java.io.StringWriter;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 import org.apache.commons.codec.binary.Base64;
+import org.promasi.game.model.generated.CompanyModel;
 import org.promasi.network.tcp.ITcpClientListener;
 import org.promasi.network.tcp.NetworkException;
 import org.promasi.network.tcp.TcpClient;
@@ -69,11 +77,16 @@ public class ProMaSiClient extends Observer<IPromasiClientListener> implements I
 
     private String convert(Message msg) {
         String result = "";
-        try {
-            if (msg != null) {
-                byte[] outputMessage = msg.serialize().getBytes();
+        if (msg != null) {
+            try {
+                JAXBContext jc = JAXBContext.newInstance(Message.class);
+                Marshaller m = jc.createMarshaller();
+                StringWriter sw = new StringWriter();
+                m.marshal(msg, sw);
+                String message = sw.toString();
+                byte[] outputMessage = message.getBytes();
                 if (_compression != null) {
-                    outputMessage = _compression.compress(msg.serialize().getBytes());
+                    outputMessage = _compression.compress(message.getBytes());
                 }
 
                 Base64 base64 = new Base64();
@@ -83,9 +96,9 @@ public class ProMaSiClient extends Observer<IPromasiClientListener> implements I
                 builder.append(temp.replaceAll("\n", "").replaceAll("\r", ""));
                 builder.append("\r\n");
                 result = builder.toString();
+            } catch (JAXBException | CompressionException ex) {
+                _logger.error("Request packing error with message : " + ex.getMessage() );
             }
-        } catch (CompressionException e) {
-            _logger.error("Message compress failed");
         }
 
         return result;
@@ -104,19 +117,17 @@ public class ProMaSiClient extends Observer<IPromasiClientListener> implements I
                 recData = new String(messageByte);
             }
 
-            Object object;
-            try (XMLDecoder decoder = new XMLDecoder(new ByteArrayInputStream(recData.getBytes()))) {
-                object = decoder.readObject();
-            }
-
+            JAXBContext jc = JAXBContext.newInstance(Message.class);
+            Unmarshaller unmarshaller = jc.createUnmarshaller();
+            Object object = unmarshaller.unmarshal(new ByteArrayInputStream(recData.getBytes()));
             if (object instanceof Message) {
                 message = (Message) object;
             } else {
                 _logger.error("Unpack message failed");
                 message = new WrongProtocolResponse();
             }
-        } catch (CompressionException e) {
-            _logger.error("Unpack message failed");
+        } catch (CompressionException | JAXBException e) {
+            _logger.error("Unpack message failed with message: " + e.getMessage());
             message = new WrongProtocolResponse();
         }
 
@@ -145,11 +156,11 @@ public class ProMaSiClient extends Observer<IPromasiClientListener> implements I
         final Message msg;
         try {
             _lockObject.lock();
-            msg = convert( _client.sendRecv(convert(message)) );
+            msg = convert(_client.sendRecv(convert(message)));
         } finally {
             _lockObject.unlock();
         }
-        
+
         return msg;
     }
 
@@ -183,7 +194,7 @@ public class ProMaSiClient extends Observer<IPromasiClientListener> implements I
             Message message = convert(line);
             List< IPromasiClientListener> listeners = getListeners();
             for (IPromasiClientListener listener : listeners) {
-               listener.onReceive(this, message);
+                listener.onReceive(this, message);
             }
         } finally {
             _lockObject.unlock();

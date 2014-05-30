@@ -71,8 +71,7 @@ public class SinglePlayerGamesServer extends AGamesServer {
     }
 
     @Override
-    public boolean requestGamesList() {
-        boolean result = false;
+    public void requestGamesList() {
         try {
             _lockObject.lock();
             try {
@@ -96,20 +95,16 @@ public class SinglePlayerGamesServer extends AGamesServer {
         } finally {
             _lockObject.unlock();
         }
-
-        return result;
     }
 
     @Override
-    public boolean joinGame(IGame game) {
+    public void joinGame(IGame game) {
         try {
             _lockObject.lock();
             onJoinGame(game);
         } finally {
             _lockObject.unlock();
         }
-
-        return false;
     }
 
     @Override

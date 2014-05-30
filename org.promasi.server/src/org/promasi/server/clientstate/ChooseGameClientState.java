@@ -4,7 +4,6 @@
 package org.promasi.server.clientstate;
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 import org.promasi.game.GameFactory;
 import org.promasi.game.IGameFactory;
@@ -46,7 +45,7 @@ public class ChooseGameClientState implements IPromasiClientListener {
      * @brief a game factory.
      */
     private final IGameFactory _gameFactory = new GameFactory();
-    
+
     /**
      * The client id, user insert it in the login procedure.
      */
@@ -95,10 +94,12 @@ public class ChooseGameClientState implements IPromasiClientListener {
     }
 
     /**
-     * Accepted requests are:      {@link JoinGameRequest}, 
+     * Accepted requests are: null     {@link JoinGameRequest}, 
 	 * {@link CreateGameRequest},
      * {@link UpdateAvailableGameListRequest}, In case of any other type of
      * request client will be disconnected.
+     *
+     * @param object
      */
     @Override
     public void onReceive(ProMaSiClient client, Message object) {
@@ -143,21 +144,14 @@ public class ChooseGameClientState implements IPromasiClientListener {
                     client.disconnect();
                 }
 
-                List<ProjectModel> sProjects = gameModel.getProjectModel();
-                if (sProjects == null) {
-                    _logger.warn("Invalid message detected projects == null, client will be disconnected");
-                    client.send(new WrongProtocolResponse());
-                    client.disconnect();
-                }
-
                 Queue<Project> projects = new LinkedList<>();
-                for (ProjectModel currentProject : sProjects) {
+                for (ProjectModel currentProject : gameModel.getProjectModel()) {
                     projects.add(_gameFactory.createProject(currentProject));
                 }
 
-                MultiPlayerGame game = new MultiPlayerGame(_clientId, 
-                        gameModel, 
-                        _gameFactory.createMarketPlace(marketPlace), 
+                MultiPlayerGame game = new MultiPlayerGame(_clientId,
+                        gameModel,
+                        _gameFactory.createMarketPlace(marketPlace),
                         _gameFactory);
 
                 if (_server.createGame(request.getGameId(), game)) {
@@ -192,7 +186,7 @@ public class ChooseGameClientState implements IPromasiClientListener {
 
     @Override
     public void onConnect(ProMaSiClient client) {
-		// TODO Auto-generated method stub
+        // TODO Auto-generated method stub
 
     }
 

@@ -134,6 +134,9 @@ public class GameModel extends Observer<IGameModelListener> {
             result.setMarketPlaceModel(_marketPlace.getMemento());
             result.setGameDescription(_gameDescription);
             result.setGameName(_gameName);
+            for( Project project : _projects){
+                result.getProjectModel().add(project.getMemento());
+            }
         } finally {
             _lockObject.unlock();
         }

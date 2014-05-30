@@ -16,16 +16,13 @@ import org.promasi.game.AGamesServer;
 import org.promasi.game.GameException;
 import org.promasi.game.IGame;
 import org.promasi.game.IGamesServerListener;
-import org.promasi.protocol.messages.CreateGameRequest;
-import org.promasi.protocol.messages.CreateGameResponse;
-import org.promasi.protocol.messages.Message;
 import org.promasi.utilities.file.RootDirectory;
 
 /**
  *
  * @author alekstheod
  */
-public class NewGameGamesServer extends AGamesServer {
+public class NewGameGamesServer extends AGamesServer implements IGamesServerListener {
 
     private final MultiPlayerGamesServer _onlineServer;
     private final AGamesServer _offlineServer;
@@ -36,42 +33,18 @@ public class NewGameGamesServer extends AGamesServer {
         _offlineServer = new SinglePlayerGamesServer(RootDirectory.getInstance().getRootDirectory() + "SinglePlayer");
         _onlineServer = (MultiPlayerGamesServer) server;
         _onlineServer.clearListeners();
-        _offlineServer.addListener(new IGamesServerListener() {
-            @Override
-            public void updateGamesList(List<IGame> games) {
-                NewGameGamesServer.this.updateGamesList(games);
-            }
-
-            @Override
-            public void onJoinGame(IGame game) {
-                NewGameGamesServer.this.onJoinGame(game);
-            }
-        });
-
-        _onlineServer.addListener(new IGamesServerListener() {
-            @Override
-            public void updateGamesList(List<IGame> games) {
-                NewGameGamesServer.this.updateGamesList(games);
-            }
-
-            @Override
-            public void onJoinGame(IGame game) {
-                NewGameGamesServer.this.onJoinGame(game);
-            }
-        });
+        _onlineServer.addListener(this);
+        _offlineServer.addListener(this);
     }
 
     @Override
-    public boolean requestGamesList() {
-        return _offlineServer.requestGamesList();
+    public void requestGamesList() {
+        _offlineServer.requestGamesList();
     }
 
     @Override
-    public boolean joinGame(IGame game) {
-        boolean result = false;
-        
-
-        return result;
+    public void joinGame(IGame game) {
+        _onlineServer.joinGame(game);
     }
 
     @Override
@@ -97,6 +70,7 @@ public class NewGameGamesServer extends AGamesServer {
 
     @Override
     public void onJoinGame(IGame game) {
-
+        WaitingPlayersJPanel newPanel = new WaitingPlayersJPanel();
+        _mainFrame.changePanel(newPanel);
     }
 }

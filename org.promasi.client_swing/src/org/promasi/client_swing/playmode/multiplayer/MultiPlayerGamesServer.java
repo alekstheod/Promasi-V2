@@ -6,7 +6,6 @@
 package org.promasi.client_swing.playmode.multiplayer;
 
 import java.util.List;
-import org.promasi.desktop_swing.IMainFrame;
 import org.promasi.game.AGamesServer;
 import org.promasi.game.GameException;
 import org.promasi.game.IGame;
@@ -14,6 +13,8 @@ import org.promasi.network.tcp.NetworkException;
 import org.promasi.protocol.client.ProMaSiClient;
 import org.promasi.protocol.messages.CreateGameRequest;
 import org.promasi.protocol.messages.CreateGameResponse;
+import org.promasi.protocol.messages.JoinGameRequest;
+import org.promasi.protocol.messages.JoinGameResponse;
 import org.promasi.protocol.messages.LoginRequest;
 import org.promasi.protocol.messages.LoginResponse;
 import org.promasi.protocol.messages.Message;
@@ -45,25 +46,24 @@ public class MultiPlayerGamesServer extends AGamesServer {
     }
 
     @Override
-    public boolean requestGamesList() {
-        return _client.send(new UpdateAvailableGameListRequest());
+    public void requestGamesList() {
+        _client.send(new UpdateAvailableGameListRequest());
     }
 
     @Override
-    public boolean joinGame(IGame game) {
-        boolean result = false;
-
-        return result;
-    }
-
-    @Override
-    public void updateGamesList(List<IGame> games) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void onJoinGame(IGame game) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void joinGame(IGame game) {
+        if(game.getMemento().getCompanyModel() != null )
+        {
+            Message msg = _client.sendRecv(new CreateGameRequest(game.getName(), game.getMemento()));
+            if (msg instanceof CreateGameResponse) {
+                onJoinGame(game);
+            }
+        }else{
+            Message msg = _client.sendRecv(new JoinGameRequest(game.getName()));
+            if (msg instanceof JoinGameResponse) {
+                onJoinGame(game);
+            }
+        }
     }
 
     @Override
@@ -73,12 +73,5 @@ public class MultiPlayerGamesServer extends AGamesServer {
 
     public IGame toMultiPlayerGame(IGame game) throws GameException {
         return new MultiPlayerGame(game.getMemento(), _client);
-    }
-
-    public void createGame(IGame game, IMainFrame frame) {
-        Message msg = _client.sendRecv(new CreateGameRequest(game.getName(), game.getMemento()));
-        if (msg instanceof CreateGameResponse) {
-            
-        }
     }
 }

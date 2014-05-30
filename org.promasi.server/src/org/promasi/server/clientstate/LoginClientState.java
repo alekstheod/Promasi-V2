@@ -33,7 +33,7 @@ public class LoginClientState implements IPromasiClientListener {
     /**
      * Instance of {@link ILogger} interface implementation, need for logging.
      */
-    private ILogger _logger = LoggerFactory.getInstance(ChooseGameClientState.class);
+    private final ILogger _logger = LoggerFactory.getInstance(ChooseGameClientState.class);
 
     /**
      * Constructor will initialize the object
@@ -62,6 +62,7 @@ public class LoginClientState implements IPromasiClientListener {
     /**
      * Only the LoginRequest message is accepted. Any other type of message will
      * be ignored.
+     *
      * @param object
      */
     @Override
@@ -103,7 +104,7 @@ public class LoginClientState implements IPromasiClientListener {
 
     @Override
     public void onConnect(ProMaSiClient client) {
-		// TODO Auto-generated method stub
+        // TODO Auto-generated method stub
 
     }
 

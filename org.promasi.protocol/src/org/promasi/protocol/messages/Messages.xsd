@@ -1,0 +1,1007 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="GameModelModel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="companyModel"/>
+        <xs:element name="gameDescription" type="xs:string"/>
+        <xs:element name="gameName" type="xs:string"/>
+        <xs:element ref="marketPlaceModel"/>
+        <xs:element ref="projectModel" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="SdSystemBasedSimulatorModel" type="sdSystemBasedSimulatorModel"/>
+
+  <xs:element name="companyModel">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="aGameModel">
+          <xs:sequence>
+            <xs:element name="_name" type="xs:string" minOccurs="0"/>
+            <xs:element name="_description" type="xs:string" minOccurs="0"/>
+            <xs:element name="_startTime" type="xs:string" minOccurs="0"/>
+            <xs:element name="_endTime" type="xs:string" minOccurs="0"/>
+            <xs:element name="_itDepartment" type="departmentModel" minOccurs="0"/>
+            <xs:element name="_budget" type="xs:double"/>
+            <xs:element name="_prestigePoints" type="xs:double"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="equationProgressModel" type="equationProgressModel"/>
+
+  <xs:element name="marketPlaceModel">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="aGameModel">
+          <xs:sequence>
+            <xs:element name="_availableEmployees">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="entry" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="key" type="xs:string" minOccurs="0"/>
+                        <xs:element name="value" type="employeeModel" minOccurs="0"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="projectModel">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="aGameModel">
+          <xs:sequence>
+            <xs:element name="_name" type="xs:string" minOccurs="0"/>
+            <xs:element name="_description" type="xs:string" minOccurs="0"/>
+            <xs:element name="_projectDuration" type="xs:int"/>
+            <xs:element name="_overallProgress" type="xs:double"/>
+            <xs:element name="_projectPrice" type="xs:double"/>
+            <xs:element name="_difficultyLevel" type="xs:double"/>
+            <xs:element name="_projectTasks">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="entry" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="key" type="xs:string" minOccurs="0"/>
+                        <xs:element name="value" type="projectTaskModel" minOccurs="0"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="_taskBridges" type="taskBridgeModel" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="sdEquationModel" type="sdEquationModel"/>
+
+  <xs:element name="sdSystemModel">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="aSdModel">
+          <xs:sequence>
+            <xs:element name="sdObjects">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="entry" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="key" type="xs:string" minOccurs="0"/>
+                        <xs:element name="value" type="sdObjectModel" minOccurs="0"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="startGameRequest">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence>
+          <xs:element name="gameId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="message" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="serializableObject">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="serializableObject">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="joinGameResponse">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence>
+          <xs:element name="gameDescription" type="xs:string" minOccurs="0"/>
+          <xs:element name="gameName" type="xs:string" minOccurs="0"/>
+          <xs:element name="players" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="internalErrorResponse">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="createGameFailedResponse">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="updateGameListRequest">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence>
+          <xs:element name="availableGames">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="key" minOccurs="0" type="xs:string"/>
+                      <xs:element name="value" minOccurs="0" type="xs:string"/>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cancelGameResponse">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="gameFinishedRequest">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence>
+          <xs:element name="clientId" type="xs:string" minOccurs="0"/>
+          <xs:element name="gameModel" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element ref="companyModel"/>
+                <xs:element name="gameDescription" type="xs:string"/>
+                <xs:element name="gameName" type="xs:string"/>
+                <xs:element ref="marketPlaceModel"/>
+                <xs:element ref="projectModel" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="otherPlayersModels">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="key" minOccurs="0" type="xs:string"/>
+                      <xs:element name="value" minOccurs="0">
+                        <xs:complexType>
+                          <xs:sequence>
+                            <xs:element ref="companyModel"/>
+                            <xs:element name="gameDescription" type="xs:string"/>
+                            <xs:element name="gameName" type="xs:string"/>
+                            <xs:element ref="marketPlaceModel"/>
+                            <xs:element ref="projectModel" maxOccurs="unbounded"/>
+                          </xs:sequence>
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="aGameModel" abstract="true">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="departmentModel">
+    <xs:sequence>
+      <xs:element name="employees">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="entry" nillable="true" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="key" type="xs:string" minOccurs="0"/>
+                  <xs:element name="value" type="employeeModel" minOccurs="0"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="employeeModel">
+    <xs:complexContent>
+      <xs:extension base="aGameModel">
+        <xs:sequence>
+          <xs:element name="_firstName" type="xs:string" minOccurs="0"/>
+          <xs:element name="_lastName" type="xs:string" minOccurs="0"/>
+          <xs:element name="_employeeId" type="xs:string" minOccurs="0"/>
+          <xs:element name="_salary" type="xs:double"/>
+          <xs:element name="_curriculumVitae" type="xs:string" minOccurs="0"/>
+          <xs:element name="_tasks">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="entry" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="key" type="xs:string" minOccurs="0"/>
+                      <xs:element name="value" type="employeeTaskModel" minOccurs="0"/>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="_employeeSkills">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="entry" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="key" type="xs:string" minOccurs="0"/>
+                      <xs:element name="value" type="xs:double" minOccurs="0"/>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="employeeTaskModel">
+    <xs:complexContent>
+      <xs:extension base="aGameModel">
+        <xs:sequence>
+          <xs:element name="_projectTaskName" type="xs:string" minOccurs="0"/>
+          <xs:element name="_firstStep" type="xs:int"/>
+          <xs:element name="_lastStep" type="xs:int"/>
+          <xs:element name="_dependencies" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="_taskName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="projectTaskModel">
+    <xs:complexContent>
+      <xs:extension base="aGameModel">
+        <xs:sequence>
+          <xs:element name="_name" type="xs:string" minOccurs="0"/>
+          <xs:element name="_description" type="xs:string" minOccurs="0"/>
+          <xs:element name="_progress" type="xs:double"/>
+          <xs:element name="_progressEquation" type="progressModel" minOccurs="0"/>
+          <xs:element name="_simulationModel" type="simulatorModel" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="progressModel">
+    <xs:complexContent>
+      <xs:extension base="aGameModel">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="equationProgressModel">
+    <xs:complexContent>
+      <xs:extension base="progressModel">
+        <xs:sequence>
+          <xs:element name="_equationModel" type="equationModel" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="equationModel">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="calculatedEquationModel">
+    <xs:complexContent>
+      <xs:extension base="equationModel">
+        <xs:sequence>
+          <xs:element name="equationString" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="simulatorModel" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="aGameModel">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sdSystemBasedSimulatorModel">
+    <xs:complexContent>
+      <xs:extension base="simulatorModel">
+        <xs:sequence>
+          <xs:element name="_sdSystemModel">
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="aSdModel">
+                  <xs:sequence>
+                    <xs:element name="sdObjects">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="entry" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="key" type="xs:string" minOccurs="0"/>
+                                <xs:element name="value" type="sdObjectModel" minOccurs="0"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="aSdModel" abstract="true">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="sdObjectModel">
+    <xs:complexContent>
+      <xs:extension base="aSdModel">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="outputSdObjectModel">
+    <xs:complexContent>
+      <xs:extension base="sdObjectModel">
+        <xs:sequence>
+          <xs:element name="equation" type="aSdEquationModel" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="aSdEquationModel" abstract="true">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="sdEquationModel">
+    <xs:complexContent>
+      <xs:extension base="aSdEquationModel">
+        <xs:sequence>
+          <xs:element name="_equationModel" type="equationModel" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="timeSdObjectModel">
+    <xs:complexContent>
+      <xs:extension base="sdObjectModel">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="stockSdObjectModel">
+    <xs:complexContent>
+      <xs:extension base="sdObjectModel">
+        <xs:sequence>
+          <xs:element name="equation" type="aSdEquationModel"/>
+          <xs:element name="value" type="xs:double" default="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="inputSdObjectModel">
+    <xs:complexContent>
+      <xs:extension base="sdObjectModel">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="flowSdObjectModel">
+    <xs:complexContent>
+      <xs:extension base="sdObjectModel">
+        <xs:sequence>
+          <xs:element name="equation" type="aSdEquationModel" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="taskBridgeModel">
+    <xs:sequence>
+      <xs:element name="inputSdObjectId" type="xs:string" minOccurs="0"/>
+      <xs:element name="inputTaskName" type="xs:string" minOccurs="0"/>
+      <xs:element name="outputSdObjectId" type="xs:string" minOccurs="0"/>
+      <xs:element name="outputTaskName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="joinGameFailedResponse">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="startGameResponse">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="updateGamePlayersListRequest">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence>
+          <xs:element name="players" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="updateAvailableGameListRequest">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="projectAssignedRequest">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence>
+          <xs:element name="company" minOccurs="0">
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="aGameModel">
+                  <xs:sequence>
+                    <xs:element name="_name" type="xs:string" minOccurs="0"/>
+                    <xs:element name="_description" type="xs:string" minOccurs="0"/>
+                    <xs:element name="_startTime" type="xs:string" minOccurs="0"/>
+                    <xs:element name="_endTime" type="xs:string" minOccurs="0"/>
+                    <xs:element name="_itDepartment" type="departmentModel" minOccurs="0"/>
+                    <xs:element name="_budget" type="xs:double"/>
+                    <xs:element name="_prestigePoints" type="xs:double"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="dateTime" type="xs:string" minOccurs="0"/>
+          <xs:element name="project" minOccurs="0">
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="aGameModel">
+                  <xs:sequence>
+                    <xs:element name="_name" type="xs:string" minOccurs="0"/>
+                    <xs:element name="_description" type="xs:string" minOccurs="0"/>
+                    <xs:element name="_projectDuration" type="xs:int"/>
+                    <xs:element name="_overallProgress" type="xs:double"/>
+                    <xs:element name="_projectPrice" type="xs:double"/>
+                    <xs:element name="_difficultyLevel" type="xs:double"/>
+                    <xs:element name="_projectTasks">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="entry" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="key" type="xs:string" minOccurs="0"/>
+                                <xs:element name="value" type="projectTaskModel" minOccurs="0"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="_taskBridges" type="taskBridgeModel" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="messageRequest">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence>
+          <xs:element name="clientId" type="xs:string" minOccurs="0"/>
+          <xs:element name="message" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cancelGameRequest">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence>
+          <xs:element name="gameId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="gameStartedRequest">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence>
+          <xs:element name="dateTime" type="xs:string" minOccurs="0"/>
+          <xs:element name="gameModel" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element ref="companyModel"/>
+                <xs:element name="gameDescription" type="xs:string"/>
+                <xs:element name="gameName" type="xs:string"/>
+                <xs:element ref="marketPlaceModel"/>
+                <xs:element ref="projectModel" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="projectFinishedRequest">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence>
+          <xs:element name="project" minOccurs="0">
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="aGameModel">
+                  <xs:sequence>
+                    <xs:element name="_name" type="xs:string" minOccurs="0"/>
+                    <xs:element name="_description" type="xs:string" minOccurs="0"/>
+                    <xs:element name="_projectDuration" type="xs:int"/>
+                    <xs:element name="_overallProgress" type="xs:double"/>
+                    <xs:element name="_projectPrice" type="xs:double"/>
+                    <xs:element name="_difficultyLevel" type="xs:double"/>
+                    <xs:element name="_projectTasks">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="entry" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="key" type="xs:string" minOccurs="0"/>
+                                <xs:element name="value" type="projectTaskModel" minOccurs="0"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="_taskBridges" type="taskBridgeModel" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="loginResponse">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence>
+          <xs:element name="availableGames">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="key" minOccurs="0" type="xs:string"/>
+                      <xs:element name="value" minOccurs="0" type="xs:string"/>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="userName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dischargeEmployeeRequest">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence>
+          <xs:element name="employeeId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="onTickRequest">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence>
+          <xs:element name="dateTime" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="wrongProtocolResponse">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="gameCanceledResponse">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="employeeHiredRequest">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence>
+          <xs:element name="company" minOccurs="0">
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="aGameModel">
+                  <xs:sequence>
+                    <xs:element name="_name" type="xs:string" minOccurs="0"/>
+                    <xs:element name="_description" type="xs:string" minOccurs="0"/>
+                    <xs:element name="_startTime" type="xs:string" minOccurs="0"/>
+                    <xs:element name="_endTime" type="xs:string" minOccurs="0"/>
+                    <xs:element name="_itDepartment" type="departmentModel" minOccurs="0"/>
+                    <xs:element name="_budget" type="xs:double"/>
+                    <xs:element name="_prestigePoints" type="xs:double"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="dateTime" type="xs:string" minOccurs="0"/>
+          <xs:element name="employee" type="employeeModel" minOccurs="0"/>
+          <xs:element name="marketPlace" minOccurs="0">
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="aGameModel">
+                  <xs:sequence>
+                    <xs:element name="_availableEmployees">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="entry" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="key" type="xs:string" minOccurs="0"/>
+                                <xs:element name="value" type="employeeModel" minOccurs="0"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="leaveGameResponse">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="joinGameRequest">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence>
+          <xs:element name="gameId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="assignEmployeeTasksRequest">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence>
+          <xs:element name="employeeId" type="xs:string" minOccurs="0"/>
+          <xs:element name="tasks" type="employeeTaskModel" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="onExecuteStepRequest">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence>
+          <xs:element name="company" minOccurs="0">
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="aGameModel">
+                  <xs:sequence>
+                    <xs:element name="_name" type="xs:string" minOccurs="0"/>
+                    <xs:element name="_description" type="xs:string" minOccurs="0"/>
+                    <xs:element name="_startTime" type="xs:string" minOccurs="0"/>
+                    <xs:element name="_endTime" type="xs:string" minOccurs="0"/>
+                    <xs:element name="_itDepartment" type="departmentModel" minOccurs="0"/>
+                    <xs:element name="_budget" type="xs:double"/>
+                    <xs:element name="_prestigePoints" type="xs:double"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="dateTime" type="xs:string" minOccurs="0"/>
+          <xs:element name="project" minOccurs="0">
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="aGameModel">
+                  <xs:sequence>
+                    <xs:element name="_name" type="xs:string" minOccurs="0"/>
+                    <xs:element name="_description" type="xs:string" minOccurs="0"/>
+                    <xs:element name="_projectDuration" type="xs:int"/>
+                    <xs:element name="_overallProgress" type="xs:double"/>
+                    <xs:element name="_projectPrice" type="xs:double"/>
+                    <xs:element name="_difficultyLevel" type="xs:double"/>
+                    <xs:element name="_projectTasks">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="entry" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="key" type="xs:string" minOccurs="0"/>
+                                <xs:element name="value" type="projectTaskModel" minOccurs="0"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="_taskBridges" type="taskBridgeModel" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="loginRequest">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence>
+          <xs:element name="clientId" type="xs:string" minOccurs="0"/>
+          <xs:element name="password" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="createGameRequest">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence>
+          <xs:element name="gameId" type="xs:string" minOccurs="0"/>
+          <xs:element name="gameModel" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element ref="companyModel"/>
+                <xs:element name="gameDescription" type="xs:string"/>
+                <xs:element name="gameName" type="xs:string"/>
+                <xs:element ref="marketPlaceModel"/>
+                <xs:element ref="projectModel" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="gameStartedResponse">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="createGameResponse">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence>
+          <xs:element name="gameDescription" type="xs:string" minOccurs="0"/>
+          <xs:element name="gameId" type="xs:string" minOccurs="0"/>
+          <xs:element name="players" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="employeeDischargedRequest">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence>
+          <xs:element name="company" minOccurs="0">
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="aGameModel">
+                  <xs:sequence>
+                    <xs:element name="_name" type="xs:string" minOccurs="0"/>
+                    <xs:element name="_description" type="xs:string" minOccurs="0"/>
+                    <xs:element name="_startTime" type="xs:string" minOccurs="0"/>
+                    <xs:element name="_endTime" type="xs:string" minOccurs="0"/>
+                    <xs:element name="_itDepartment" type="departmentModel" minOccurs="0"/>
+                    <xs:element name="_budget" type="xs:double"/>
+                    <xs:element name="_prestigePoints" type="xs:double"/>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="dateTime" type="xs:string" minOccurs="0"/>
+          <xs:element name="employee" type="employeeModel" minOccurs="0"/>
+          <xs:element name="marketPlace" minOccurs="0">
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="aGameModel">
+                  <xs:sequence>
+                    <xs:element name="_availableEmployees">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="entry" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="key" type="xs:string" minOccurs="0"/>
+                                <xs:element name="value" type="employeeModel" minOccurs="0"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="hireEmployeeRequest">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence>
+          <xs:element name="employeeId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="loginFailedResponse">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="leaveGameRequest">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="gameCanceledRequest">
+    <xs:complexContent>
+      <xs:extension base="message">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

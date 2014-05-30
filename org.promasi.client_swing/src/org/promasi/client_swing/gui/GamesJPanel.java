@@ -217,7 +217,7 @@ public class GamesJPanel extends JXPanel implements IGamesServerListener {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                _gamesList.setListData(new Vector<IGame>(games));
+                _gamesList.setListData(new Vector<>(games));
             }
         });
     }

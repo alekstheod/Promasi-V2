@@ -15,18 +15,16 @@ public abstract class AGamesServer extends Observer<IGamesServerListener> {
     /**
      * User will call this method in order to update a available games list.
      *
-     * @return
      */
-    public abstract boolean requestGamesList();
+    public abstract void requestGamesList();
 
     /**
      * User can call this method in order to join to the given game.
      *
      * @param game Instance of {@link IGame} interface implementation which
      * represent the game.
-     * @return true if succeed, false otherwise.
      */
-    public abstract boolean joinGame(IGame game);
+    public abstract void joinGame(IGame game);
 
     /**
      * @brief request if a new game creation is allowed.

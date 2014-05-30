@@ -149,10 +149,11 @@ public class DepartmentModel {
          * {@link DepartmentModel.Employees.Entry }
          * 
          * 
+         * @return 
          */
         public List<DepartmentModel.Employees.Entry> getEntry() {
             if (entry == null) {
-                entry = new ArrayList<DepartmentModel.Employees.Entry>();
+                entry = new ArrayList<>();
             }
             return this.entry;
         }
