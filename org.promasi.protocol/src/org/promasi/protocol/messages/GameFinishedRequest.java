@@ -112,6 +112,7 @@ public class GameFinishedRequest
             OtherPlayersModels.Entry newEntry = new OtherPlayersModels.Entry();
             newEntry.setKey(entry.getKey());
             newEntry.setValue(entry.getValue());
+            this.otherPlayersModels = new OtherPlayersModels();
             this.otherPlayersModels.getEntry().add(newEntry);
         }
     }

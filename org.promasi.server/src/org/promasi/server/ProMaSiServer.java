@@ -239,16 +239,7 @@ public class ProMaSiServer implements IPromasiClientListener, ITcpServerListener
      * @return true if server is running, false otherwise.
      */
     public boolean isRunning() {
-        boolean result = false;
-
-        try {
-            _lockObject.lock();
-            result = _server.isRunning();;
-        } finally {
-            _lockObject.unlock();
-        }
-
-        return result;
+        return _server.isRunning();
     }
 
     /**
@@ -348,7 +339,6 @@ public class ProMaSiServer implements IPromasiClientListener, ITcpServerListener
      * User can call this method in order to abort the created from him game.
      * All the game players available in this game will be removed,
      * {@link GameCanceledRequest} will be sent to all of these players.
-     *
      * @param gameId The games name.
      * @return true if succeed, false otherwise.
      */

@@ -73,6 +73,7 @@ public class UpdateGameListRequest
             AvailableGames.Entry newEntry = new AvailableGames.Entry();
             newEntry.setKey(entry.getKey());
             newEntry.setValue(entry.getValue());
+            this.availableGames = new AvailableGames();
             this.availableGames.getEntry().add( newEntry );
         }
         
