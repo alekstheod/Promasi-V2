@@ -3,20 +3,16 @@
  */
 package org.promasi.protocol.client;
 
-import java.beans.XMLDecoder;
 import java.io.ByteArrayInputStream;
 import java.io.StringWriter;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import org.apache.commons.codec.binary.Base64;
-import org.promasi.game.model.generated.CompanyModel;
 import org.promasi.network.tcp.ITcpClientListener;
 import org.promasi.network.tcp.NetworkException;
 import org.promasi.network.tcp.TcpClient;
@@ -60,6 +56,7 @@ public class ProMaSiClient extends Observer<IPromasiClientListener> implements I
 
     /**
      *
+     * @param clientId
      * @param client
      * @param compression
      * @throws NetworkException
@@ -74,7 +71,7 @@ public class ProMaSiClient extends Observer<IPromasiClientListener> implements I
         _lockObject = new ReentrantLock();
         _compression = compression;
     }
-
+    
     private String convert(Message msg) {
         String result = "";
         if (msg != null) {

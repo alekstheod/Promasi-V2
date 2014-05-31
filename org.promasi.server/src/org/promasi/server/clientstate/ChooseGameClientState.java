@@ -154,7 +154,7 @@ public class ChooseGameClientState implements IPromasiClientListener {
                         _gameFactory.createMarketPlace(marketPlace),
                         _gameFactory);
 
-                if (_server.createGame(request.getGameId(), game)) {
+                if (_server.createGame(client, game)) {
                     CreateGameResponse response = new CreateGameResponse(request.getGameId(), gameModel.getGameDescription(), game.getGamePlayers());
                     client.send(response);
                     client.removeListener(this);

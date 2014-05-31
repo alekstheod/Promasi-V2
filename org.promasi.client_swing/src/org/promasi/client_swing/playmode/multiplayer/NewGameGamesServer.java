@@ -70,7 +70,7 @@ public class NewGameGamesServer extends AGamesServer implements IGamesServerList
 
     @Override
     public void onJoinGame(IGame game) {
-        WaitingPlayersJPanel newPanel = new WaitingPlayersJPanel();
+        WaitingPlayersJPanel newPanel = new WaitingPlayersJPanel(_mainFrame, _onlineServer, game);
         _mainFrame.changePanel(newPanel);
     }
 }

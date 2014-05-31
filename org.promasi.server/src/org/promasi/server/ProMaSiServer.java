@@ -1,5 +1,7 @@
 package org.promasi.server;
 
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -40,7 +42,7 @@ public class ProMaSiServer implements IPromasiClientListener, ITcpServerListener
      * login method with the valid userId, which is unique for each client.
      * After that client will be added to this list.
      */
-    private Map<String, ProMaSiClient> _clients;
+    private BiMap<String, ProMaSiClient> _clients;
 
     /**
      * List of available online games. Each registered client is able to create
@@ -84,7 +86,7 @@ public class ProMaSiServer implements IPromasiClientListener, ITcpServerListener
             throw new NetworkException("Wrong argument portNumber");
         }
 
-        _clients = new TreeMap<>();
+        _clients = HashBiMap.create();
         _lockObject = new ReentrantLock();
         _availableGames = new TreeMap<>();
         _logger.info("ProMaSi server initialization compelete, listening on port :" + portNumber);
@@ -164,26 +166,30 @@ public class ProMaSiServer implements IPromasiClientListener, ITcpServerListener
      * Will create a new game assigned to the given client id. The game will be
      * inserted to the available games list.
      *
-     * @param clientId Client's id who are a creator of the game
+     * @param client
      * @param game Instance of {@link = MultiPlayerGame} which represents the
      * game.
      * @return true if succeed, false otherwise.
      */
-    public boolean createGame(String clientId, MultiPlayerGame game) {
+    public boolean createGame(ProMaSiClient client, MultiPlayerGame game) {
         boolean result = false;
 
         try {
             _lockObject.lock();
-            if (clientId != null && game != null) {
-                if (!_availableGames.containsKey(game.getGameName())) {
-                    _availableGames.put(game.getGameName(), game);
+            if (client != null && game != null) {
+                String clientId = _clients.inverse().get(client);
+                if (!_availableGames.containsKey(clientId)) {
+                    _availableGames.put(clientId, game);
+                    result = true;
                     for (Map.Entry<String, ProMaSiClient> entry : _clients.entrySet()) {
-                        result = sendUpdateGamesListRequest(entry.getValue());
+                        if (client != entry.getValue()) {
+                            result = sendUpdateGamesListRequest(entry.getValue());
+                        }
                     }
 
-                    _logger.info("New game created by client '" + clientId + "' with game id: '" + game.getGameName() + "'");
+                    _logger.info("New game created  with game id: '" + clientId + "'");
                 } else {
-                    _logger.error("Create game failed because an game with the same game id is already running on this server game id = '" + game.getGameName() + "'");
+                    _logger.error("Create game failed because an game with the same game id is already running on this server game id = '" + clientId + "'");
                 }
             } else {
                 _logger.error("Create game failed because the wrong arguments");
@@ -217,7 +223,9 @@ public class ProMaSiServer implements IPromasiClientListener, ITcpServerListener
 
                     _availableGames.remove(gameId);
                     for (Map.Entry<String, ProMaSiClient> entry : _clients.entrySet()) {
-                        result = sendUpdateGamesListRequest(entry.getValue());
+                        if (!entry.getKey().equals(clientId)) {
+                            result = sendUpdateGamesListRequest(entry.getValue());
+                        }
                     }
 
                     _logger.info("Start game succeed for game '" + gameId + "'");
@@ -339,6 +347,7 @@ public class ProMaSiServer implements IPromasiClientListener, ITcpServerListener
      * User can call this method in order to abort the created from him game.
      * All the game players available in this game will be removed,
      * {@link GameCanceledRequest} will be sent to all of these players.
+     *
      * @param gameId The games name.
      * @return true if succeed, false otherwise.
      */

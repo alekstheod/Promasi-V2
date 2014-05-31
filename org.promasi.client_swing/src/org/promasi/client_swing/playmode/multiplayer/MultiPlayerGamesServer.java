@@ -5,7 +5,6 @@
  */
 package org.promasi.client_swing.playmode.multiplayer;
 
-import java.util.List;
 import org.promasi.game.AGamesServer;
 import org.promasi.game.GameException;
 import org.promasi.game.IGame;
