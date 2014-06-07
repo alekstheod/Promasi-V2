@@ -96,11 +96,9 @@ public class MultiPlayerGame implements IMultiPlayerGame, IClockListener, IGameM
      * Constructor will initialize the object.
      *
      * @param clientId Client identification string.
-     * @param gameName Name of the game.
-     * @param gameDescription Game description.
+     * @param model
      * @param marketPlace A market place which will be used in this game.
-     * @param company Instance of {@link = Company} which represent the company.
-     * @param projects List of available projects.
+     * @param factory
      * @throws GameException in case of initialization error.
      */
     public MultiPlayerGame(String clientId, GameModelModel model, MarketPlace marketPlace, IGameFactory factory) throws GameException {

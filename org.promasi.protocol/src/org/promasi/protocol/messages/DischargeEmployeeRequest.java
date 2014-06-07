@@ -44,6 +44,11 @@ public class DischargeEmployeeRequest
 
     protected String employeeId;
 
+    public DischargeEmployeeRequest(){}
+    public DischargeEmployeeRequest(String employeeId){
+        this.employeeId = employeeId;
+    }
+    
     /**
      * Gets the value of the employeeId property.
      * 

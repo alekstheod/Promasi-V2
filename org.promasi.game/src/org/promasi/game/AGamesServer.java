@@ -9,8 +9,9 @@ import org.promasi.utilities.design.Observer;
 
 /**
  * @author alekstheod Represent the GamesServer on ProMaSi system.
+ * @param <T>
  */
-public abstract class AGamesServer extends Observer<IGamesServerListener> {
+public abstract class AGamesServer<T extends IGamesServerListener> extends Observer<T> {
 
     /**
      * User will call this method in order to update a available games list.

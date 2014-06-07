@@ -6,26 +6,34 @@
 package org.promasi.client_swing.playmode.multiplayer;
 
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Map;
+import java.util.Vector;
+import javax.swing.SwingUtilities;
+import org.joda.time.DateTime;
 import org.promasi.client_swing.gui.DesktopJPanel;
 import org.promasi.desktop_swing.IMainFrame;
 import org.promasi.game.IGame;
-import org.promasi.game.IGamesServerListener;
+import org.promasi.game.model.generated.CompanyModel;
+import org.promasi.game.model.generated.GameModelModel;
+import org.promasi.game.singleplayer.IClientGameListener;
+import org.promasi.utilities.logger.ILogger;
+import org.promasi.utilities.logger.LoggerFactory;
 import org.promasi.utils_swing.GuiException;
 
 /**
  *
  * @author alekstheod
  */
-public class WaitingPlayersJPanel extends javax.swing.JPanel implements IGamesServerListener{
+public class WaitingPlayersJPanel extends javax.swing.JPanel implements IMultiPlayerGamesServerListener {
 
     private final MultiPlayerGamesServer _server;
     private final IGame _game;
     private final IMainFrame _mainFrame;
-    
+    private final ILogger _logger = LoggerFactory.getInstance(WaitingPlayersJPanel.class);
+
     /**
      * Creates new form WaitingPlayersJPanel
+     *
      * @param mainFrame
      * @param server
      * @param game
@@ -33,6 +41,7 @@ public class WaitingPlayersJPanel extends javax.swing.JPanel implements IGamesSe
     public WaitingPlayersJPanel(IMainFrame mainFrame, MultiPlayerGamesServer server, IGame game) {
         initComponents();
         _server = server;
+        _server.addListener(this);
         _game = game;
         _mainFrame = mainFrame;
     }
@@ -60,6 +69,11 @@ public class WaitingPlayersJPanel extends javax.swing.JPanel implements IGamesSe
         _cancelButton.setText("Cancel");
 
         _startButton.setText("Start");
+        _startButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                _startButtonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -147,6 +161,38 @@ public class WaitingPlayersJPanel extends javax.swing.JPanel implements IGamesSe
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void _startButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event__startButtonMouseClicked
+            _game.addListener(new IClientGameListener() {
+            @Override
+            public void gameStarted(IGame game, GameModelModel gameModel, DateTime dateTime) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            _mainFrame.changePanel(new DesktopJPanel(_mainFrame, _game, _game.getName()));
+                        } catch (GuiException ex) {
+                            _logger.error(ex.toString());
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onTick(IGame game, DateTime dateTime) {
+            }
+
+            @Override
+            public void gameFinished(IGame game, Map<String, CompanyModel> players) {
+            }
+
+            @Override
+            public void onExecuteStep(IGame game, CompanyModel company, DateTime dateTime) {
+            }
+        });
+
+        _server.startGame(_game);
+    }//GEN-LAST:event__startButtonMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton _cancelButton;
@@ -163,15 +209,29 @@ public class WaitingPlayersJPanel extends javax.swing.JPanel implements IGamesSe
 
     @Override
     public void updateGamesList(List<IGame> games) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void onJoinGame(IGame game) {
-        try {
-            _mainFrame.changePanel(new DesktopJPanel(_mainFrame, game, TOOL_TIP_TEXT_KEY));
-        } catch (GuiException ex) {
-            Logger.getLogger(WaitingPlayersJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    }
+
+    @Override
+    public void receiveMessage(final String clientId, final String message) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                WaitingPlayersJPanel.this._chatBox.append(clientId + " says : " + message);
+            }
+        });
+    }
+
+    @Override
+    public void updatePlayersList(final List<String> players) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                WaitingPlayersJPanel.this._usersList.setListData(new Vector(players));
+            }
+        });
     }
 }

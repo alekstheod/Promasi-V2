@@ -71,24 +71,16 @@ public class LoginClientState implements IPromasiClientListener {
             if (object instanceof LoginRequest) {
                 _logger.info("Received message :'" + LoginRequest.class.toString() + "'");
                 LoginRequest request = (LoginRequest) object;
-                if (request.getClientId() == null || request.getPassword() == null) {
-                    _logger.warn("Invalid request found client will be disconnected");
-                    client.send(new WrongProtocolResponse());
-                    client.disconnect();
+                if (_server.login(request.getClientId(), client)) {
+                    LoginResponse response = new LoginResponse(request.getClientId(), _server.getAvailableGames());
+                    client.removeListener(this);
+                    client.addListener(new ChooseGameClientState(_server, client, request.getClientId()));
+                    client.send(response);
+                    _logger.info("Login succeed");
                 } else {
-                    if (_server.login(request.getClientId(), client)) {
-                        LoginResponse response = new LoginResponse(request.getClientId(), _server.getAvailableGames());
-                        client.removeListener(this);
-                        client.addListener(new ChooseGameClientState(_server, client, request.getClientId()));
-                        client.send(response);
-                        _logger.info("Login succeed");
-                    } else {
-                        _logger.info("Login failed for client id '" + request.getClientId() + "'");
-                        client.send(new LoginFailedResponse());
-                    }
+                    _logger.info("Login failed for client id '" + request.getClientId() + "'");
+                    client.send(new LoginFailedResponse());
                 }
-            } else {
-
             }
         } catch (NetworkException e) {
             client.send(new InternalErrorResponse());

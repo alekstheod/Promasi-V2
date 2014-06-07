@@ -139,10 +139,11 @@ public class EmployeeTaskModel
      * {@link String }
      * 
      * 
+     * @return 
      */
     public List<String> getDependencies() {
         if (dependencies == null) {
-            dependencies = new ArrayList<String>();
+            dependencies = new ArrayList<>();
         }
         return this.dependencies;
     }

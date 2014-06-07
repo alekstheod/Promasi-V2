@@ -25,7 +25,7 @@ import org.promasi.utilities.logger.LoggerFactory;
  *
  * @author alekstheod
  */
-public class MultiPlayerGamesServer extends AGamesServer {
+public class MultiPlayerGamesServer extends AGamesServer<IMultiPlayerGamesServerListener> {
 
     private final ProMaSiClient _client;
 
@@ -71,6 +71,10 @@ public class MultiPlayerGamesServer extends AGamesServer {
     }
 
     public IGame toMultiPlayerGame(IGame game) throws GameException {
-        return new MultiPlayerGame(game.getMemento(), _client);
+        return new MultiPlayerGame(this, game.getMemento(), _client);
+    }
+    
+    public void startGame(IGame game ){
+        game.startGame();
     }
 }

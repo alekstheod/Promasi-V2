@@ -22,7 +22,7 @@ import org.promasi.utilities.file.RootDirectory;
  *
  * @author alekstheod
  */
-public class NewGameGamesServer extends AGamesServer implements IGamesServerListener {
+public class NewGameGamesServer extends AGamesServer<IGamesServerListener> implements IMultiPlayerGamesServerListener {
 
     private final MultiPlayerGamesServer _onlineServer;
     private final AGamesServer _offlineServer;
@@ -73,4 +73,10 @@ public class NewGameGamesServer extends AGamesServer implements IGamesServerList
         WaitingPlayersJPanel newPanel = new WaitingPlayersJPanel(_mainFrame, _onlineServer, game);
         _mainFrame.changePanel(newPanel);
     }
+
+    @Override
+    public void receiveMessage(String clientId, String message) {}
+
+    @Override
+    public void updatePlayersList(List<String> players) {}
 }

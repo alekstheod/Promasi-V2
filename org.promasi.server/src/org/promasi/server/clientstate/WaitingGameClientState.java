@@ -112,12 +112,7 @@ public class WaitingGameClientState implements IServerGameListener, IPromasiClie
 
             } else if (object instanceof MessageRequest) {
                 MessageRequest request = (MessageRequest) object;
-                if (request.getMessage() == null) {
-                    client.send(new WrongProtocolResponse());
-                    client.disconnect();
-                } else {
-                    _game.sendMessage(_clientId, request.getMessage());
-                }
+                _game.sendMessage(_clientId, request.getMessage());
             } else if (object instanceof GameCanceledResponse) {
                 client.removeListener(this);
                 client.addListener(new ChooseGameClientState(_server, client, _clientId));

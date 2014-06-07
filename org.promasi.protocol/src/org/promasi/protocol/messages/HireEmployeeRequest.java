@@ -44,6 +44,11 @@ public class HireEmployeeRequest
 
     protected String employeeId;
 
+     public HireEmployeeRequest(){}
+    public HireEmployeeRequest(String employeeId) {
+        this.employeeId = employeeId;
+    }
+
     /**
      * Gets the value of the employeeId property.
      * 

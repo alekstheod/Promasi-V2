@@ -107,12 +107,7 @@ public class WaitingPlayersClientState implements IServerGameListener, IPromasiC
                 }
             } else if (object instanceof MessageRequest) {
                 MessageRequest request = (MessageRequest) object;
-                if (request.getMessage() == null) {
-                    client.send(new WrongProtocolResponse());
-                    client.disconnect();
-                } else {
-                    _game.sendMessage(_clientId, request.getMessage());
-                }
+                _game.sendMessage(_clientId, request.getMessage());
             } else if (object instanceof CancelGameRequest) {
                 _server.cancelGame(_gameId);
                 client.removeListener(this);

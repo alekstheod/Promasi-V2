@@ -116,29 +116,16 @@ public class PlayingGameClientState implements IServerGameListener, IPromasiClie
         try {
             if (object instanceof HireEmployeeRequest) {
                 HireEmployeeRequest request = (HireEmployeeRequest) object;
-                if (request.getEmployeeId() == null) {
-                    client.send(new WrongProtocolResponse());
-                    client.disconnect();
-                }
-
                 _game.hireEmployee(_clientId, request.getEmployeeId());
             } else if (object instanceof DischargeEmployeeRequest) {
                 DischargeEmployeeRequest request = (DischargeEmployeeRequest) object;
-                if (request.getEmployeeId() == null) {
-                    client.send(new WrongProtocolResponse());
-                    client.disconnect();
-                }
-
                 _game.dischargeEmployee(_clientId, request.getEmployeeId());
             } else if (object instanceof GameStartedResponse) {
             } else if (object instanceof AssignEmployeeTasksRequest) {
                 AssignEmployeeTasksRequest request = (AssignEmployeeTasksRequest) object;
-                if (request.getEmployeeId() == null || request.getTasks() == null) {
-                    client.send(new WrongProtocolResponse());
-                    client.disconnect();
+                for( AssignEmployeeTasksRequest.EmployeeTasks.Entry entry : request.getTasks().getEntry() ){
+                    _game.assignTasks(_clientId, entry.getKey(), entry.getValue());
                 }
-
-                _game.assignTasks(_clientId, request.getEmployeeId(), request.getTasks());
             } else if (object instanceof LeaveGameRequest) {
                 _game.removeListener(this);
                 _client.removeListener(this);
@@ -162,8 +149,7 @@ public class PlayingGameClientState implements IServerGameListener, IPromasiClie
     }
 
     @Override
-    public void messageSent(String clientId, IMultiPlayerGame game, String message) {
-    }
+    public void messageSent(String clientId, IMultiPlayerGame game, String message) {}
 
     @Override
     public void onDisconnect(ProMaSiClient client) {
@@ -172,8 +158,7 @@ public class PlayingGameClientState implements IServerGameListener, IPromasiClie
     }
 
     @Override
-    public void onConnect(ProMaSiClient client) {
-    }
+    public void onConnect(ProMaSiClient client) {}
 
     @Override
     public void onConnectionError(ProMaSiClient client) {
@@ -182,13 +167,10 @@ public class PlayingGameClientState implements IServerGameListener, IPromasiClie
     }
 
     @Override
-    public void playersListUpdated(IMultiPlayerGame game, List<String> gamePlayers) {
-    }
+    public void playersListUpdated(IMultiPlayerGame game, List<String> gamePlayers) {}
 
     @Override
-    public void gameStarted(String playerId, IMultiPlayerGame game, GameModelModel gameModel, DateTime dateTime) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void gameStarted(String playerId, IMultiPlayerGame game, GameModelModel gameModel, DateTime dateTime) {}
 
     @Override
     public void projectAssigned(String playerId, IMultiPlayerGame game, CompanyModel company, ProjectModel project, DateTime dateTime) {
@@ -219,22 +201,16 @@ public class PlayingGameClientState implements IServerGameListener, IPromasiClie
     }
 
     @Override
-    public void employeeTasksAssigned(String playerId, IMultiPlayerGame game, CompanyModel company, EmployeeModel employee, List<EmployeeTaskModel> employeeTasks, DateTime dateTime) {
-    }
+    public void employeeTasksAssigned(String playerId, IMultiPlayerGame game, CompanyModel company, EmployeeModel employee, List<EmployeeTaskModel> employeeTasks, DateTime dateTime) {}
 
     @Override
-    public void employeeTaskDetached(String playerId, IMultiPlayerGame game, MarketPlaceModel marketPlace, CompanyModel company, EmployeeModel employee, EmployeeTaskModel employeeTask, DateTime dateTime) {
-    }
+    public void employeeTaskDetached(String playerId, IMultiPlayerGame game, MarketPlaceModel marketPlace, CompanyModel company, EmployeeModel employee, EmployeeTaskModel employeeTask, DateTime dateTime) {}
 
     @Override
-    public void companyIsInsolvent(String playerId, IMultiPlayerGame game, CompanyModel company, DateTime dateTime) {
-
-    }
+    public void companyIsInsolvent(String playerId, IMultiPlayerGame game, CompanyModel company, DateTime dateTime) {}
 
     @Override
-    public void onExecuteStep(String playerId, IMultiPlayerGame game, CompanyModel company, DateTime dateTime) {
-
-    }
+    public void onExecuteStep(String playerId, IMultiPlayerGame game, CompanyModel company, DateTime dateTime) {}
 
     @Override
     public void onExecuteWorkingStep(String playerId, IMultiPlayerGame game, CompanyModel company, ProjectModel assignedProject, DateTime dateTime) {

@@ -12,7 +12,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author alekstheod Generic implementation of Observer design pattern.
  * @param <Listener>
  */
-public abstract class Observer<Listener> implements IObservable<Listener> {
+public class Observer<Listener> implements IObservable<Listener> {
 
     /**
      * A list of listeners.

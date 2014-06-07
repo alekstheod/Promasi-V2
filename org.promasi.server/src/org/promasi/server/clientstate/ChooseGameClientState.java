@@ -5,6 +5,7 @@ package org.promasi.server.clientstate;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import org.promasi.game.GameException;
 import org.promasi.game.GameFactory;
 import org.promasi.game.IGameFactory;
 import org.promasi.game.model.generated.CompanyModel;
@@ -27,6 +28,7 @@ import org.promasi.protocol.messages.UpdateAvailableGameListRequest;
 import org.promasi.protocol.messages.UpdateGameListRequest;
 import org.promasi.protocol.messages.WrongProtocolResponse;
 import org.promasi.server.ProMaSiServer;
+import org.promasi.utilities.exceptions.NullArgumentException;
 import org.promasi.utilities.logger.ILogger;
 import org.promasi.utilities.logger.LoggerFactory;
 
@@ -118,37 +120,17 @@ public class ChooseGameClientState implements IPromasiClientListener {
                 } catch (IllegalArgumentException e) {
                     client.send(new JoinGameFailedResponse());
                 }
-
             } else if (object instanceof CreateGameRequest) {
                 _logger.info("Received message :'" + CreateGameRequest.class.toString() + "'");
                 CreateGameRequest request = (CreateGameRequest) object;
                 GameModelModel gameModel = request.getGameModel();
-                if (gameModel == null) {
-                    _logger.warn("Invalid message detected gameModel == null, client will be disconnected");
-                    client.send(new WrongProtocolResponse());
-                    client.disconnect();
-                    return;
-                }
-
                 MarketPlaceModel marketPlace = gameModel.getMarketPlaceModel();
                 if (marketPlace == null) {
                     _logger.warn("Invalid message detected marketPlace == null, client will be disconnected");
                     client.send(new WrongProtocolResponse());
                     client.disconnect();
                 }
-
-                CompanyModel company = gameModel.getCompanyModel();
-                if (company == null) {
-                    _logger.warn("Invalid message detected company == null, client will be disconnected");
-                    client.send(new WrongProtocolResponse());
-                    client.disconnect();
-                }
-
-                Queue<Project> projects = new LinkedList<>();
-                for (ProjectModel currentProject : gameModel.getProjectModel()) {
-                    projects.add(_gameFactory.createProject(currentProject));
-                }
-
+                
                 MultiPlayerGame game = new MultiPlayerGame(_clientId,
                         gameModel,
                         _gameFactory.createMarketPlace(marketPlace),
@@ -171,7 +153,7 @@ public class ChooseGameClientState implements IPromasiClientListener {
                 client.send(new WrongProtocolResponse());
                 client.disconnect();
             }
-        } catch (Exception e) {
+        } catch (NetworkException | NullArgumentException | GameException e) {
             _logger.warn("Internal error client will be disconnected");
             client.send(new InternalErrorResponse());
             client.disconnect();
