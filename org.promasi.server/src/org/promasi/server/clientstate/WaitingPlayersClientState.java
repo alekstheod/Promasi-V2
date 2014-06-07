@@ -101,7 +101,7 @@ public class WaitingPlayersClientState implements IServerGameListener, IPromasiC
     public void onReceive(ProMaSiClient client, Message object) {
         try {
             if (object instanceof StartGameRequest) {
-                if (!_server.startGame(_clientId, _gameId)) {
+                if (!_server.startGame(_clientId)) {
                     client.send(new InternalErrorResponse());
                     client.disconnect();
                 }

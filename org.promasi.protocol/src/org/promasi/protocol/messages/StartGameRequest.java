@@ -35,37 +35,8 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "startGameRequest", propOrder = {
-    "gameId"
-})
+@XmlType(name = "startGameRequest")
 public class StartGameRequest
     extends Message
 {
-
-    protected String gameId;
-
-    /**
-     * Gets the value of the gameId property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getGameId() {
-        return gameId;
-    }
-
-    /**
-     * Sets the value of the gameId property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setGameId(String value) {
-        this.gameId = value;
-    }
-
 }

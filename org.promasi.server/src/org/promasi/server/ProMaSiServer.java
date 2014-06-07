@@ -209,29 +209,29 @@ public class ProMaSiServer implements IPromasiClientListener, ITcpServerListener
      * @param gameId Id of prepared game.
      * @return true if succeed, false otherwise.
      */
-    public boolean startGame(String clientId, String gameId) {
+    public boolean startGame(String clientId) {
         boolean result = false;
 
         try {
             _lockObject.lock();
-            if (clientId != null && gameId != null) {
-                if (_availableGames.containsKey(gameId)) {
-                    if (!_availableGames.get(gameId).startGame(clientId)) {
-                        _logger.error("Game start failed for game with id '" + gameId + "'");
+            if (clientId != null) {
+                if (_availableGames.containsKey(clientId)) {
+                    if (!_availableGames.get(clientId).startGame(clientId)) {
+                        _logger.error("Game start failed for game with id '" + clientId + "'");
                         return false;
                     }
 
-                    _availableGames.remove(gameId);
+                    _availableGames.remove(clientId);
                     for (Map.Entry<String, ProMaSiClient> entry : _clients.entrySet()) {
                         if (!entry.getKey().equals(clientId)) {
                             result = sendUpdateGamesListRequest(entry.getValue());
                         }
                     }
 
-                    _logger.info("Start game succeed for game '" + gameId + "'");
+                    _logger.info("Start game succeed for game '" + clientId + "'");
                 }
             } else {
-                _logger.warn("Start game failed for game '" + gameId + "' because no game with the same Id was found in the available games list");
+                _logger.warn("Start game failed for game '" + clientId + "' because no game with the same Id was found in the available games list");
             }
         } finally {
             _lockObject.unlock();
