@@ -20,7 +20,6 @@ import org.promasi.protocol.client.IPromasiClientListener;
 import org.promasi.protocol.client.ProMaSiClient;
 import org.promasi.protocol.messages.GameCanceledResponse;
 import org.promasi.protocol.messages.GameStartedRequest;
-import org.promasi.protocol.messages.GameStartedResponse;
 import org.promasi.protocol.messages.InternalErrorResponse;
 import org.promasi.protocol.messages.LeaveGameRequest;
 import org.promasi.protocol.messages.Message;
@@ -108,9 +107,7 @@ public class WaitingGameClientState implements IServerGameListener, IPromasiClie
     @Override
     public void onReceive(ProMaSiClient client, Message object) {
         try {
-            if (object instanceof GameStartedResponse) {
-
-            } else if (object instanceof MessageRequest) {
+            if (object instanceof MessageRequest) {
                 MessageRequest request = (MessageRequest) object;
                 _game.sendMessage(_clientId, request.getMessage());
             } else if (object instanceof GameCanceledResponse) {

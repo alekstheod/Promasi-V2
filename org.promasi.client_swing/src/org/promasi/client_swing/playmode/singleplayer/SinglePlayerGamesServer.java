@@ -14,6 +14,7 @@ import org.promasi.game.AGamesServer;
 import org.promasi.game.GameException;
 import org.promasi.game.GameFactory;
 import org.promasi.game.IGame;
+import org.promasi.game.IGamesServerListener;
 import org.promasi.game.singleplayer.SinglePlayerGame;
 import org.promasi.game.singleplayer.SinglePlayerGameFolder;
 import org.promasi.utilities.clock.IClock;
@@ -27,7 +28,7 @@ import org.promasi.utilities.spring.SpringApplicationContext;
  * This class is responsible to de-serialize the games which are available in
  * the games directory.
  */
-public class SinglePlayerGamesServer extends AGamesServer {
+public class SinglePlayerGamesServer extends AGamesServer<IGamesServerListener> {
 
     /**
      * Lock object needed for the threads synchronization.

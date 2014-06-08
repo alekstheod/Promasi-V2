@@ -8,7 +8,6 @@ import org.promasi.protocol.messages.LoginFailedResponse;
 import org.promasi.protocol.messages.LoginRequest;
 import org.promasi.protocol.messages.LoginResponse;
 import org.promasi.protocol.messages.Message;
-import org.promasi.protocol.messages.WrongProtocolResponse;
 import org.promasi.server.ProMaSiServer;
 import org.promasi.utilities.logger.ILogger;
 import org.promasi.utilities.logger.LoggerFactory;

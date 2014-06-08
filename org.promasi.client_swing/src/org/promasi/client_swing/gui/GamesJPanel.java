@@ -198,7 +198,6 @@ public class GamesJPanel extends JXPanel implements IGamesServerListener {
                     } catch (GuiException | IOException ex) {
                         _logger.error(ex.toString());
                     }
-                    
                 }
             });
         }

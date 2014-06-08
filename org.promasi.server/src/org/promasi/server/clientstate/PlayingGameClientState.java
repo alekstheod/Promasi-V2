@@ -21,7 +21,6 @@ import org.promasi.protocol.messages.DischargeEmployeeRequest;
 import org.promasi.protocol.messages.EmployeeDischargedRequest;
 import org.promasi.protocol.messages.EmployeeHiredRequest;
 import org.promasi.protocol.messages.GameFinishedRequest;
-import org.promasi.protocol.messages.GameStartedResponse;
 import org.promasi.protocol.messages.HireEmployeeRequest;
 import org.promasi.protocol.messages.InternalErrorResponse;
 import org.promasi.protocol.messages.LeaveGameRequest;
@@ -83,24 +82,9 @@ public class PlayingGameClientState implements IServerGameListener, IPromasiClie
      * argument.
      */
     public PlayingGameClientState(ProMaSiServer server, ProMaSiClient client, String clientId, MultiPlayerGame game) throws NetworkException {
-        if (game == null) {
-            _logger.error("Initialization failed because a wrong argument game == null");
+        if (game == null || clientId == null || client == null || server == null ) {
+            _logger.error("Initialization failed");
             throw new NetworkException("Wrong argument game==null");
-        }
-
-        if (clientId == null) {
-            _logger.error("Initialization failed because a wrong argument clientId == null");
-            throw new NetworkException("Wrong argument clientId==null");
-        }
-
-        if (client == null) {
-            _logger.error("Initialization failed because a wrong argument client == null");
-            throw new NetworkException("Wrong argument client==null");
-        }
-
-        if (server == null) {
-            _logger.error("Initialization failed because a wrong argument server == null");
-            throw new NetworkException("Wrong argument server==null");
         }
 
         _client = client;
@@ -108,7 +92,7 @@ public class PlayingGameClientState implements IServerGameListener, IPromasiClie
         _game = game;
         _game.addListener(this);
         _clientId = clientId;
-        _logger.debug("Initialization initializatin complete");
+        _logger.debug("Initialization complete");
     }
 
     @Override
@@ -120,7 +104,6 @@ public class PlayingGameClientState implements IServerGameListener, IPromasiClie
             } else if (object instanceof DischargeEmployeeRequest) {
                 DischargeEmployeeRequest request = (DischargeEmployeeRequest) object;
                 _game.dischargeEmployee(_clientId, request.getEmployeeId());
-            } else if (object instanceof GameStartedResponse) {
             } else if (object instanceof AssignEmployeeTasksRequest) {
                 AssignEmployeeTasksRequest request = (AssignEmployeeTasksRequest) object;
                 for( AssignEmployeeTasksRequest.EmployeeTasks.Entry entry : request.getTasks().getEntry() ){

@@ -25,7 +25,7 @@ import org.promasi.utilities.file.RootDirectory;
 public class NewGameGamesServer extends AGamesServer<IGamesServerListener> implements IMultiPlayerGamesServerListener {
 
     private final MultiPlayerGamesServer _onlineServer;
-    private final AGamesServer<NewGameGamesServer> _offlineServer;
+    private final AGamesServer<IGamesServerListener> _offlineServer;
     private final IMainFrame _mainFrame;
 
     public NewGameGamesServer(AGamesServer<?> server, IMainFrame frame) throws IOException {

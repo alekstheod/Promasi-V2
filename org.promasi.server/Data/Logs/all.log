@@ -1516,3 +1516,76 @@
 2014-06-08 14:32:25,436 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
 2014-06-08 14:32:25,437 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
 2014-06-08 14:32:26,023 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client disconnected
+2014-06-08 14:56:02,127 main INFO  org.promasi.server.Application - Application started
+2014-06-08 14:56:02,150 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-06-08 14:56:05,476 main INFO  org.promasi.server.Application - Application started
+2014-06-08 14:56:05,497 main ERROR org.promasi.server.ProMaSiServer - Server start failed
+2014-06-08 14:56:05,497 main FATAL org.promasi.server.Application - Server unabled to open the listening port (org.promasi.network.tcp.NetworkException: Wrong argument portNumber)
+2014-06-08 14:56:50,021 main INFO  org.promasi.server.Application - Application started
+2014-06-08 14:56:50,036 main ERROR org.promasi.server.ProMaSiServer - Server start failed
+2014-06-08 14:56:50,036 main FATAL org.promasi.server.Application - Server unabled to open the listening port (org.promasi.network.tcp.NetworkException: Wrong argument portNumber)
+2014-06-08 14:57:24,993 main INFO  org.promasi.server.Application - Application started
+2014-06-08 14:57:25,015 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-06-08 14:57:32,257 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-06-08 14:57:32,257 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-06-08 14:57:32,524 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-06-08 14:57:32,525 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-06-08 14:57:32,526 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-06-08 14:57:32,569 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-06-08 14:57:33,440 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.UpdateAvailableGameListRequest'
+2014-06-08 14:57:35,669 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.CreateGameRequest'
+2014-06-08 14:57:35,672 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 14:57:35,672 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 14:57:35,672 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 14:57:35,705 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 14:57:35,705 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 14:57:35,706 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 14:57:35,761 Thread-2 DEBUG org.promasi.game.company.Department - Initialization succeed
+2014-06-08 14:57:35,764 Thread-2 INFO  org.promasi.game.multiplayer.MultiPlayerGame - New multiplayer game initialization complete game owner:Company game id:Company
+2014-06-08 14:57:35,766 Thread-2 INFO  org.promasi.server.ProMaSiServer - New game created  with game id: 'Company'
+2014-06-08 14:57:37,390 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-06-08 14:57:37,438 Thread-2 INFO  org.promasi.server.ProMaSiServer - Start game succeed for game 'Company'
+2014-06-08 14:57:37,438 Thread-2 ERROR org.promasi.server.clientstate.WaitingGameClientState - Start game failed
+2014-06-08 14:58:53,171 main INFO  org.promasi.server.Application - Application started
+2014-06-08 14:58:53,194 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-06-08 14:59:00,826 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-06-08 14:59:00,826 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-06-08 14:59:01,092 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-06-08 14:59:01,092 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-06-08 14:59:01,094 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-06-08 14:59:01,136 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-06-08 14:59:01,970 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.UpdateAvailableGameListRequest'
+2014-06-08 14:59:03,264 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.CreateGameRequest'
+2014-06-08 14:59:03,266 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 14:59:03,266 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 14:59:03,266 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 14:59:03,325 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 14:59:03,325 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 14:59:03,325 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 14:59:03,412 Thread-2 DEBUG org.promasi.game.company.Department - Initialization succeed
+2014-06-08 14:59:03,417 Thread-2 INFO  org.promasi.game.multiplayer.MultiPlayerGame - New multiplayer game initialization complete game owner:Company game id:Company
+2014-06-08 14:59:03,419 Thread-2 INFO  org.promasi.server.ProMaSiServer - New game created  with game id: 'Company'
+2014-06-08 14:59:11,614 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-06-08 15:54:04,877 main INFO  org.promasi.server.Application - Application started
+2014-06-08 15:54:04,899 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-06-08 15:54:10,053 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-06-08 15:54:10,053 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-06-08 15:54:10,330 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-06-08 15:54:10,330 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-06-08 15:54:10,332 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-06-08 15:54:10,371 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-06-08 15:54:11,144 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.UpdateAvailableGameListRequest'
+2014-06-08 15:54:12,675 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.CreateGameRequest'
+2014-06-08 15:54:12,678 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 15:54:12,678 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 15:54:12,678 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 15:54:12,713 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 15:54:12,713 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 15:54:12,713 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 15:54:12,771 Thread-2 DEBUG org.promasi.game.company.Department - Initialization succeed
+2014-06-08 15:54:12,774 Thread-2 INFO  org.promasi.game.multiplayer.MultiPlayerGame - New multiplayer game initialization complete game owner:Company game id:Company
+2014-06-08 15:54:12,775 Thread-2 INFO  org.promasi.server.ProMaSiServer - New game created  with game id: 'Company'
+2014-06-08 15:54:15,169 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-06-08 15:54:15,244 Thread-2 INFO  org.promasi.server.ProMaSiServer - Update games request was sent to the client with
+2014-06-08 15:54:15,244 Thread-2 INFO  org.promasi.server.ProMaSiServer - Start game succeed for game 'Company'
+2014-06-08 15:54:16,203 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client disconnected

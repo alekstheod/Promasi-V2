@@ -26,7 +26,11 @@ import org.promasi.utils_swing.GuiException;
  */
 public class WaitingPlayersJPanel extends javax.swing.JPanel implements IMultiPlayerGamesServerListener {
 
-    private final MultiPlayerGamesServer _server;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final MultiPlayerGamesServer _server;
     private final IGame _game;
     private final IMainFrame _mainFrame;
     private final ILogger _logger = LoggerFactory.getInstance(WaitingPlayersJPanel.class);

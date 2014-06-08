@@ -17,7 +17,7 @@ public class Observer<Listener> implements IObservable<Listener> {
     /**
      * A list of listeners.
      */
-    private final List< Listener> _listeners;
+    private final List< Listener > _listeners;
 
     /**
      * Lock object needed to lock the listeners list.
@@ -49,7 +49,7 @@ public class Observer<Listener> implements IObservable<Listener> {
      * @return A copy of the listeners list.
      */
     @Override
-    public List< Listener> getListeners() {
+    public List< Listener > getListeners() {
         try {
             _lockObject.lock();
             return new LinkedList<>(_listeners);

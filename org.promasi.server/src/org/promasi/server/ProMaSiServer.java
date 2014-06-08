@@ -206,26 +206,21 @@ public class ProMaSiServer implements IPromasiClientListener, ITcpServerListener
      * game.
      *
      * @param clientId The client id.
-     * @param gameId Id of prepared game.
      * @return true if succeed, false otherwise.
      */
-    public boolean startGame(String clientId) {
-        boolean result = false;
-
+    public void startGame(String clientId) {
         try {
             _lockObject.lock();
             if (clientId != null) {
                 if (_availableGames.containsKey(clientId)) {
                     if (!_availableGames.get(clientId).startGame(clientId)) {
                         _logger.error("Game start failed for game with id '" + clientId + "'");
-                        return false;
+                        return;
                     }
 
                     _availableGames.remove(clientId);
                     for (Map.Entry<String, ProMaSiClient> entry : _clients.entrySet()) {
-                        if (!entry.getKey().equals(clientId)) {
-                            result = sendUpdateGamesListRequest(entry.getValue());
-                        }
+                        sendUpdateGamesListRequest(entry.getValue());
                     }
 
                     _logger.info("Start game succeed for game '" + clientId + "'");
@@ -236,8 +231,6 @@ public class ProMaSiServer implements IPromasiClientListener, ITcpServerListener
         } finally {
             _lockObject.unlock();
         }
-
-        return result;
     }
 
     /**

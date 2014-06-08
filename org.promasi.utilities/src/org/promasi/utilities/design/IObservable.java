@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * @author alekstheod
+ * @param <Listener>
  *
  */
 public interface IObservable<Listener> {
@@ -21,7 +22,7 @@ public interface IObservable<Listener> {
 	 * @param listener instance of class which represent the listener.
 	 * @return true if succeed, false otherwise
 	 */
-	public boolean addListener( Listener listener );
+	public boolean addListener(Listener listener);
 	
 	/**
 	 * Will remove a given listener from the listeners list.

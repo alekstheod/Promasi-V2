@@ -5,7 +5,6 @@ package org.promasi.server.clientstate;
 
 import java.util.List;
 import java.util.Map;
-
 import org.joda.time.DateTime;
 import org.promasi.game.model.generated.CompanyModel;
 import org.promasi.game.model.generated.EmployeeModel;
@@ -21,7 +20,6 @@ import org.promasi.protocol.client.IPromasiClientListener;
 import org.promasi.protocol.client.ProMaSiClient;
 import org.promasi.protocol.messages.CancelGameRequest;
 import org.promasi.protocol.messages.GameStartedRequest;
-import org.promasi.protocol.messages.GameStartedResponse;
 import org.promasi.protocol.messages.InternalErrorResponse;
 import org.promasi.protocol.messages.Message;
 import org.promasi.protocol.messages.MessageRequest;
@@ -64,28 +62,16 @@ public class WaitingPlayersClientState implements IServerGameListener, IPromasiC
 
     /**
      *
+     * @param clientId
+     * @param gameId
+     * @param client
      * @param game
+     * @param server
      * @throws NullArgumentException
      */
     public WaitingPlayersClientState(String clientId, String gameId, ProMaSiClient client, MultiPlayerGame game, ProMaSiServer server) throws NullArgumentException {
-        if (clientId == null) {
-            throw new NullArgumentException("Wrong argument clientId==null");
-        }
-
-        if (game == null) {
-            throw new NullArgumentException("Wrong argument game==null");
-        }
-
-        if (client == null) {
-            throw new NullArgumentException("Wrong argument client==null");
-        }
-
-        if (server == null) {
-            throw new NullArgumentException("Wrong argument server==null");
-        }
-
-        if (gameId == null) {
-            throw new NullArgumentException("Wrong argument gameId==null");
+        if (clientId == null ||gameId == null || game == null || client == null || server == null ) {
+            throw new NullArgumentException("Invalid argument");
         }
 
         _game = game;
@@ -103,9 +89,7 @@ public class WaitingPlayersClientState implements IServerGameListener, IPromasiC
     public void onReceive(ProMaSiClient client, Message object) {
         try {
             if (object instanceof StartGameRequest) {
-                if (_server.startGame(_clientId)) {
-                    client.send(new GameStartedResponse());
-                }
+                _server.startGame(_clientId);
             } else if (object instanceof MessageRequest) {
                 MessageRequest request = (MessageRequest) object;
                 _game.sendMessage(_clientId, request.getMessage());

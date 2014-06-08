@@ -22,7 +22,6 @@ import org.promasi.protocol.client.ProMaSiClient;
 import org.promasi.protocol.messages.AssignEmployeeTasksRequest;
 import org.promasi.protocol.messages.DischargeEmployeeRequest;
 import org.promasi.protocol.messages.GameStartedRequest;
-import org.promasi.protocol.messages.GameStartedResponse;
 import org.promasi.protocol.messages.HireEmployeeRequest;
 import org.promasi.protocol.messages.Message;
 import org.promasi.protocol.messages.StartGameRequest;
@@ -59,7 +58,7 @@ public class MultiPlayerGame implements IGame {
 
             @Override
             public void onReceive(ProMaSiClient client, Message message) {
-                if( (message instanceof GameStartedRequest) || (message instanceof GameStartedResponse) ){
+                if( (message instanceof GameStartedRequest) ){
                     for(IClientGameListener listener : _clientGameListeners.getListeners() ){
                         listener.gameStarted(MultiPlayerGame.this, _model, null);
                     }

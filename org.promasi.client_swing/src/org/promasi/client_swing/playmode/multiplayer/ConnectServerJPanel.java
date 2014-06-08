@@ -24,7 +24,11 @@ import org.promasi.utils_swing.Painters;
  */
 public class ConnectServerJPanel extends JXPanel {
 
-    private final IMainFrame _mainFrame;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final IMainFrame _mainFrame;
     
     /**
      * Creates new form ConnectServerJPanel

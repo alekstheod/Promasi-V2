@@ -51,7 +51,6 @@ import javax.xml.bind.annotation.XmlType;
     LeaveGameRequest.class,
     LeaveGameResponse.class,
     ProjectFinishedRequest.class,
-    GameStartedResponse.class,
     HireEmployeeRequest.class,
     AssignEmployeeTasksRequest.class,
     WrongProtocolResponse.class,

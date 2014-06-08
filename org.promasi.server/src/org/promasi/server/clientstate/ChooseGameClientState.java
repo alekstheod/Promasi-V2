@@ -3,17 +3,12 @@
  */
 package org.promasi.server.clientstate;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import org.promasi.game.GameException;
 import org.promasi.game.GameFactory;
 import org.promasi.game.IGameFactory;
-import org.promasi.game.model.generated.CompanyModel;
 import org.promasi.game.model.generated.GameModelModel;
 import org.promasi.game.model.generated.MarketPlaceModel;
-import org.promasi.game.model.generated.ProjectModel;
 import org.promasi.game.multiplayer.MultiPlayerGame;
-import org.promasi.game.project.Project;
 import org.promasi.network.tcp.NetworkException;
 import org.promasi.protocol.client.IPromasiClientListener;
 import org.promasi.protocol.client.ProMaSiClient;

@@ -76,16 +76,8 @@ public class SinglePlayerGame extends Observer<IClientGameListener> implements I
      * @throws GameException
      */
     public SinglePlayerGame(AGamesServer<?> gamesServer, GameModel gameModel, IClock systemClock) throws GameException {
-        if (gameModel == null) {
-            throw new GameException("Wrong argument gameModel==null");
-        }
-
-        if (gamesServer == null) {
-            throw new GameException("Wrong argument gamesServer==null");
-        }
-
-        if (systemClock == null) {
-            throw new GameException("Wrong argument systemClock == null");
+        if (gameModel == null || gamesServer == null || systemClock == null ) {
+            throw new GameException("Wrong argument");
         }
 
         _isRunning = false;
