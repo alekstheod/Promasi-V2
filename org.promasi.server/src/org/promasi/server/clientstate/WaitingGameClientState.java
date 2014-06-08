@@ -102,18 +102,18 @@ public class WaitingGameClientState implements IServerGameListener, IPromasiClie
     /**
      *
      * @param client
-     * @param object
+     * @param message
      */
     @Override
-    public void onReceive(ProMaSiClient client, Message object) {
+    public void onReceive(ProMaSiClient client, Message message) {
         try {
-            if (object instanceof MessageRequest) {
-                MessageRequest request = (MessageRequest) object;
+            if (message instanceof MessageRequest) {
+                MessageRequest request = (MessageRequest) message;
                 _game.sendMessage(_clientId, request.getMessage());
-            } else if (object instanceof GameCanceledResponse) {
+            } else if (message instanceof GameCanceledResponse) {
                 client.removeListener(this);
                 client.addListener(new ChooseGameClientState(_server, client, _clientId));
-            } else if (object instanceof LeaveGameRequest) {
+            } else if (message instanceof LeaveGameRequest) {
                 _server.leaveGame(_gameId, _clientId);
                 client.removeListener(this);
                 client.addListener(new ChooseGameClientState(_server, client, _clientId));

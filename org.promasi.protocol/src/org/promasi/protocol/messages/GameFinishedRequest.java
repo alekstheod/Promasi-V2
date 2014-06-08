@@ -17,77 +17,9 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import org.promasi.game.model.generated.GameModelModel;
+import org.promasi.protocol.client.Protocol;
 
-/**
- * <p>Java class for gameFinishedRequest complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="gameFinishedRequest">
- *   &lt;complexContent>
- *     &lt;extension base="{}message">
- *       &lt;sequence>
- *         &lt;element name="clientId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="gameModel" minOccurs="0">
- *           &lt;complexType>
- *             &lt;complexContent>
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *                 &lt;sequence>
- *                   &lt;element ref="{}companyModel"/>
- *                   &lt;element name="gameDescription" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *                   &lt;element name="gameName" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *                   &lt;element ref="{}marketPlaceModel"/>
- *                   &lt;element ref="{}projectModel" maxOccurs="unbounded"/>
- *                 &lt;/sequence>
- *               &lt;/restriction>
- *             &lt;/complexContent>
- *           &lt;/complexType>
- *         &lt;/element>
- *         &lt;element name="otherPlayersModels">
- *           &lt;complexType>
- *             &lt;complexContent>
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *                 &lt;sequence>
- *                   &lt;element name="entry" maxOccurs="unbounded" minOccurs="0">
- *                     &lt;complexType>
- *                       &lt;complexContent>
- *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *                           &lt;sequence>
- *                             &lt;element name="key" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                             &lt;element name="value" minOccurs="0">
- *                               &lt;complexType>
- *                                 &lt;complexContent>
- *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *                                     &lt;sequence>
- *                                       &lt;element ref="{}companyModel"/>
- *                                       &lt;element name="gameDescription" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *                                       &lt;element name="gameName" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *                                       &lt;element ref="{}marketPlaceModel"/>
- *                                       &lt;element ref="{}projectModel" maxOccurs="unbounded"/>
- *                                     &lt;/sequence>
- *                                   &lt;/restriction>
- *                                 &lt;/complexContent>
- *                               &lt;/complexType>
- *                             &lt;/element>
- *                           &lt;/sequence>
- *                         &lt;/restriction>
- *                       &lt;/complexContent>
- *                     &lt;/complexType>
- *                   &lt;/element>
- *                 &lt;/sequence>
- *               &lt;/restriction>
- *             &lt;/complexContent>
- *           &lt;/complexType>
- *         &lt;/element>
- *       &lt;/sequence>
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "gameFinishedRequest", propOrder = {
@@ -117,6 +49,11 @@ public class GameFinishedRequest
         }
     }
 
+     @Override
+    public Message dispatch(Protocol protocol) {
+        return protocol.dispatch(this);
+    }   
+    
     /**
      * Gets the value of the clientId property.
      * 

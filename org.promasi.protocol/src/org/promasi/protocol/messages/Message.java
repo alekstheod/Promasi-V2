@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
+import org.promasi.protocol.client.Protocol;
 
 
 /**
@@ -72,4 +73,5 @@ import javax.xml.bind.annotation.XmlType;
 })
 public abstract class Message
 {
+    public abstract Message dispatch(Protocol proto);
 }

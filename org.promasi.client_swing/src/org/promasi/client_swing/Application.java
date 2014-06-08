@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.promasi.client_swing;
 
@@ -20,62 +20,62 @@ import org.promasi.utils_swing.GuiException;
 
 /**
  * @author alekstheod
- * 
+ *
  */
 public class Application {
 
-	/**
-	 * Logger
-	 */
-	private static final ILogger _logger = LoggerFactory
-			.getInstance(Application.class);
+    /**
+     * Logger
+     */
+    private static final ILogger _logger = LoggerFactory
+            .getInstance(Application.class);
 
-	public static void run() {
-		com.jidesoft.utils.Lm.verifyLicense("Alex Theodoridis", "ProMaSi",
-				"BYEuilHJx9N.HdDrNJDzRmot.sJAFQF2");
-		_logger.info("Start application");
-		if (SpringApplicationContext.getInstance().init("promasi_beans.xml")) {
-			SwingUtilities.invokeLater(new Runnable() {
-				public void run() {
-					try {
+    public static void run() {
+        com.jidesoft.utils.Lm.verifyLicense("Alex Theodoridis", "ProMaSi",
+                "BYEuilHJx9N.HdDrNJDzRmot.sJAFQF2");
+        _logger.info("Start application");
+        if (SpringApplicationContext.getInstance().init("promasi_beans.xml")) {
+            SwingUtilities.invokeLater(new Runnable() {
+                public void run() {
+                    try {
 
-						try {
+                        try {
 							// com.jtattoo.plaf.acryl.AcrylLookAndFeel.setTheme("Blue",
-							// "INSERT YOUR LICENSE KEY HERE", "my company");
-							// UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
-							UIManager
-									.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
-							// com.jtattoo.plaf.mcwin.McWinLookAndFeel
-						} catch (Exception e) {
-							_logger.warn("Theme applying failed");
-						}
+                            // "INSERT YOUR LICENSE KEY HERE", "my company");
+                            // UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
+                            UIManager
+                                    .setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
+                            // com.jtattoo.plaf.mcwin.McWinLookAndFeel
+                        } catch (Exception e) {
+                            _logger.warn("Theme applying failed");
+                        }
 
-						MainFrame mainFrame = new MainFrame("ProMaSi");
-						mainFrame.setLayout(new FlowLayout());
-						mainFrame.pack();
-						mainFrame
-								.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-						mainFrame.enableWizardMode();
-						mainFrame.setLayout(new BorderLayout());
+                        MainFrame mainFrame = new MainFrame("ProMaSi");
+                        mainFrame.setLayout(new FlowLayout());
+                        mainFrame.pack();
+                        mainFrame
+                                .setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        mainFrame.enableWizardMode();
+                        mainFrame.setLayout(new BorderLayout());
 
-						JPanel panel;
-						panel = new PlayModesJPanel(mainFrame);
-						mainFrame.changePanel(panel);
-						mainFrame.setVisible(true);
-					} catch (GuiException e) {
-						e.printStackTrace();
-					}
-				}
-			});
-		}
-	}
+                        JPanel panel;
+                        panel = new PlayModesJPanel(mainFrame);
+                        mainFrame.changePanel(panel);
+                        mainFrame.setVisible(true);
+                    } catch (GuiException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
+    }
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		GameMaker.makeGame();
-		run();
-	}
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        GameMaker.makeGame();
+        run();
+    }
 
 }

@@ -13,6 +13,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import org.promasi.game.model.generated.GameModelModel;
+import org.promasi.protocol.client.Protocol;
 
 
 /**
@@ -68,6 +69,11 @@ public class GameStartedRequest
         this.dateTime = dateTime;
     }
 
+     @Override
+    public Message dispatch(Protocol protocol) {
+        return protocol.dispatch(this);
+    }   
+    
     /**
      * Gets the value of the dateTime property.
      * 

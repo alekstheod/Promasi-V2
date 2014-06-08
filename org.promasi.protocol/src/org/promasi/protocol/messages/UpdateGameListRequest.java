@@ -4,8 +4,6 @@
 // Any modifications to this file will be lost upon recompilation of the source schema. 
 // Generated on: 2014.05.30 at 11:14:44 PM CEST 
 //
-
-
 package org.promasi.protocol.messages;
 
 import java.util.ArrayList;
@@ -16,13 +14,16 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-
+import org.promasi.protocol.client.Protocol;
 
 /**
- * <p>Java class for updateGameListRequest complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
+ * Java class for updateGameListRequest complex type.
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ *
  * <pre>
  * &lt;complexType name="updateGameListRequest">
  *   &lt;complexContent>
@@ -55,8 +56,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -64,20 +65,25 @@ import javax.xml.bind.annotation.XmlType;
     "availableGames"
 })
 public class UpdateGameListRequest
-    extends Message
-{
-    public UpdateGameListRequest(){}
-    
-    public UpdateGameListRequest(Map<String, String> gamesList){
-        for(Map.Entry<String, String> entry : gamesList.entrySet() ){
+        extends Message {
+
+    public UpdateGameListRequest() {
+    }
+
+    public UpdateGameListRequest(Map<String, String> gamesList) {
+        for (Map.Entry<String, String> entry : gamesList.entrySet()) {
             AvailableGames.Entry newEntry = new AvailableGames.Entry();
             newEntry.setKey(entry.getKey());
             newEntry.setValue(entry.getValue());
             this.availableGames = new AvailableGames();
-            this.availableGames.getEntry().add( newEntry );
+            this.availableGames.getEntry().add(newEntry);
         }
-        
-        
+
+    }
+
+    @Override
+    public Message dispatch(Protocol protocol) {
+        return protocol.dispatch(this);
     }
     
     @XmlElement(required = true)
@@ -85,11 +91,9 @@ public class UpdateGameListRequest
 
     /**
      * Gets the value of the availableGames property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link UpdateGameListRequest.AvailableGames }
-     *     
+     *
+     * @return possible object is {@link UpdateGameListRequest.AvailableGames }
+     *
      */
     public UpdateGameListRequest.AvailableGames getAvailableGames() {
         return availableGames;
@@ -97,22 +101,23 @@ public class UpdateGameListRequest
 
     /**
      * Sets the value of the availableGames property.
-     * 
-     * @param value
-     *     allowed object is
+     *
+     * @param value allowed object is
      *     {@link UpdateGameListRequest.AvailableGames }
-     *     
+     *
      */
     public void setAvailableGames(UpdateGameListRequest.AvailableGames value) {
         this.availableGames = value;
     }
 
-
     /**
-     * <p>Java class for anonymous complex type.
-     * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     * <p>
+     * Java class for anonymous complex type.
+     *
+     * <p>
+     * The following schema fragment specifies the expected content contained
+     * within this class.
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -135,8 +140,8 @@ public class UpdateGameListRequest
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
@@ -148,25 +153,25 @@ public class UpdateGameListRequest
 
         /**
          * Gets the value of the entry property.
-         * 
+         *
          * <p>
-         * This accessor method returns a reference to the live list,
-         * not a snapshot. Therefore any modification you make to the
-         * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the entry property.
-         * 
+         * This accessor method returns a reference to the live list, not a
+         * snapshot. Therefore any modification you make to the returned list
+         * will be present inside the JAXB object. This is why there is not a
+         * <CODE>set</CODE> method for the entry property.
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getEntry().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link UpdateGameListRequest.AvailableGames.Entry }
-         * 
-         * 
+         *
+         *
          */
         public List<UpdateGameListRequest.AvailableGames.Entry> getEntry() {
             if (entry == null) {
@@ -175,12 +180,14 @@ public class UpdateGameListRequest
             return this.entry;
         }
 
-
         /**
-         * <p>Java class for anonymous complex type.
-         * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
+         * <p>
+         * Java class for anonymous complex type.
+         *
+         * <p>
+         * The following schema fragment specifies the expected content
+         * contained within this class.
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -193,8 +200,8 @@ public class UpdateGameListRequest
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
@@ -208,11 +215,9 @@ public class UpdateGameListRequest
 
             /**
              * Gets the value of the key property.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getKey() {
                 return key;
@@ -220,11 +225,9 @@ public class UpdateGameListRequest
 
             /**
              * Sets the value of the key property.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setKey(String value) {
                 this.key = value;
@@ -232,11 +235,9 @@ public class UpdateGameListRequest
 
             /**
              * Gets the value of the value property.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getValue() {
                 return value;
@@ -244,11 +245,9 @@ public class UpdateGameListRequest
 
             /**
              * Sets the value of the value property.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setValue(String value) {
                 this.value = value;

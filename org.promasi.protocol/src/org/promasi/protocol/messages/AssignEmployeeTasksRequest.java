@@ -17,6 +17,7 @@ import javax.xml.bind.annotation.XmlType;
 import org.promasi.game.model.generated.DepartmentModel;
 import org.promasi.game.model.generated.EmployeeModel;
 import org.promasi.game.model.generated.EmployeeTaskModel;
+import org.promasi.protocol.client.Protocol;
 
 /**
  * <p>
@@ -57,13 +58,18 @@ public class AssignEmployeeTasksRequest
     public AssignEmployeeTasksRequest() {
     }
 
-    public AssignEmployeeTasksRequest(Map<String, List<EmployeeTaskModel> > tasks) {
-        for( Map.Entry<String, List<EmployeeTaskModel> > entry : tasks.entrySet() ){
+    public AssignEmployeeTasksRequest(Map<String, List<EmployeeTaskModel>> tasks) {
+        for (Map.Entry<String, List<EmployeeTaskModel>> entry : tasks.entrySet()) {
             EmployeeTasks.Entry newEntry = new EmployeeTasks.Entry();
             newEntry.setKey(entry.getKey());
             newEntry.setValue(entry.getValue());
-            this.tasks.getEntry().add(newEntry); 
+            this.tasks.getEntry().add(newEntry);
         }
+    }
+
+    @Override
+    public Message dispatch(Protocol protocol) {
+        return protocol.dispatch(this);
     }
 
     /**
@@ -227,4 +233,3 @@ public class AssignEmployeeTasksRequest
 
     }
 }
-    

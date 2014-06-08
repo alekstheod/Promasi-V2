@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package org.promasi.client_swing.playmode.multiplayer;
 
 import java.util.logging.Level;
@@ -25,16 +24,17 @@ import org.promasi.utils_swing.Painters;
 public class ConnectServerJPanel extends JXPanel {
 
     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private final IMainFrame _mainFrame;
-    
+     *
+     */
+    private static final long serialVersionUID = 1L;
+    private final IMainFrame _mainFrame;
+
     /**
      * Creates new form ConnectServerJPanel
+     *
      * @param mainFrame
      */
-    public ConnectServerJPanel(IMainFrame mainFrame){
+    public ConnectServerJPanel(IMainFrame mainFrame) {
         initComponents();
         _mainFrame = mainFrame;
         setBackgroundPainter(Painters.Background);
@@ -138,7 +138,7 @@ public class ConnectServerJPanel extends JXPanel {
 
     private void _connectButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event__connectButtonMouseClicked
         try {
-            ProMaSiClient client = new ProMaSiClient(new TcpClient(_ipField.getText(), Integer.parseInt(_portField.getText() )), new ZipCompression() );
+            ProMaSiClient client = new ProMaSiClient(new TcpClient(_ipField.getText(), Integer.parseInt(_portField.getText())), new ZipCompression());
             MultiPlayerGamesServer server = new MultiPlayerGamesServer(_idField.getText(), client);
             GamesJPanel newPanel = new GamesJPanel(_mainFrame, server, _idField.getText());
             _mainFrame.changePanel(newPanel);

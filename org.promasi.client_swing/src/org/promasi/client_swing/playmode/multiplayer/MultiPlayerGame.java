@@ -7,6 +7,7 @@ package org.promasi.client_swing.playmode.multiplayer;
 
 import java.util.List;
 import java.util.Map;
+import org.joda.time.DateTime;
 import org.promasi.game.AGamesServer;
 import org.promasi.game.GameException;
 import org.promasi.game.IGame;
@@ -19,11 +20,13 @@ import org.promasi.game.model.generated.GameModelModel;
 import org.promasi.game.singleplayer.IClientGameListener;
 import org.promasi.protocol.client.IPromasiClientListener;
 import org.promasi.protocol.client.ProMaSiClient;
+import org.promasi.protocol.client.Protocol;
 import org.promasi.protocol.messages.AssignEmployeeTasksRequest;
 import org.promasi.protocol.messages.DischargeEmployeeRequest;
 import org.promasi.protocol.messages.GameStartedRequest;
 import org.promasi.protocol.messages.HireEmployeeRequest;
 import org.promasi.protocol.messages.Message;
+import org.promasi.protocol.messages.OnExecuteStepRequest;
 import org.promasi.protocol.messages.StartGameRequest;
 import org.promasi.utilities.design.Observer;
 
@@ -58,10 +61,28 @@ public class MultiPlayerGame implements IGame {
 
             @Override
             public void onReceive(ProMaSiClient client, Message message) {
-                if( (message instanceof GameStartedRequest) ){
-                    for(IClientGameListener listener : _clientGameListeners.getListeners() ){
-                        listener.gameStarted(MultiPlayerGame.this, _model, null);
+                message = message.dispatch(new Protocol() {
+                    @Override
+                    public Message dispatch(GameStartedRequest request) {
+                        for (IClientGameListener listener : _clientGameListeners.getListeners()) {
+                            listener.gameStarted(MultiPlayerGame.this, _model, null);
+                        }
+                        
+                        return null;
                     }
+
+                    @Override
+                    public Message dispatch(OnExecuteStepRequest request) {
+                        for (IClientGameListener listener : _clientGameListeners.getListeners()) {
+                            listener.onExecuteStep(MultiPlayerGame.this, request.getCompany(), new DateTime(request.getDateTime()));
+                        }
+                        
+                        return null;
+                    }
+                });
+                
+                if(message != null ){
+                    _client.send(message);
                 }
             }
 

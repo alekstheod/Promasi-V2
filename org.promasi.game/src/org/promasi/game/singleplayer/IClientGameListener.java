@@ -41,7 +41,6 @@ public interface IClientGameListener
 	 * 
 	 * @param game
 	 * @param company
-	 * @param assignedProject
 	 * @param dateTime
 	 */
 	public void onExecuteStep(IGame game, CompanyModel company, DateTime dateTime);

@@ -4,8 +4,6 @@
 // Any modifications to this file will be lost upon recompilation of the source schema. 
 // Generated on: 2014.05.30 at 11:14:44 PM CEST 
 //
-
-
 package org.promasi.protocol.messages;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,77 +13,8 @@ import javax.xml.bind.annotation.XmlType;
 import org.promasi.game.model.generated.CompanyModel;
 import org.promasi.game.model.generated.EmployeeModel;
 import org.promasi.game.model.generated.MarketPlaceModel;
+import org.promasi.protocol.client.Protocol;
 
-
-/**
- * <p>Java class for employeeDischargedRequest complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType name="employeeDischargedRequest">
- *   &lt;complexContent>
- *     &lt;extension base="{}message">
- *       &lt;sequence>
- *         &lt;element name="company" minOccurs="0">
- *           &lt;complexType>
- *             &lt;complexContent>
- *               &lt;extension base="{}aGameModel">
- *                 &lt;sequence>
- *                   &lt;element name="_name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                   &lt;element name="_description" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                   &lt;element name="_startTime" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                   &lt;element name="_endTime" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                   &lt;element name="_itDepartment" type="{}departmentModel" minOccurs="0"/>
- *                   &lt;element name="_budget" type="{http://www.w3.org/2001/XMLSchema}double"/>
- *                   &lt;element name="_prestigePoints" type="{http://www.w3.org/2001/XMLSchema}double"/>
- *                 &lt;/sequence>
- *               &lt;/extension>
- *             &lt;/complexContent>
- *           &lt;/complexType>
- *         &lt;/element>
- *         &lt;element name="dateTime" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="employee" type="{}employeeModel" minOccurs="0"/>
- *         &lt;element name="marketPlace" minOccurs="0">
- *           &lt;complexType>
- *             &lt;complexContent>
- *               &lt;extension base="{}aGameModel">
- *                 &lt;sequence>
- *                   &lt;element name="_availableEmployees">
- *                     &lt;complexType>
- *                       &lt;complexContent>
- *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *                           &lt;sequence>
- *                             &lt;element name="entry" maxOccurs="unbounded" minOccurs="0">
- *                               &lt;complexType>
- *                                 &lt;complexContent>
- *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *                                     &lt;sequence>
- *                                       &lt;element name="key" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *                                       &lt;element name="value" type="{}employeeModel" minOccurs="0"/>
- *                                     &lt;/sequence>
- *                                   &lt;/restriction>
- *                                 &lt;/complexContent>
- *                               &lt;/complexType>
- *                             &lt;/element>
- *                           &lt;/sequence>
- *                         &lt;/restriction>
- *                       &lt;/complexContent>
- *                     &lt;/complexType>
- *                   &lt;/element>
- *                 &lt;/sequence>
- *               &lt;/extension>
- *             &lt;/complexContent>
- *           &lt;/complexType>
- *         &lt;/element>
- *       &lt;/sequence>
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "employeeDischargedRequest", propOrder = {
@@ -95,15 +24,16 @@ import org.promasi.game.model.generated.MarketPlaceModel;
     "marketPlace"
 })
 public class EmployeeDischargedRequest
-    extends Message
-{
+        extends Message {
 
     protected CompanyModel company;
     protected String dateTime;
     protected EmployeeModel employee;
     protected MarketPlaceModel marketPlace;
 
-    public EmployeeDischargedRequest(){}
+    public EmployeeDischargedRequest() {
+    }
+
     public EmployeeDischargedRequest(MarketPlaceModel marketPlace, CompanyModel company, EmployeeModel employee, String dateTime) {
         this.company = company;
         this.marketPlace = marketPlace;
@@ -111,13 +41,16 @@ public class EmployeeDischargedRequest
         this.dateTime = dateTime;
     }
 
+    @Override
+    public Message dispatch(Protocol protocol) {
+        return protocol.dispatch(this);
+    }
+
     /**
      * Gets the value of the company property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link EmployeeDischargedRequest.Company }
-     *     
+     *
+     * @return possible object is {@link EmployeeDischargedRequest.Company }
+     *
      */
     public CompanyModel getCompany() {
         return company;
@@ -125,11 +58,9 @@ public class EmployeeDischargedRequest
 
     /**
      * Sets the value of the company property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link EmployeeDischargedRequest.Company }
-     *     
+     *
+     * @param value allowed object is {@link EmployeeDischargedRequest.Company }
+     *
      */
     public void setCompany(CompanyModel value) {
         this.company = value;
@@ -137,11 +68,9 @@ public class EmployeeDischargedRequest
 
     /**
      * Gets the value of the dateTime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getDateTime() {
         return dateTime;
@@ -149,11 +78,9 @@ public class EmployeeDischargedRequest
 
     /**
      * Sets the value of the dateTime property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setDateTime(String value) {
         this.dateTime = value;
@@ -161,11 +88,9 @@ public class EmployeeDischargedRequest
 
     /**
      * Gets the value of the employee property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link EmployeeModel }
-     *     
+     *
+     * @return possible object is {@link EmployeeModel }
+     *
      */
     public EmployeeModel getEmployee() {
         return employee;
@@ -173,11 +98,9 @@ public class EmployeeDischargedRequest
 
     /**
      * Sets the value of the employee property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link EmployeeModel }
-     *     
+     *
+     * @param value allowed object is {@link EmployeeModel }
+     *
      */
     public void setEmployee(EmployeeModel value) {
         this.employee = value;
@@ -185,11 +108,9 @@ public class EmployeeDischargedRequest
 
     /**
      * Gets the value of the marketPlace property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link EmployeeDischargedRequest.MarketPlace }
-     *     
+     *
+     * @return possible object is {@link EmployeeDischargedRequest.MarketPlace }
+     *
      */
     public MarketPlaceModel getMarketPlace() {
         return marketPlace;
@@ -197,11 +118,10 @@ public class EmployeeDischargedRequest
 
     /**
      * Sets the value of the marketPlace property.
-     * 
-     * @param value
-     *     allowed object is
+     *
+     * @param value allowed object is
      *     {@link EmployeeDischargedRequest.MarketPlace }
-     *     
+     *
      */
     public void setMarketPlace(MarketPlaceModel value) {
         this.marketPlace = value;

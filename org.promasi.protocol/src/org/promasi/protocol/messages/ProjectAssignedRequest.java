@@ -4,8 +4,6 @@
 // Any modifications to this file will be lost upon recompilation of the source schema. 
 // Generated on: 2014.05.30 at 11:14:44 PM CEST 
 //
-
-
 package org.promasi.protocol.messages;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -14,13 +12,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import org.promasi.game.model.generated.CompanyModel;
 import org.promasi.game.model.generated.ProjectModel;
-
+import org.promasi.protocol.client.Protocol;
 
 /**
- * <p>Java class for projectAssignedRequest complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
+ * Java class for projectAssignedRequest complex type.
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ *
  * <pre>
  * &lt;complexType name="projectAssignedRequest">
  *   &lt;complexContent>
@@ -88,8 +89,8 @@ import org.promasi.game.model.generated.ProjectModel;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -99,27 +100,31 @@ import org.promasi.game.model.generated.ProjectModel;
     "project"
 })
 public class ProjectAssignedRequest
-    extends Message
-{
+        extends Message {
 
     protected CompanyModel company;
     protected String dateTime;
     protected ProjectModel project;
 
-    ProjectAssignedRequest(){}
+    ProjectAssignedRequest() {
+    }
+
     public ProjectAssignedRequest(CompanyModel company, ProjectModel project, String dateTime) {
-       this.company = company;
-       this.project = project;
-       this.dateTime = dateTime;
+        this.company = company;
+        this.project = project;
+        this.dateTime = dateTime;
+    }
+
+    @Override
+    public Message dispatch(Protocol protocol) {
+        return protocol.dispatch(this);
     }
 
     /**
      * Gets the value of the company property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ProjectAssignedRequest.Company }
-     *     
+     *
+     * @return possible object is {@link ProjectAssignedRequest.Company }
+     *
      */
     public CompanyModel getCompany() {
         return company;
@@ -127,11 +132,9 @@ public class ProjectAssignedRequest
 
     /**
      * Sets the value of the company property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ProjectAssignedRequest.Company }
-     *     
+     *
+     * @param value allowed object is {@link ProjectAssignedRequest.Company }
+     *
      */
     public void setCompany(CompanyModel value) {
         this.company = value;
@@ -139,11 +142,9 @@ public class ProjectAssignedRequest
 
     /**
      * Gets the value of the dateTime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getDateTime() {
         return dateTime;
@@ -151,11 +152,9 @@ public class ProjectAssignedRequest
 
     /**
      * Sets the value of the dateTime property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setDateTime(String value) {
         this.dateTime = value;
@@ -163,11 +162,9 @@ public class ProjectAssignedRequest
 
     /**
      * Gets the value of the project property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ProjectAssignedRequest.Project }
-     *     
+     *
+     * @return possible object is {@link ProjectAssignedRequest.Project }
+     *
      */
     public ProjectModel getProject() {
         return project;
@@ -175,11 +172,9 @@ public class ProjectAssignedRequest
 
     /**
      * Sets the value of the project property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ProjectAssignedRequest.Project }
-     *     
+     *
+     * @param value allowed object is {@link ProjectAssignedRequest.Project }
+     *
      */
     public void setProject(ProjectModel value) {
         this.project = value;

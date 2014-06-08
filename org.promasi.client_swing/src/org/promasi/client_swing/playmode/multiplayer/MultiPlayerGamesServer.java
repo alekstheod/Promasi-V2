@@ -11,6 +11,7 @@ import org.promasi.game.IGame;
 import org.promasi.game.model.generated.GameModelModel;
 import org.promasi.network.tcp.NetworkException;
 import org.promasi.protocol.client.ProMaSiClient;
+import org.promasi.protocol.client.Protocol;
 import org.promasi.protocol.messages.CreateGameRequest;
 import org.promasi.protocol.messages.CreateGameResponse;
 import org.promasi.protocol.messages.JoinGameRequest;
@@ -19,6 +20,7 @@ import org.promasi.protocol.messages.LoginRequest;
 import org.promasi.protocol.messages.LoginResponse;
 import org.promasi.protocol.messages.Message;
 import org.promasi.protocol.messages.UpdateAvailableGameListRequest;
+import org.promasi.protocol.messages.WrongProtocolResponse;
 import org.promasi.utilities.logger.ILogger;
 import org.promasi.utilities.logger.LoggerFactory;
 
@@ -37,7 +39,14 @@ public class MultiPlayerGamesServer extends AGamesServer<IMultiPlayerGamesServer
     public MultiPlayerGamesServer(String playerId, ProMaSiClient client) throws NetworkException {
         _client = client;
         Message message = _client.sendRecv(new LoginRequest(playerId, ""));
-        if (!(message instanceof LoginResponse)) {
+        message = message.dispatch(new Protocol() {
+            @Override
+            public Message dispatch(LoginResponse response){
+                return null;
+            }
+        });
+        
+        if ( message != null ) {
             _logger.error("Login failed please check your user name and try again");
             throw new NetworkException("Login failed");
         }

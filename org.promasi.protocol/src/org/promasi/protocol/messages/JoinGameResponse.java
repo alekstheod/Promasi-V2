@@ -4,8 +4,6 @@
 // Any modifications to this file will be lost upon recompilation of the source schema. 
 // Generated on: 2014.05.30 at 11:14:44 PM CEST 
 //
-
-
 package org.promasi.protocol.messages;
 
 import java.util.ArrayList;
@@ -15,13 +13,16 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-
+import org.promasi.protocol.client.Protocol;
 
 /**
- * <p>Java class for joinGameResponse complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
+ * Java class for joinGameResponse complex type.
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ *
  * <pre>
  * &lt;complexType name="joinGameResponse">
  *   &lt;complexContent>
@@ -35,8 +36,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -46,28 +47,32 @@ import javax.xml.bind.annotation.XmlType;
     "players"
 })
 public class JoinGameResponse
-    extends Message
-{
+        extends Message {
 
     protected String gameDescription;
     protected String gameName;
     @XmlElement(nillable = true)
     protected List<String> players;
 
-    public JoinGameResponse(){}
+    public JoinGameResponse() {
+    }
+
     public JoinGameResponse(String gameName, String gameDescription, List<String> gamePlayers) {
-       this.players = gamePlayers;
-       this.gameDescription = gameDescription;
-       this.gameName = gameName;
+        this.players = gamePlayers;
+        this.gameDescription = gameDescription;
+        this.gameName = gameName;
+    }
+
+    @Override
+    public Message dispatch(Protocol protocol) {
+        return protocol.dispatch(this);
     }
 
     /**
      * Gets the value of the gameDescription property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getGameDescription() {
         return gameDescription;
@@ -75,11 +80,9 @@ public class JoinGameResponse
 
     /**
      * Sets the value of the gameDescription property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setGameDescription(String value) {
         this.gameDescription = value;
@@ -87,11 +90,9 @@ public class JoinGameResponse
 
     /**
      * Gets the value of the gameName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getGameName() {
         return gameName;
@@ -99,11 +100,9 @@ public class JoinGameResponse
 
     /**
      * Sets the value of the gameName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setGameName(String value) {
         this.gameName = value;
@@ -111,25 +110,24 @@ public class JoinGameResponse
 
     /**
      * Gets the value of the players property.
-     * 
+     *
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the players property.
-     * 
+     * This accessor method returns a reference to the live list, not a
+     * snapshot. Therefore any modification you make to the returned list will
+     * be present inside the JAXB object. This is why there is not a
+     * <CODE>set</CODE> method for the players property.
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getPlayers().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
-     * 
-     * 
+     * Objects of the following type(s) are allowed in the list {@link String }
+     *
+     *
      */
     public List<String> getPlayers() {
         if (players == null) {

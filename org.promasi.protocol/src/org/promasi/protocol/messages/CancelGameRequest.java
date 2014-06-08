@@ -4,21 +4,22 @@
 // Any modifications to this file will be lost upon recompilation of the source schema. 
 // Generated on: 2014.05.30 at 11:14:44 PM CEST 
 //
-
-
 package org.promasi.protocol.messages;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-
+import org.promasi.protocol.client.Protocol;
 
 /**
- * <p>Java class for cancelGameRequest complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
+ * Java class for cancelGameRequest complex type.
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ *
  * <pre>
  * &lt;complexType name="cancelGameRequest">
  *   &lt;complexContent>
@@ -30,8 +31,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -39,30 +40,30 @@ import javax.xml.bind.annotation.XmlType;
     "gameId"
 })
 public class CancelGameRequest
-    extends Message
-{
+        extends Message {
 
     protected String gameId;
 
     /**
      * Gets the value of the gameId property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getGameId() {
         return gameId;
     }
 
+    @Override
+    public Message dispatch(Protocol protocol) {
+        return protocol.dispatch(this);
+    }
+
     /**
      * Sets the value of the gameId property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setGameId(String value) {
         this.gameId = value;

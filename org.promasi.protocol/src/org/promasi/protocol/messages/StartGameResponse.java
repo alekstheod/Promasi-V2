@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import org.promasi.protocol.client.Protocol;
 
 
 /**
@@ -38,6 +39,9 @@ import javax.xml.bind.annotation.XmlType;
 public class StartGameResponse
     extends Message
 {
-
+    @Override
+    public Message dispatch(Protocol protocol) {
+        return protocol.dispatch(this);
+    }
 
 }

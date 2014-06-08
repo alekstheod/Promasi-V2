@@ -16,6 +16,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import org.promasi.protocol.client.Protocol;
 
 
 /**
@@ -85,6 +86,11 @@ public class LoginResponse
        }
     }
 
+    @Override
+    public Message dispatch(Protocol protocol){
+        return protocol.dispatch(this);
+    }
+    
     /**
      * Gets the value of the availableGames property.
      * 

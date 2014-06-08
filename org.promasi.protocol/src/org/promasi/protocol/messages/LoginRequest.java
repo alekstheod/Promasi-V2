@@ -10,6 +10,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import org.promasi.protocol.client.Protocol;
 
 /**
  * <p>
@@ -47,6 +48,11 @@ public class LoginRequest
     protected String password;
 
     public LoginRequest() {
+    }
+
+    @Override
+    public Message dispatch(Protocol protocol) {
+        return protocol.dispatch(this);
     }
 
     public LoginRequest(String clientId, String password) {
