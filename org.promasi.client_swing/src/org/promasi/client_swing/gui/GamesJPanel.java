@@ -98,16 +98,8 @@ public class GamesJPanel extends JXPanel implements IGamesServerListener {
      */
     public GamesJPanel(IMainFrame mainFrame, AGamesServer gamesServer, String username) throws GuiException {
         super();
-        if (mainFrame == null) {
-            throw new GuiException("Wrong argument mainFrame == null ");
-        }
-
-        if (gamesServer == null) {
-            throw new GuiException("Wrong argument gamesServer == null ");
-        }
-
-        if (username == null || username.isEmpty()) {
-            throw new GuiException("Wrong argument username");
+        if (mainFrame == null || gamesServer == null || username == null || username.isEmpty()) {
+            throw new GuiException("Invalid argument");
         }
 
         _mainFrame = mainFrame;

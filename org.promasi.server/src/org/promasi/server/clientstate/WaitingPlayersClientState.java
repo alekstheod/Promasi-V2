@@ -5,6 +5,7 @@ package org.promasi.server.clientstate;
 
 import java.util.List;
 import java.util.Map;
+
 import org.joda.time.DateTime;
 import org.promasi.game.model.generated.CompanyModel;
 import org.promasi.game.model.generated.EmployeeModel;
@@ -20,6 +21,7 @@ import org.promasi.protocol.client.IPromasiClientListener;
 import org.promasi.protocol.client.ProMaSiClient;
 import org.promasi.protocol.messages.CancelGameRequest;
 import org.promasi.protocol.messages.GameStartedRequest;
+import org.promasi.protocol.messages.GameStartedResponse;
 import org.promasi.protocol.messages.InternalErrorResponse;
 import org.promasi.protocol.messages.Message;
 import org.promasi.protocol.messages.MessageRequest;
@@ -101,9 +103,8 @@ public class WaitingPlayersClientState implements IServerGameListener, IPromasiC
     public void onReceive(ProMaSiClient client, Message object) {
         try {
             if (object instanceof StartGameRequest) {
-                if (!_server.startGame(_clientId)) {
-                    client.send(new InternalErrorResponse());
-                    client.disconnect();
+                if (_server.startGame(_clientId)) {
+                    client.send(new GameStartedResponse());
                 }
             } else if (object instanceof MessageRequest) {
                 MessageRequest request = (MessageRequest) object;

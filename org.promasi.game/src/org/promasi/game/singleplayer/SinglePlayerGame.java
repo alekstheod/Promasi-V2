@@ -51,7 +51,7 @@ public class SinglePlayerGame extends Observer<IClientGameListener> implements I
     /**
      *
      */
-    private AGamesServer _gamesServer;
+    private AGamesServer<?> _gamesServer;
 
     /**
      *
@@ -75,7 +75,7 @@ public class SinglePlayerGame extends Observer<IClientGameListener> implements I
      * @param systemClock
      * @throws GameException
      */
-    public SinglePlayerGame(AGamesServer gamesServer, GameModel gameModel, IClock systemClock) throws GameException {
+    public SinglePlayerGame(AGamesServer<?> gamesServer, GameModel gameModel, IClock systemClock) throws GameException {
         if (gameModel == null) {
             throw new GameException("Wrong argument gameModel==null");
         }
@@ -236,7 +236,7 @@ public class SinglePlayerGame extends Observer<IClientGameListener> implements I
     }
 
     @Override
-    public AGamesServer getGamesServer() {
+    public AGamesServer<?> getGamesServer() {
         return _gamesServer;
     }
 

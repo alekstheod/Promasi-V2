@@ -1141,3 +1141,378 @@
 2014-06-07 23:43:27,283 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
 2014-06-07 23:43:27,382 Thread-2 INFO  org.promasi.server.ProMaSiServer - Start game succeed for game 'Company'
 2014-06-07 23:43:27,415 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client disconnected
+2014-06-08 13:43:22,937 main INFO  org.promasi.server.Application - Application started
+2014-06-08 13:43:22,967 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-06-08 13:43:26,859 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-06-08 13:43:26,860 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-06-08 13:43:51,624 main INFO  org.promasi.server.Application - Application started
+2014-06-08 13:43:51,648 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-06-08 13:43:54,477 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-06-08 13:43:54,478 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-06-08 13:43:54,758 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-06-08 13:43:54,758 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-06-08 13:43:54,760 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-06-08 13:43:54,803 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-06-08 13:43:55,634 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.UpdateAvailableGameListRequest'
+2014-06-08 13:43:57,980 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.CreateGameRequest'
+2014-06-08 13:43:57,985 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 13:43:57,985 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 13:43:57,985 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 13:43:58,045 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 13:43:58,046 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 13:43:58,046 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 13:43:58,108 Thread-2 DEBUG org.promasi.game.company.Department - Initialization succeed
+2014-06-08 13:43:58,112 Thread-2 INFO  org.promasi.game.multiplayer.MultiPlayerGame - New multiplayer game initialization complete game owner:Company game id:Tutorial
+2014-06-08 13:43:58,115 Thread-2 INFO  org.promasi.server.ProMaSiServer - New game created  with game id: 'Company'
+2014-06-08 13:44:00,808 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-06-08 13:44:00,865 Thread-2 INFO  org.promasi.server.ProMaSiServer - Start game succeed for game 'Company'
+2014-06-08 13:44:41,623 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client disconnected
+2014-06-08 13:44:51,269 main INFO  org.promasi.server.Application - Application started
+2014-06-08 13:44:51,292 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-06-08 13:44:58,484 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-06-08 13:44:58,484 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-06-08 13:44:58,764 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-06-08 13:44:58,764 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-06-08 13:44:58,766 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-06-08 13:44:58,808 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-06-08 13:44:59,634 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.UpdateAvailableGameListRequest'
+2014-06-08 13:45:01,054 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.CreateGameRequest'
+2014-06-08 13:45:01,057 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 13:45:01,057 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 13:45:01,057 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 13:45:01,115 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 13:45:01,115 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 13:45:01,115 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 13:45:01,184 Thread-2 DEBUG org.promasi.game.company.Department - Initialization succeed
+2014-06-08 13:45:01,188 Thread-2 INFO  org.promasi.game.multiplayer.MultiPlayerGame - New multiplayer game initialization complete game owner:Company game id:Tutorial
+2014-06-08 13:45:01,189 Thread-2 INFO  org.promasi.server.ProMaSiServer - New game created  with game id: 'Company'
+2014-06-08 13:45:02,684 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-06-08 13:45:02,731 Thread-2 INFO  org.promasi.server.ProMaSiServer - Start game succeed for game 'Company'
+2014-06-08 13:55:35,883 main INFO  org.promasi.server.Application - Application started
+2014-06-08 13:55:35,906 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-06-08 13:55:43,148 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-06-08 13:55:43,148 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-06-08 13:55:43,436 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-06-08 13:55:43,436 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-06-08 13:55:43,437 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-06-08 13:55:43,478 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-06-08 13:55:44,311 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.UpdateAvailableGameListRequest'
+2014-06-08 13:55:46,242 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.CreateGameRequest'
+2014-06-08 13:55:46,245 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 13:55:46,245 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 13:55:46,246 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 13:55:46,304 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 13:55:46,304 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 13:55:46,304 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 13:55:46,366 Thread-2 DEBUG org.promasi.game.company.Department - Initialization succeed
+2014-06-08 13:55:46,370 Thread-2 INFO  org.promasi.game.multiplayer.MultiPlayerGame - New multiplayer game initialization complete game owner:Company game id:Tutorial
+2014-06-08 13:55:46,371 Thread-2 INFO  org.promasi.server.ProMaSiServer - New game created  with game id: 'Company'
+2014-06-08 13:55:47,798 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-06-08 13:55:47,846 Thread-2 INFO  org.promasi.server.ProMaSiServer - Start game succeed for game 'Company'
+2014-06-08 14:02:15,190 main INFO  org.promasi.server.Application - Application started
+2014-06-08 14:02:15,213 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-06-08 14:02:31,722 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-06-08 14:02:31,722 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-06-08 14:02:32,003 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-06-08 14:02:32,003 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-06-08 14:02:32,005 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-06-08 14:02:32,047 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-06-08 14:02:32,877 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.UpdateAvailableGameListRequest'
+2014-06-08 14:02:35,165 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.CreateGameRequest'
+2014-06-08 14:02:35,169 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 14:02:35,169 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 14:02:35,170 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 14:02:35,227 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 14:02:35,227 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 14:02:35,227 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 14:02:35,292 Thread-2 DEBUG org.promasi.game.company.Department - Initialization succeed
+2014-06-08 14:02:35,295 Thread-2 INFO  org.promasi.game.multiplayer.MultiPlayerGame - New multiplayer game initialization complete game owner:Company game id:Tutorial
+2014-06-08 14:02:35,297 Thread-2 INFO  org.promasi.server.ProMaSiServer - New game created  with game id: 'Company'
+2014-06-08 14:02:36,917 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-06-08 14:02:36,978 Thread-2 INFO  org.promasi.server.ProMaSiServer - Start game succeed for game 'Company'
+2014-06-08 14:05:54,763 main INFO  org.promasi.server.Application - Application started
+2014-06-08 14:05:54,787 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-06-08 14:06:15,352 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-06-08 14:06:15,352 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-06-08 14:06:15,639 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-06-08 14:06:15,640 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-06-08 14:06:15,641 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-06-08 14:06:15,685 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-06-08 14:06:16,439 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.UpdateAvailableGameListRequest'
+2014-06-08 14:06:18,091 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.CreateGameRequest'
+2014-06-08 14:06:18,094 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 14:06:18,095 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 14:06:18,095 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 14:06:18,152 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 14:06:18,152 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 14:06:18,152 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 14:06:18,216 Thread-2 DEBUG org.promasi.game.company.Department - Initialization succeed
+2014-06-08 14:06:18,220 Thread-2 INFO  org.promasi.game.multiplayer.MultiPlayerGame - New multiplayer game initialization complete game owner:Company game id:Company
+2014-06-08 14:06:18,222 Thread-2 INFO  org.promasi.server.ProMaSiServer - New game created  with game id: 'Company'
+2014-06-08 14:06:19,414 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-06-08 14:06:19,461 Thread-2 INFO  org.promasi.server.ProMaSiServer - Start game succeed for game 'Company'
+2014-06-08 14:07:32,174 main INFO  org.promasi.server.Application - Application started
+2014-06-08 14:07:32,198 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-06-08 14:08:26,319 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-06-08 14:08:26,319 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-06-08 14:08:26,585 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-06-08 14:08:26,585 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-06-08 14:08:26,590 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-06-08 14:08:26,633 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-06-08 14:08:27,494 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.UpdateAvailableGameListRequest'
+2014-06-08 14:08:28,993 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.CreateGameRequest'
+2014-06-08 14:09:45,354 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 14:09:45,354 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 14:09:45,354 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 14:09:45,546 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 14:09:45,546 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 14:09:45,546 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 14:09:45,680 Thread-2 DEBUG org.promasi.game.company.Department - Initialization succeed
+2014-06-08 14:09:45,683 Thread-2 INFO  org.promasi.game.multiplayer.MultiPlayerGame - New multiplayer game initialization complete game owner:Company game id:Company
+2014-06-08 14:09:45,685 Thread-2 INFO  org.promasi.server.ProMaSiServer - New game created  with game id: 'Company'
+2014-06-08 14:10:07,429 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-06-08 14:11:04,509 main INFO  org.promasi.server.Application - Application started
+2014-06-08 14:11:04,532 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-06-08 14:11:14,212 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-06-08 14:11:14,213 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-06-08 14:11:14,508 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-06-08 14:11:14,508 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-06-08 14:11:14,513 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-06-08 14:11:14,556 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-06-08 14:11:15,380 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.UpdateAvailableGameListRequest'
+2014-06-08 14:11:20,348 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.CreateGameRequest'
+2014-06-08 14:11:29,473 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 14:11:29,474 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 14:11:29,474 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 14:11:29,634 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 14:11:29,634 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 14:11:29,635 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 14:11:29,755 Thread-2 DEBUG org.promasi.game.company.Department - Initialization succeed
+2014-06-08 14:11:29,759 Thread-2 INFO  org.promasi.game.multiplayer.MultiPlayerGame - New multiplayer game initialization complete game owner:Company game id:Company
+2014-06-08 14:11:29,760 Thread-2 INFO  org.promasi.server.ProMaSiServer - New game created  with game id: 'Company'
+2014-06-08 14:11:50,508 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-06-08 14:11:50,556 Thread-2 INFO  org.promasi.server.ProMaSiServer - Start game succeed for game 'Company'
+2014-06-08 14:14:33,165 main INFO  org.promasi.server.Application - Application started
+2014-06-08 14:14:33,188 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-06-08 14:14:41,611 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-06-08 14:14:41,611 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-06-08 14:14:41,911 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-06-08 14:14:41,912 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-06-08 14:14:41,913 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-06-08 14:14:41,955 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-06-08 14:14:42,709 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.UpdateAvailableGameListRequest'
+2014-06-08 14:14:44,740 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.CreateGameRequest'
+2014-06-08 14:14:44,743 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 14:14:44,743 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 14:14:44,743 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 14:14:44,793 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 14:14:44,793 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 14:14:44,793 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 14:14:44,855 Thread-2 DEBUG org.promasi.game.company.Department - Initialization succeed
+2014-06-08 14:14:44,858 Thread-2 INFO  org.promasi.game.multiplayer.MultiPlayerGame - New multiplayer game initialization complete game owner:Company game id:Company
+2014-06-08 14:14:44,860 Thread-2 INFO  org.promasi.server.ProMaSiServer - New game created  with game id: 'Company'
+2014-06-08 14:14:46,646 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-06-08 14:14:46,693 Thread-2 INFO  org.promasi.server.ProMaSiServer - Start game succeed for game 'Company'
+2014-06-08 14:15:01,398 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:15:01,400 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:15:01,402 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:15:01,403 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:15:01,403 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:15:01,403 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:15:02,483 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:15:02,483 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:15:02,484 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:15:02,484 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:15:02,484 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:15:02,485 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:15:03,584 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:15:03,585 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:15:03,585 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:15:03,586 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:15:03,586 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:15:03,586 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:15:04,718 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:15:04,719 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:15:04,719 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:15:04,719 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:15:04,720 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:15:04,720 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:15:05,822 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:15:05,823 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:15:05,823 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:15:05,824 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:15:05,824 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:15:05,824 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:15:06,491 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client disconnected
+2014-06-08 14:15:19,788 main INFO  org.promasi.server.Application - Application started
+2014-06-08 14:15:19,809 main INFO  org.promasi.server.ProMaSiServer - ProMaSi server initialization compelete, listening on port :55555
+2014-06-08 14:31:51,337 Thread-0 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-06-08 14:31:51,338 Thread-0 INFO  org.promasi.server.ProMaSiServer - New client connection detected
+2014-06-08 14:31:51,601 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.LoginRequest'
+2014-06-08 14:31:51,602 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client login succeed for client : 'Company'
+2014-06-08 14:31:51,603 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization complete
+2014-06-08 14:31:51,643 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Login succeed
+2014-06-08 14:31:52,395 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.UpdateAvailableGameListRequest'
+2014-06-08 14:31:54,367 Thread-2 INFO  org.promasi.server.clientstate.ChooseGameClientState - Received message :'class org.promasi.protocol.messages.CreateGameRequest'
+2014-06-08 14:31:54,370 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 14:31:54,370 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 14:31:54,370 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 14:31:54,406 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332211
+2014-06-08 14:31:54,406 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332212
+2014-06-08 14:31:54,406 Thread-2 DEBUG org.promasi.game.company.Employee - Employee initialization succeed :xd332213
+2014-06-08 14:31:54,467 Thread-2 DEBUG org.promasi.game.company.Department - Initialization succeed
+2014-06-08 14:31:54,471 Thread-2 INFO  org.promasi.game.multiplayer.MultiPlayerGame - New multiplayer game initialization complete game owner:Company game id:Company
+2014-06-08 14:31:54,472 Thread-2 INFO  org.promasi.server.ProMaSiServer - New game created  with game id: 'Company'
+2014-06-08 14:31:56,025 Thread-2 DEBUG org.promasi.server.clientstate.ChooseGameClientState - Initialization initializatin complete
+2014-06-08 14:31:56,072 Thread-2 INFO  org.promasi.server.ProMaSiServer - Start game succeed for game 'Company'
+2014-06-08 14:31:58,109 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:31:58,111 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:31:58,113 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:31:58,113 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:31:58,113 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:31:58,113 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:31:59,181 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:31:59,182 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:31:59,183 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:31:59,183 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:31:59,183 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:31:59,183 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:00,263 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:32:00,264 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:32:00,264 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:32:00,264 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:32:00,265 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:32:00,265 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:01,390 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:32:01,391 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:32:01,391 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:32:01,392 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:32:01,392 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:32:01,392 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:02,482 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:32:02,483 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:32:02,483 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:32:02,483 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:32:02,483 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:32:02,484 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:03,592 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:32:03,593 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:32:03,593 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:32:03,593 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:32:03,593 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:32:03,594 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:04,727 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:32:04,728 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:32:04,728 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:32:04,729 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:32:04,729 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:32:04,729 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:05,848 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:32:05,849 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:32:05,850 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:32:05,850 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:32:05,850 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:32:05,850 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:08,003 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:32:08,004 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:32:08,004 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:32:08,005 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:32:08,005 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:32:08,005 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:09,096 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:32:09,096 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:32:09,097 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:32:09,097 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:32:09,097 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:32:09,097 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:10,189 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:32:10,189 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:32:10,190 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:32:10,190 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:32:10,190 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:32:10,190 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:11,296 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:32:11,297 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:32:11,297 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:32:11,297 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:32:11,297 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:32:11,297 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:12,409 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:32:12,410 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:32:12,410 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:32:12,411 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:32:12,411 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:32:12,411 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:13,495 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:32:13,496 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:32:13,496 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:32:13,496 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:32:13,497 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:32:13,497 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:14,574 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:32:14,575 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:32:14,576 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:32:14,576 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:32:14,576 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:32:14,576 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:15,667 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:32:15,668 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:32:15,668 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:32:15,668 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:32:15,668 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:32:15,669 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:16,762 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:32:16,763 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:32:16,765 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:32:16,765 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:32:16,765 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:32:16,766 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:17,875 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:32:17,875 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:32:17,876 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:32:17,876 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:32:17,876 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:32:17,876 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:18,982 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:32:18,982 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:32:18,983 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:32:18,983 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:32:18,983 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:32:18,983 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:20,069 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:32:20,072 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:32:20,073 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:32:20,074 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:32:20,074 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:32:20,074 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:21,147 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:32:21,148 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:32:21,148 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:32:21,148 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:32:21,149 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:32:21,149 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:22,245 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:32:22,245 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:32:22,245 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:32:22,245 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:32:22,245 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:32:22,245 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:23,303 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:32:23,303 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:32:23,304 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:32:23,304 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:32:23,304 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:32:23,304 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:24,384 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:32:24,385 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:32:24,385 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:32:24,385 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:32:24,385 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:32:24,385 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:25,435 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test1
+2014-06-08 14:32:25,435 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test2
+2014-06-08 14:32:25,436 Clock-Main INFO  org.promasi.game.project.Project - Executing ProjectTask : Test3
+2014-06-08 14:32:25,436 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test1
+2014-06-08 14:32:25,436 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test2
+2014-06-08 14:32:25,437 Clock-Main INFO  org.promasi.game.project.Project - Executing TaskBridges for task : Test3
+2014-06-08 14:32:26,023 Thread-2 INFO  org.promasi.server.ProMaSiServer - Client disconnected

@@ -81,11 +81,6 @@ public class Company extends Observer<ICompanyListener>
     private Lock _lockObject;
     
     /**
-     * The owner's Id.
-     */
-    private String _owner;
-    
-    /**
      * Defines the number of working days for each month.
      */
     public static final int CONST_WORKING_DAYS = 23;// TODO add this to the configuration.
@@ -102,34 +97,9 @@ public class Company extends Observer<ICompanyListener>
      */
     public Company( String name, String description, LocalTime startTime, LocalTime endTime, double budget, double prestigePoints)throws GameException
     {
-    	if(name==null)
+    	if(name==null || description == null || startTime == null || endTime == null || startTime.equals(endTime) || startTime.isAfter(endTime) || budget <= 0)
     	{
-    		throw new GameException("Wrong argument name==null");
-    	}
-    	
-    	if(description==null)
-    	{
-    		throw new GameException("Wrong argumen description==null");
-    	}
-    	
-    	if(startTime==null)
-    	{
-    		throw new GameException("Wrong argument startTime==null");
-    	}
-    	
-    	if(endTime==null)
-    	{
-    		throw new GameException("Wrong argument endTime");
-    	}
-    	
-    	if(startTime.equals(endTime) || startTime.isAfter(endTime))
-    	{
-    		throw new GameException("Wrong argument startTime is equal or after endTime");
-    	}
-    	
-    	if(budget<=0)
-    	{
-    		throw new GameException("Wrong argument budget<=0");
+    		throw new GameException("Wrong arguments");
     	}
     	
     	_lockObject = new ReentrantLock();
@@ -230,7 +200,7 @@ public class Company extends Observer<ICompanyListener>
         		_lockObject.lock();
         		_assignedProject=project;
                 for(ICompanyListener listener : getListeners()){
-                	listener.projectAssigned(_owner, getMemento(),project.getMemento(), currentDate);
+                	listener.projectAssigned(_name, getMemento(),project.getMemento(), currentDate);
                 }
                 
                 result = true;
@@ -311,10 +281,10 @@ public class Company extends Observer<ICompanyListener>
             				
             		        for(ICompanyListener listener : getListeners()){
             		        	if( _assignedProject != null ){
-                		        	listener.companyIsInsolvent(_owner, getMemento(), _assignedProject.getMemento(), currentDate);
+                		        	listener.companyIsInsolvent(_name, getMemento(), _assignedProject.getMemento(), currentDate);
                 		        	_assignedProject=null;
             		        	}else{
-            		        		listener.companyIsInsolvent(_owner, getMemento(), null, currentDate);
+            		        		listener.companyIsInsolvent(_name, getMemento(), null, currentDate);
             		        	}
             		        }
             		        
@@ -328,7 +298,7 @@ public class Company extends Observer<ICompanyListener>
                     	 _itDepartment.executeWorkingStep(_assignedProject.getCurrentStep());
                     	 
                          for(ICompanyListener listener : getListeners()){
-                        	 listener.onExecuteWorkingStep(_owner, getMemento(), _assignedProject.getMemento(), currentDate);
+                        	 listener.onExecuteWorkingStep(_name, getMemento(), _assignedProject.getMemento(), currentDate);
                          }
                          
                          double progress = _assignedProject.executeStep(true);
@@ -338,7 +308,7 @@ public class Company extends Observer<ICompanyListener>
                      		_itDepartment.removeAssignedTasks();
                      		
                              for(ICompanyListener listener : getListeners()){
-                             	listener.projectFinished(_owner, getMemento(), _assignedProject.getMemento(), currentDate);
+                             	listener.projectFinished(_name, getMemento(), _assignedProject.getMemento(), currentDate);
                              }
                               
                      		_assignedProject=null;
@@ -390,7 +360,7 @@ public class Company extends Observer<ICompanyListener>
     	
     	try{
     		_lockObject.lock();
-    		result = _itDepartment.hireEmployee(_owner, employee, time);
+    		result = _itDepartment.hireEmployee(_name, employee, time);
     	}finally{
     		_lockObject.unlock();
     	}
@@ -480,8 +450,8 @@ public class Company extends Observer<ICompanyListener>
     public void setOwner( String owner ){
     	try{
     		_lockObject.lock();
-        	_owner = owner;
-        	_itDepartment.setDirector(_owner);
+    		_name = owner;
+        	_itDepartment.setDirector(_name);
     	}finally{
     		_lockObject.unlock();
     	}
@@ -494,7 +464,7 @@ public class Company extends Observer<ICompanyListener>
     public String getOwner(){
     	try{
     		_lockObject.lock();
-    		return _owner;
+    		return _name;
     	}finally{
     		_lockObject.unlock();
     	}

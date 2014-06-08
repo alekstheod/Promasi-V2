@@ -8,6 +8,7 @@ package org.promasi.client_swing.playmode.multiplayer;
 import org.promasi.game.AGamesServer;
 import org.promasi.game.GameException;
 import org.promasi.game.IGame;
+import org.promasi.game.model.generated.GameModelModel;
 import org.promasi.network.tcp.NetworkException;
 import org.promasi.protocol.client.ProMaSiClient;
 import org.promasi.protocol.messages.CreateGameRequest;
@@ -53,7 +54,10 @@ public class MultiPlayerGamesServer extends AGamesServer<IMultiPlayerGamesServer
     public void joinGame(IGame game) {
         if(game.getMemento().getCompanyModel() != null )
         {
-            Message msg = _client.sendRecv(new CreateGameRequest(game.getName(), game.getMemento()));
+            GameModelModel gameModel = game.getMemento();
+            gameModel.setGameName(_playerId);
+            gameModel.getCompanyModel().setName(_playerId);
+            Message msg = _client.sendRecv(new CreateGameRequest(_playerId, gameModel));
             if (msg instanceof CreateGameResponse) {
                 onJoinGame(game);
             }
